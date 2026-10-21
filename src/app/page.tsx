@@ -1,103 +1,116 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
+import { categories } from "@/data/categories";
+import { getRecipesByCategory } from "@/data/recipes";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { pick } from "@/i18n/types";
 
-export default function Home() {
+export default function HomePage() {
+  const { locale, t } = useLocale();
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <>
+      <section className="relative min-h-[min(92vh,880px)] w-full overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/images/home-hero.webp"
+          alt={t.heroImageAlt}
+          fill
           priority
+          className="object-cover object-center"
+          sizes="100vw"
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div
+          className="absolute inset-0"
+          style={{ background: "var(--hero-scrim)" }}
+          aria-hidden
+        />
+        <div className="relative mx-auto flex min-h-[min(92vh,880px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 sm:pb-24">
+          <div className="max-w-xl text-white">
+            <div className="animate-rise flex items-end gap-4 sm:gap-5">
+              <BrandLogo
+                size="hero"
+                priority
+                className="rounded-2xl bg-[#f4efe4] shadow-sm ring-1 ring-white/20"
+              />
+              <h1 className="font-brand text-4xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+                Cookivara
+              </h1>
+            </div>
+            <p
+              className="animate-rise mt-4 text-lg text-white/90 sm:text-xl"
+              style={{ animationDelay: "120ms" }}
+            >
+              {t.heroTagline}
+            </p>
+            <p
+              className="animate-rise mt-3 max-w-md text-sm leading-relaxed text-white/75 sm:text-base"
+              style={{ animationDelay: "220ms" }}
+            >
+              {t.heroBody}
+            </p>
+            <div
+              className="animate-rise mt-8 flex flex-wrap gap-3"
+              style={{ animationDelay: "320ms" }}
+            >
+              <Link
+                href="/recipes/gochujang-tofu-bibimbap"
+                className="rounded-md bg-[var(--leaf)] px-5 py-3 text-sm font-medium text-white transition hover:bg-[var(--leaf-hover)]"
+              >
+                {t.ctaCookBibimbap}
+              </Link>
+              <Link
+                href="/recipes"
+                className="rounded-md border border-white/70 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+              >
+                {t.ctaBrowseRecipes}
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section
+        id="shelves"
+        className="mx-auto max-w-4xl px-5 py-20 sm:px-8 sm:py-28"
+      >
+        <div className="animate-fade">
+          <h2 className="font-[family-name:var(--font-display)] text-4xl tracking-tight text-[var(--ink)] sm:text-5xl">
+            {t.shelvesTitle}
+          </h2>
+          <p className="mt-4 max-w-2xl text-[var(--ink-soft)]">{t.shelvesIntro}</p>
+        </div>
+
+        <ul className="mt-12 divide-y divide-[var(--line)] border-y border-[var(--line)]">
+          {categories.map((category, index) => {
+            const count = getRecipesByCategory(category.slug).length;
+            return (
+              <li
+                key={category.slug}
+                className="animate-shelf"
+                style={{ animationDelay: `${80 + index * 60}ms` }}
+              >
+                <Link
+                  href={`/categories/${category.slug}`}
+                  className="group flex flex-col gap-2 py-6 transition sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+                >
+                  <span className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)] transition-colors group-hover:text-[var(--leaf)] sm:text-3xl">
+                    {pick(locale, category.name)}
+                  </span>
+                  <span className="max-w-md text-sm leading-relaxed text-[var(--ink-muted)] sm:text-right">
+                    {pick(locale, category.description)}{" "}
+                    <span className="text-[var(--ink-soft)]">
+                      {count === 0 ? t.recipesComingSoon : t.recipeCount(count)}
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    </>
   );
 }
