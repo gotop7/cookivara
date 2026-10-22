@@ -45,6 +45,12 @@ Each category shelf currently has **10** recipes. No auth or database — the da
 - `/categories/[slug]` — category shelf
 - `/recipes/[slug]` — recipe detail (ingredients, steps, optional YouTube link)
 
+## Live
+
+Production: [https://www.news24h7d.com](https://www.news24h7d.com) · GitHub: [gotop7/cookivara](https://github.com/gotop7/cookivara)
+
+Pushes to `main` auto-deploy on Vercel (project `cookivara`).
+
 ## Deploy (optional)
 
 Connect this GitHub repo to **Vercel** (Import Project → select `cookivara`). Framework: Next.js. No env secrets required for the current app. Then add a custom domain in Vercel → Settings → Domains and point DNS at the values Vercel shows.
