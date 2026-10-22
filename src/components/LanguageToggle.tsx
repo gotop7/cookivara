@@ -13,10 +13,10 @@ export function LanguageToggle() {
         type="button"
         onClick={() => setLocale(code)}
         aria-pressed={active}
-        className={`rounded px-1.5 py-0.5 transition-colors ${
+        className={`min-h-11 rounded-md px-2.5 py-2 transition-colors sm:min-h-12 ${
           active
-            ? "font-semibold text-[var(--ink)]"
-            : "text-[var(--ink-muted)] hover:text-[var(--ink)]"
+            ? "font-bold text-[var(--ink)]"
+            : "font-semibold text-[var(--ink-muted)] hover:text-[var(--ink)]"
         }`}
       >
         {label}
@@ -28,7 +28,7 @@ export function LanguageToggle() {
     <div
       role="group"
       aria-label={t.languageAria}
-      className="flex shrink-0 items-center gap-1 text-xs sm:text-sm"
+      className="flex shrink-0 items-center gap-1 text-sm sm:text-base"
     >
       {option("ko", t.langKo)}
       <span className="text-[var(--ink-muted)]" aria-hidden>

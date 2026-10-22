@@ -17,27 +17,27 @@ export function SiteHeader() {
 
   return (
     <header className="max-w-[100%] overflow-x-clip border-b border-[var(--line)] bg-[var(--cream)]/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8 sm:py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3.5 sm:px-8 sm:py-5">
         <Link
           href="/"
-          className="flex min-w-0 shrink-0 items-center gap-2.5 transition-opacity hover:opacity-80 sm:gap-3"
+          className="flex min-w-0 shrink-0 items-center gap-3 transition-opacity hover:opacity-80 sm:gap-3.5"
         >
           <BrandLogo size="nav" priority />
-          <span className="font-brand truncate text-xl tracking-tight text-[var(--ink)] sm:text-2xl">
+          <span className="font-brand truncate text-2xl font-semibold tracking-tight text-[var(--ink)] sm:text-3xl">
             Cookivara
           </span>
         </Link>
-        <div className="flex min-w-0 items-center gap-3 sm:gap-6">
-          <nav className="flex items-center gap-3 text-sm text-[var(--ink-soft)] sm:gap-6">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-7">
+          <nav className="flex items-center gap-1 text-base font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
             <Link
               href="/recipes"
-              className="transition-colors hover:text-[var(--ink)]"
+              className="rounded-md px-3 py-2 transition-colors hover:text-[var(--ink)]"
             >
               {t.navRecipes}
             </Link>
             <Link
               href="/#shelves"
-              className="transition-colors hover:text-[var(--ink)]"
+              className="rounded-md px-3 py-2 transition-colors hover:text-[var(--ink)]"
             >
               {t.navBrowse}
             </Link>
@@ -46,14 +46,14 @@ export function SiteHeader() {
         </div>
       </div>
       <nav aria-label={t.categoriesAria} className="border-t border-[var(--line)]">
-        <ul className="mx-auto flex max-w-6xl gap-4 overflow-x-auto overscroll-x-contain px-5 py-3 text-[11px] font-medium tracking-[0.08em] text-[var(--ink-muted)] [scrollbar-width:thin] sm:gap-6 sm:px-8 sm:uppercase sm:tracking-[0.14em]">
+        <ul className="mx-auto flex max-w-6xl gap-1 overflow-x-auto overscroll-x-contain px-4 py-2.5 text-sm font-semibold tracking-[0.04em] text-[var(--ink-muted)] [scrollbar-width:thin] sm:gap-2 sm:px-8 sm:py-3 sm:text-base sm:tracking-[0.08em]">
           {categories.map((category) => {
             const isActive = activeCategory === category.slug;
             return (
               <li key={category.slug} className="shrink-0">
                 <Link
                   href={`/categories/${category.slug}`}
-                  className={`transition-colors hover:text-[var(--ink)] ${
+                  className={`inline-flex min-h-11 items-center rounded-md px-3 py-2 transition-colors hover:text-[var(--ink)] sm:min-h-12 sm:px-3.5 ${
                     isActive ? "text-[var(--leaf)]" : ""
                   }`}
                 >

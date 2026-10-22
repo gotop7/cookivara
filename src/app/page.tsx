@@ -29,13 +29,13 @@ export default function HomePage() {
         />
         <div className="relative z-10 mx-auto flex min-h-[min(92vh,880px)] w-full max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 sm:pb-24">
           <div className="max-w-xl text-white">
-            <div className="animate-rise flex items-end gap-4 sm:gap-5">
+            <div className="animate-rise flex items-end gap-4 sm:gap-6">
               <BrandLogo
                 size="hero"
                 priority
-                className="rounded-2xl bg-[#f4efe4] shadow-sm ring-1 ring-white/20"
+                className="rounded-2xl bg-[#f4efe4] shadow-sm ring-1 ring-white/20 sm:rounded-3xl"
               />
-              <h1 className="font-brand text-4xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+              <h1 className="font-brand text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl md:text-8xl">
                 Cookivara
               </h1>
             </div>

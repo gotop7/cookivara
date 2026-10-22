@@ -8,8 +8,8 @@ type BrandLogoProps = {
 };
 
 const sizes = {
-  nav: { box: 36, width: 36, height: 36 },
-  hero: { box: 88, width: 88, height: 88 },
+  nav: { box: 48, width: 48, height: 48 },
+  hero: { box: 112, width: 112, height: 112 },
 } as const;
 
 export function BrandLogo({
