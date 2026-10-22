@@ -16,7 +16,7 @@ export function SiteHeader() {
   )?.slug;
 
   return (
-    <header className="border-b border-[var(--line)] bg-[var(--cream)]/95 backdrop-blur-sm">
+    <header className="max-w-[100%] overflow-x-clip border-b border-[var(--line)] bg-[var(--cream)]/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8 sm:py-4">
         <Link
           href="/"
@@ -46,7 +46,7 @@ export function SiteHeader() {
         </div>
       </div>
       <nav aria-label={t.categoriesAria} className="border-t border-[var(--line)]">
-        <ul className="mx-auto flex max-w-6xl gap-4 overflow-x-auto px-5 py-3 text-[11px] font-medium tracking-[0.08em] text-[var(--ink-muted)] sm:gap-6 sm:px-8 sm:uppercase sm:tracking-[0.14em]">
+        <ul className="mx-auto flex max-w-6xl gap-4 overflow-x-auto overscroll-x-contain px-5 py-3 text-[11px] font-medium tracking-[0.08em] text-[var(--ink-muted)] [scrollbar-width:thin] sm:gap-6 sm:px-8 sm:uppercase sm:tracking-[0.14em]">
           {categories.map((category) => {
             const isActive = activeCategory === category.slug;
             return (

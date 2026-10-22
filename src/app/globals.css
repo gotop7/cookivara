@@ -14,9 +14,9 @@
     "Noto Sans KR", "Segoe UI", sans-serif;
   --hero-scrim: linear-gradient(
     105deg,
-    rgba(18, 22, 16, 0.72) 0%,
-    rgba(18, 22, 16, 0.45) 48%,
-    rgba(18, 22, 16, 0.2) 100%
+    rgba(18, 22, 16, 0.58) 0%,
+    rgba(18, 22, 16, 0.32) 52%,
+    rgba(18, 22, 16, 0.12) 100%
   );
   --shelf-glow: radial-gradient(
     ellipse 80% 60% at 10% 0%,
@@ -43,11 +43,15 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: clip;
   background:
     var(--shelf-glow),
     linear-gradient(180deg, #f8f4ec 0%, #f3eee3 45%, #efe8da 100%);
@@ -92,11 +96,11 @@ a {
 @keyframes shelf-slide {
   from {
     opacity: 0;
-    transform: translateX(-10px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 

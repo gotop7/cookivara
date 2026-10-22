@@ -32,10 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${brand.variable} flex min-h-screen flex-col antialiased`}>
+      <body className={`${brand.variable} flex min-h-screen max-w-[100%] flex-col antialiased`}>
         <LocaleProvider>
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="min-w-0 max-w-[100%] flex-1 overflow-x-clip">{children}</main>
           <SiteFooter />
         </LocaleProvider>
       </body>
