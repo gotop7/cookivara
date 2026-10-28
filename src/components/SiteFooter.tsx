@@ -16,8 +16,14 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-auto border-t border-[var(--line)] bg-[var(--cream)]">
+      {/* cache-bust: production deploy 2026-10-28 */}
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-[var(--ink-soft)] sm:px-8">
-        <p>{t.footerTagline}</p>
+        <p>
+          {t.footerTagline}
+          <span className="ml-2 text-[10px] tracking-wide text-[var(--ink-muted)]">
+            v2026.10.28
+          </span>
+        </p>
         <nav
           aria-label="Footer"
           className="flex flex-wrap gap-x-5 gap-y-2"
