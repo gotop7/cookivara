@@ -14,8 +14,8 @@ export default function TermsPage() {
     <TrustPage
       title={L("이용약관", "Terms of Use")}
       intro={L(
-        `Cookivara(${siteConfig.url})를 이용하면 아래 약관에 동의한 것으로 봅니다. 동의하지 않으면 사이트를 이용하지 마세요.`,
-        `By using Cookivara (${siteConfig.url}) you agree to these terms. If you do not agree, please do not use the site.`,
+        `시행일: 2026년 3월 1일 · 최종 업데이트: 2026년 10월 28일. Cookivara(${siteConfig.displayDomain}, ${siteConfig.url})를 이용하면 아래 약관에 동의한 것으로 봅니다. 동의하지 않으면 사이트를 이용하지 마세요.`,
+        `Effective March 1, 2026 · Last updated October 28, 2026. By using Cookivara (${siteConfig.displayDomain}, ${siteConfig.url}) you agree to these terms. If you do not agree, please do not use the site.`,
       )}
       sections={[
         {
@@ -56,15 +56,15 @@ export default function TermsPage() {
         {
           heading: L("변경", "Changes"),
           body: L(
-            "약관은 필요 시 갱신될 수 있습니다. 중요한 변경이 있으면 이 페이지의 시행일을 수정합니다.",
-            "We may update these terms. Material changes will be reflected by revising the date on this page.",
+            "약관은 필요 시 갱신될 수 있습니다. 중요한 변경이 있으면 이 페이지의 시행일·업데이트일을 수정합니다.",
+            "We may update these terms. Material changes will be reflected by revising the dates on this page.",
           ),
         },
         {
           heading: L("문의", "Contact"),
           body: L(
-            `약관 문의: ${siteConfig.contactEmail}`,
-            `Terms questions: ${siteConfig.contactEmail}`,
+            `약관 문의: ${siteConfig.contactEmail}\n사이트: ${siteConfig.url}`,
+            `Terms questions: ${siteConfig.contactEmail}\nSite: ${siteConfig.url}`,
           ),
         },
       ]}

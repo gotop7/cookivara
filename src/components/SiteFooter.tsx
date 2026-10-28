@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { siteConfig } from "@/data/site";
 import { useLocale } from "@/i18n/LocaleProvider";
 
 export function SiteFooter() {
@@ -16,23 +17,26 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-auto border-t border-[var(--line)] bg-[var(--cream)]">
-      {/* cache-bust: production deploy 2026-10-28 */}
+      {/* cache-bust: audit upgrade 2026-10-28 */}
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-[var(--ink-soft)] sm:px-8">
         <p>
           {t.footerTagline}
           <span className="ml-2 text-[10px] tracking-wide text-[var(--ink-muted)]">
-            v2026.10.28
+            v2026.10.28b
           </span>
         </p>
+        <p className="text-xs text-[var(--ink-muted)]">
+          {t.footerBrandLine.replace("{domain}", siteConfig.displayDomain)}
+        </p>
         <nav
-          aria-label="Footer"
+          aria-label={t.footerNavAria}
           className="flex flex-wrap gap-x-5 gap-y-2"
         >
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-[var(--ink)]"
+              className="min-h-11 inline-flex items-center transition-colors hover:text-[var(--ink)]"
             >
               {link.label}
             </Link>

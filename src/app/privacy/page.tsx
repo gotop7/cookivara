@@ -14,8 +14,8 @@ export default function PrivacyPage() {
     <TrustPage
       title={L("개인정보 처리방침", "Privacy Policy")}
       intro={L(
-        `시행일: 2026년 3월 1일. Cookivara(${siteConfig.url})는 요리 레시피를 제공하는 웹사이트입니다. 본 방침은 방문 시 수집·이용될 수 있는 정보를 설명합니다.`,
-        `Effective March 1, 2026. Cookivara (${siteConfig.url}) publishes cooking recipes. This policy explains information that may be collected when you visit.`,
+        `시행일: 2026년 3월 1일 · 최종 업데이트: 2026년 10월 28일. Cookivara는 ${siteConfig.displayDomain}(${siteConfig.url})에서 운영하는 요리 레시피 사이트입니다. 본 방침은 방문 시 수집·이용될 수 있는 정보를 설명합니다.`,
+        `Effective March 1, 2026 · Last updated October 28, 2026. Cookivara is a recipe site operated at ${siteConfig.displayDomain} (${siteConfig.url}). This policy explains information that may be collected when you visit.`,
       )}
       sections={[
         {
@@ -28,8 +28,8 @@ export default function PrivacyPage() {
         {
           heading: L("쿠키와 광고", "Cookies and advertising"),
           body: L(
-            "사이트 개선·트래픽 파악·광고(예: Google AdSense)를 위해 쿠키와 유사 기술이 사용될 수 있습니다. 광고 파트너는 관심사 기반 광고를 위해 쿠키를 사용할 수 있으며, Google 광고 설정(https://adssettings.google.com)에서 맞춤 광고를 관리할 수 있습니다. 브라우저에서 쿠키를 거부할 수 있으나 일부 기능이 제한될 수 있습니다.",
-            "We may use cookies and similar technologies for site improvement, traffic measurement, and advertising (for example Google AdSense). Ad partners may use cookies for interest-based ads; you can manage Google ad settings at https://adssettings.google.com. You can block cookies in your browser, though some features may not work.",
+            "사이트 개선·트래픽 파악·광고를 위해 쿠키와 유사 기술(로컬 스토리지 등)이 사용될 수 있습니다. Google AdSense 등 광고 파트너가 페이지에 광고를 게재할 경우, 해당 파트너가 기기에서 쿠키를 설정하거나 읽어 관심사 기반·문맥 광고를 표시할 수 있습니다. Google 광고 설정(https://adssettings.google.com)과 aboutads.info에서 맞춤 광고를 관리할 수 있습니다. 브라우저에서 쿠키를 거부하거나 삭제할 수 있으나, 일부 기능·광고 표시가 제한될 수 있습니다. 언어 선택 등 사이트 설정은 브라우저 저장소를 사용할 수 있습니다.",
+            "We may use cookies and similar technologies (including local storage) for site improvement, traffic measurement, and advertising. When partners such as Google AdSense serve ads, they may set or read cookies on your device to show interest-based or contextual ads. Manage Google ad settings at https://adssettings.google.com and industry opt-outs at aboutads.info. You can block or delete cookies in your browser, though some features or ads may not work. Site preferences such as language may use browser storage.",
           ),
         },
         {
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
         {
           heading: L("제3자 서비스", "Third-party services"),
           body: L(
-            "호스팅(예: Vercel), 분석·광고(예: Google), 임베드된 YouTube 링크를 클릭하면 해당 서비스의 정책이 적용됩니다. 외부 사이트로 이동하기 전에 해당 정책을 확인하세요.",
+            "호스팅(예: Vercel), 분석·광고(예: Google), 임베드되거나 연결된 YouTube 링크를 열면 해당 서비스의 정책이 적용됩니다. 외부 사이트로 이동하기 전에 해당 정책을 확인하세요.",
             "Hosting (e.g. Vercel), analytics/ads (e.g. Google), and YouTube links you open are governed by those providers’ policies. Review them before leaving our site.",
           ),
         },
@@ -56,8 +56,8 @@ export default function PrivacyPage() {
         {
           heading: L("문의", "Contact"),
           body: L(
-            `개인정보 관련 문의: ${siteConfig.contactEmail}`,
-            `Privacy questions: ${siteConfig.contactEmail}`,
+            `개인정보 관련 문의: ${siteConfig.contactEmail}\n사이트: ${siteConfig.url}`,
+            `Privacy questions: ${siteConfig.contactEmail}\nSite: ${siteConfig.url}`,
           ),
         },
       ]}

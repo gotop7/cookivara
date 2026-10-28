@@ -1,5 +1,6 @@
 import type { LocalizedString } from "@/i18n/types";
 import { recipeEnrichments } from "./recipe-enrichments";
+import { recipeFlagships } from "./recipe-flagships";
 
 export type Ingredient = {
   amount: LocalizedString;
@@ -27,6 +28,10 @@ export type Recipe = {
   tips?: LocalizedString[];
   substitutions?: LocalizedString[];
   storage?: LocalizedString;
+  /** Flagship recipes: pitfalls home cooks hit */
+  commonMistakes?: LocalizedString[];
+  /** Flagship recipes: how to plate / present */
+  plating?: LocalizedString;
   ingredients: Ingredient[];
   steps: LocalizedString[];
 };
@@ -66,25 +71,28 @@ export const recipes: Recipe[] = [
     image: "/recipes/gochujang-tofu-bibimbap.jpg",
     youtubeUrl: "https://www.youtube.com/watch?v=C3G3ikmzZmU",
     publishedAt: "2024-03-05",
-    updatedAt: "2024-04-04",
+    updatedAt: "2026-10-28",
     author: "Cookivara Kitchen",
     ingredients: [
-      ing("2컵", "2 cups", "멥쌀", "short-grain rice"),
-      ing("400g", "14 oz", "두부", "firm tofu"),
+      ing("2컵", "2 cups", "멥쌀(생쌀)", "short-grain rice (uncooked)"),
+      ing("400g", "14 oz", "단단한 두부", "firm tofu"),
       ing("3큰술", "3 tbsp", "고추장", "gochujang"),
       ing("1큰술", "1 tbsp", "간장", "soy sauce"),
-      ing("1큰술", "1 tbsp", "참기름", "sesame oil"),
+      ing("1큰술", "1 tbsp", "참기름(양념용)", "sesame oil (for marinade)"),
+      ing("1작은술", "1 tsp", "식용유(구이용)", "neutral oil (for searing)"),
       ing("2컵", "2 cups", "시금치", "spinach"),
-      ing("1컵", "1 cup", "당근", "carrot"),
+      ing("1컵", "1 cup", "당근(채썬 것)", "carrot, julienned"),
       ing("1컵", "1 cup", "숙주", "bean sprouts"),
+      ing("½작은술", "½ tsp", "참기름(마무리)", "sesame oil (to finish)"),
+      ing("1작은술", "1 tsp", "통깨", "toasted sesame seeds"),
       ing("4개", "4", "계란(선택)", "eggs (optional)"),
     ],
-        steps: [
-      L("쌀을 헹군 뒤 밥물을 맞춰 짓고, 뜸이 들면 주걱으로 살살 풀어 식혀 둡니다.", "Rinse the rice, cook it, then fluff and let it steam off so the grains stay separate."),
-      L("두부는 키친타월로 물기를 제거하고 2cm 정도로 썰어, 고추장·간장·참기름을 섞은 소스에 버무려 10분간 재웁니다.", "Pat the tofu dry, cut into 2 cm cubes, and marinate 10 minutes in gochujang, soy sauce, and sesame oil."),
-      L("중강불로 달군 팬에 식용유를 두르고 두부를 3–4분간 한 면씩 구워 가장자리가 캐러멜처럼 짙어지게 합니다.", "In a medium-high skillet with a little oil, sear the tofu 3–4 minutes per side until the edges caramelize."),
-      L("같은 팬에서 당근 채와 숙주를 각각 1–2분 빠르게 볶고, 시금치는 숨이 죽을 때까지만 볶아 간을 맞춥니다.", "In the same pan, stir-fry carrot and bean sprouts 1–2 minutes each; wilt spinach briefly and season."),
-      L("그릇에 밥을 담고 채소·두부를 구역별로 올린 뒤, 선택적으로 달걀프라이를 얹고 참기름을 둘러 비벼 먹습니다.", "Mound rice, arrange vegetables and tofu in sections, add a fried egg if you like, drizzle sesame oil, and mix."),
+    steps: [
+      L("쌀 2컵을 헹군 뒤 밥물을 맞춰 짓고, 뜸이 들면 주걱으로 살살 풀어 김이 빠지게 식혀 둡니다(비빌 때 채소가 숨이 죽지 않게).", "Rinse 2 cups rice, cook it, then fluff and let steam escape so grains stay separate and won’t wilt the vegetables when mixed."),
+      L("두부 400g은 키친타월로 2–3분 눌러 물기를 빼고 2cm 큐브로 썰어, 고추장 3큰술·간장 1큰술·참기름 1큰술에 버무려 10분간 재웁니다.", "Press 400 g / 14 oz tofu 2–3 minutes in towels, cut into 2 cm cubes, and marinate 10 minutes in 3 tbsp gochujang, 1 tbsp soy, and 1 tbsp sesame oil."),
+      L("중강불로 달군 팬에 식용유 1작은술을 두르고 두부를 3–4분간 한 면씩 구워 가장자리가 캐러멜처럼 짙어지게 합니다(합 6–8분).", "In a medium-high skillet with 1 tsp oil, sear the tofu 3–4 minutes per side until edges caramelize (6–8 minutes total)."),
+      L("같은 팬에서 당근 채와 숙주를 각각 1–2분 빠르게 볶고, 시금치는 숨이 죽을 때까지만(약 1분) 볶아 간장·소금으로 간합니다. 한꺼번에 넣지 마세요.", "In the same pan, stir-fry carrot and sprouts 1–2 minutes each; wilt spinach ~1 minute and season. Do not crowd all vegetables together."),
+      L("넓은 그릇에 밥을 낮게 깔고 채소·두부를 구역별로 올린 뒤, 선택적으로 달걀프라이를 가운데에 얹고 참기름 ½작은술·통깨를 둘러 비벼 먹습니다.", "Spread rice low in a wide bowl, arrange vegetables and tofu in sections, add a fried egg in the center if you like, finish with ½ tsp sesame oil and sesame seeds, then mix."),
     ],
   },
   {
@@ -128,21 +136,24 @@ export const recipes: Recipe[] = [
     image: "/recipes/bulgogi.jpg",
     youtubeUrl: "https://www.youtube.com/watch?v=3qBjL_HGvco",
     publishedAt: "2024-03-12",
+    updatedAt: "2026-10-28",
     author: "Cookivara Kitchen",
     ingredients: [
-      ing("500g", "1.1 lb", "소고기 등심", "ribeye, thin"),
+      ing("500g", "1.1 lb", "소고기 등심(얇게)", "ribeye, thinly sliced"),
       ing("4큰술", "4 tbsp", "간장", "soy sauce"),
       ing("2큰술", "2 tbsp", "설탕", "sugar"),
       ing("1큰술", "1 tbsp", "참기름", "sesame oil"),
-      ing("1/2개", "1/2", "양파", "onion"),
-      ing("1작은술", "1 tsp", "마늘", "garlic"),
+      ing("½개", "½", "양파(채)", "onion, sliced"),
+      ing("1작은술", "1 tsp", "마늘(다진 것)", "garlic, minced"),
+      ing("2큰술", "2 tbsp", "간 배(선택)", "grated pear (optional)"),
+      ing("1작은술", "1 tsp", "통깨", "toasted sesame seeds"),
     ],
-        steps: [
-      L("간장·설탕·참기름·다진 마늘·채 썬 양파를 섞어 양념을 만듭니다.", "Whisk soy sauce, sugar, sesame oil, minced garlic, and sliced onion into a marinade."),
-      L("얇게 썬 소고기를 양념에 넣어 최소 30분(가능하면 2시간) 재워 고기가 윤기 나게 합니다.", "Marinate the thinly sliced beef at least 30 minutes (up to 2 hours) until glossy."),
+    steps: [
+      L("간장 4큰술·설탕 2큰술·참기름 1큰술·다진 마늘 1작은술·채 썬 양파 ½개·선택으로 간 배 2큰술을 섞어 양념을 만듭니다.", "Whisk 4 tbsp soy, 2 tbsp sugar, 1 tbsp sesame oil, 1 tsp minced garlic, ½ sliced onion, and optional 2 tbsp grated pear into a marinade."),
+      L("소고기 500g을 2–3mm로 썰어(살짝 언 상태가 편함) 양념에 최소 30분(가능하면 2시간) 재워 고기가 윤기 나게 합니다.", "Slice 500 g / 1.1 lb beef 2–3 mm thick (easier if briefly frozen) and marinate at least 30 minutes (up to 2 hours) until glossy."),
       L("팬을 센 불로 뜨겁게 달군 뒤 고기를 한꺼번에 넣지 말고 나눠 담아 1–2분씩 빠르게 볶아 겉면이 갈색이 되게 합니다.", "Heat a skillet over high heat and stir-fry the beef in batches 1–2 minutes so it browns instead of steaming."),
       L("양념 국물이 자작하게 줄고 양파가 투명해지면 불을 끕니다.", "Cook until the sauce reduces to a glaze and the onion turns translucent, then kill the heat."),
-      L("접시에 담고 통깨를 뿌려 바로 냅니다. 고기가 촉촉하고 윤기가 돌면 완성입니다.", "Plate and finish with sesame seeds; the beef should look glossy and tender."),
+      L("접시에 고기를 펼쳐 담고 통깨를 뿌려 바로 냅니다. 상추·밥과 함께내면 좋습니다.", "Fan the beef on a plate, finish with sesame seeds, and serve with lettuce wraps and rice."),
     ],
   },
   {
@@ -5649,7 +5660,9 @@ export const recipes: Recipe[] = [
 ];
 
 function applyEnrichment(recipe: Recipe): Recipe {
-  const extra = recipeEnrichments[recipe.slug];
+  const base = recipeEnrichments[recipe.slug];
+  const flagship = recipeFlagships[recipe.slug];
+  const extra = flagship ?? base;
   if (!extra) return recipe;
   return {
     ...recipe,
@@ -5657,6 +5670,10 @@ function applyEnrichment(recipe: Recipe): Recipe {
     tips: extra.tips,
     substitutions: extra.substitutions,
     storage: extra.storage,
+    commonMistakes: extra.commonMistakes,
+    plating: extra.plating,
+    // Flagship audit pass date
+    updatedAt: flagship ? "2026-10-28" : recipe.updatedAt,
   };
 }
 

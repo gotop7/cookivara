@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s · Cookivara",
   },
   description:
-    "Cookivara — 좋아하는 부엌별로 정리한 집밥. 한국, 중국, 유럽, 미국, 월드, 스무디, 채식.",
+    "Cookivara — home recipes by kitchen, in Korean and English. Korean, Chinese, European, American, World, Smoothie, Vegetarian. Live at news24h7d.com.",
   icons: {
     icon: "/brand/cookivara-logo.png",
     apple: "/brand/cookivara-logo.png",

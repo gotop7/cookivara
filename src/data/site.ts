@@ -1,9 +1,15 @@
 /**
  * Site-wide Cookivara settings — edit contact email / author here.
+ *
+ * Brand name is Cookivara; the live domain is news24h7d.com until a
+ * matching cookivara.com (or similar) domain is purchased.
  */
 export const siteConfig = {
   name: "Cookivara",
+  /** Live site — do not claim this is Cookivara.com */
   url: "https://www.news24h7d.com",
+  /** Short host shown in About / Contact / footer */
+  displayDomain: "news24h7d.com",
   author: {
     name: "Cookivara Kitchen",
     byline: {
@@ -11,8 +17,8 @@ export const siteConfig = {
       en: "Cookivara Kitchen · Ryan Kim",
     },
   },
-  /** Change this when you have a real inbox */
-  contactEmail: "contact@cookivara.com",
+  /** Must match the live website domain */
+  contactEmail: "hello@news24h7d.com",
   socialNote: {
     ko: "레시피 제안·오류 제보는 이메일로 보내 주세요.",
     en: "Send recipe ideas or corrections by email.",

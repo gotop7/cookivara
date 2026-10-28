@@ -15,8 +15,8 @@ export default function ContactPage() {
     <TrustPage
       title={L("문의", "Contact")}
       intro={L(
-        "레시피 수정 제안, 사진 오류, 협업·광고 문의는 아래 이메일로 보내 주세요. 보통 며칠 안에 답변드립니다.",
-        "Send recipe corrections, photo issues, or partnership and advertising questions to the email below. We usually reply within a few days.",
+        `Cookivara(${siteConfig.displayDomain})에 대한 레시피 수정 제안, 사진 오류, 협업·광고 문의는 아래 이메일로 보내 주세요. 보통 며칠 안에 답변드립니다.`,
+        `For Cookivara (at ${siteConfig.displayDomain}): send recipe corrections, photo issues, or partnership and advertising questions to the email below. We usually reply within a few days.`,
       )}
       sections={[
         {
@@ -24,6 +24,13 @@ export default function ContactPage() {
           body: L(
             `${pick(locale, siteConfig.socialNote)}\n\n${email}`,
             `${pick(locale, siteConfig.socialNote)}\n\n${email}`,
+          ),
+        },
+        {
+          heading: L("사이트", "Website"),
+          body: L(
+            `브랜드: ${siteConfig.name}\n라이브 사이트: ${siteConfig.url}`,
+            `Brand: ${siteConfig.name}\nLive site: ${siteConfig.url}`,
           ),
         },
         {

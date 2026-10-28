@@ -7,6 +7,8 @@ export type RecipeEnrichment = {
   tips: LocalizedString[];
   substitutions: LocalizedString[];
   storage: LocalizedString;
+  commonMistakes?: LocalizedString[];
+  plating?: LocalizedString;
 };
 
 /**

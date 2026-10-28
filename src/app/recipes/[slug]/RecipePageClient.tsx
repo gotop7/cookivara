@@ -194,6 +194,32 @@ export function RecipePageClient({ recipe }: Props) {
           </section>
         ) : null}
 
+        {recipe.commonMistakes && recipe.commonMistakes.length > 0 ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.commonMistakes}
+            </h2>
+            <ul className="mt-6 list-disc space-y-3 pl-5 text-[var(--ink-soft)]">
+              {recipe.commonMistakes.map((item) => (
+                <li key={item.en} className="leading-relaxed">
+                  {pick(locale, item)}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {recipe.plating ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.plating}
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-[var(--ink-soft)]">
+              {pick(locale, recipe.plating)}
+            </p>
+          </section>
+        ) : null}
+
         {recipe.substitutions && recipe.substitutions.length > 0 ? (
           <section className="mt-14">
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
