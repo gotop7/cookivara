@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getCategory } from "@/data/categories";
+import { siteConfig } from "@/data/site";
 import type { Recipe } from "@/data/recipes";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { pick } from "@/i18n/types";
@@ -11,9 +12,24 @@ type Props = {
   recipe: Recipe;
 };
 
+function formatDate(iso: string, locale: "ko" | "en"): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const date = new Date(Date.UTC(y, m - 1, d));
+  return new Intl.DateTimeFormat(locale === "ko" ? "ko-KR" : "en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(date);
+}
+
 export function RecipePageClient({ recipe }: Props) {
   const { locale, t } = useLocale();
   const title = pick(locale, recipe.title);
+  const author =
+    recipe.author ??
+    pick(locale, siteConfig.author.byline) ??
+    siteConfig.author.name;
 
   const meta = [
     { label: t.servings, value: String(recipe.servings) },
@@ -79,6 +95,28 @@ export function RecipePageClient({ recipe }: Props) {
             {pick(locale, recipe.description)}
           </p>
 
+          <p className="mt-4 text-sm text-[var(--ink-muted)]">
+            <span className="text-[var(--ink-soft)]">
+              {t.byAuthor} {author}
+            </span>
+            <span aria-hidden className="mx-2">
+              ·
+            </span>
+            <time dateTime={recipe.publishedAt}>
+              {t.publishedOn} {formatDate(recipe.publishedAt, locale)}
+            </time>
+            {recipe.updatedAt ? (
+              <>
+                <span aria-hidden className="mx-2">
+                  ·
+                </span>
+                <time dateTime={recipe.updatedAt}>
+                  {t.updatedOn} {formatDate(recipe.updatedAt, locale)}
+                </time>
+              </>
+            ) : null}
+          </p>
+
           <dl className="mt-8 grid grid-cols-2 gap-4 border-y border-[var(--line)] py-5 sm:grid-cols-4">
             {meta.map((item) => (
               <div key={item.label}>
@@ -92,6 +130,17 @@ export function RecipePageClient({ recipe }: Props) {
             ))}
           </dl>
         </div>
+
+        {recipe.intro ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.whyThisDish}
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-[var(--ink-soft)]">
+              {pick(locale, recipe.intro)}
+            </p>
+          </section>
+        ) : null}
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-3xl">
@@ -129,6 +178,47 @@ export function RecipePageClient({ recipe }: Props) {
             ))}
           </ol>
         </section>
+
+        {recipe.tips && recipe.tips.length > 0 ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.tips}
+            </h2>
+            <ul className="mt-6 list-disc space-y-3 pl-5 text-[var(--ink-soft)]">
+              {recipe.tips.map((tip) => (
+                <li key={tip.en} className="leading-relaxed">
+                  {pick(locale, tip)}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {recipe.substitutions && recipe.substitutions.length > 0 ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.substitutions}
+            </h2>
+            <ul className="mt-6 list-disc space-y-3 pl-5 text-[var(--ink-soft)]">
+              {recipe.substitutions.map((item) => (
+                <li key={item.en} className="leading-relaxed">
+                  {pick(locale, item)}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {recipe.storage ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.storage}
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-[var(--ink-soft)]">
+              {pick(locale, recipe.storage)}
+            </p>
+          </section>
+        ) : null}
       </div>
     </article>
   );
