@@ -6,6 +6,7 @@ import { getCategory } from "@/data/categories";
 import { siteConfig } from "@/data/site";
 import type { Recipe } from "@/data/recipes";
 import { useLocale } from "@/i18n/LocaleProvider";
+import type { LocalizedString } from "@/i18n/types";
 import { pick } from "@/i18n/types";
 
 type Props = {
@@ -23,8 +24,68 @@ function formatDate(iso: string, locale: "ko" | "en"): string {
   }).format(date);
 }
 
+/** Inactive-locale copy kept in DOM for crawlers (same pattern as TrustPage). */
+function CrawlMirror({
+  recipe,
+  other,
+}: {
+  recipe: Recipe;
+  other: "ko" | "en";
+}) {
+  const lines = (items?: LocalizedString[]) =>
+    items?.map((item) => <li key={`${other}-${item.en}`}>{pick(other, item)}</li>);
+
+  return (
+    <div lang={other} className="sr-only" aria-hidden="true">
+      <h1>{pick(other, recipe.title)}</h1>
+      <p>{pick(other, recipe.description)}</p>
+      {recipe.intro ? <p>{pick(other, recipe.intro)}</p> : null}
+      <h2>{other === "en" ? "Ingredients" : "재료"}</h2>
+      <ul>
+        {recipe.ingredients.map((ingredient) => (
+          <li key={`${other}-${ingredient.name.en}`}>
+            {pick(other, ingredient.amount)} {pick(other, ingredient.name)}
+          </li>
+        ))}
+      </ul>
+      <h2>{other === "en" ? "Steps" : "순서"}</h2>
+      <ol>{lines(recipe.steps)}</ol>
+      {recipe.ingredientSelect ? (
+        <>
+          <h2>{other === "en" ? "Choosing ingredients" : "재료 고르는 법"}</h2>
+          <p>{pick(other, recipe.ingredientSelect)}</p>
+        </>
+      ) : null}
+      {recipe.tips?.length ? (
+        <>
+          <h2>{other === "en" ? "Tips" : "팁"}</h2>
+          <ul>{lines(recipe.tips)}</ul>
+        </>
+      ) : null}
+      {recipe.doneness ? (
+        <>
+          <h2>{other === "en" ? "Look and taste when done" : "완성 모습·맛"}</h2>
+          <p>{pick(other, recipe.doneness)}</p>
+        </>
+      ) : null}
+      {recipe.commonMistakes?.length ? (
+        <>
+          <h2>{other === "en" ? "Common mistakes" : "흔한 실수"}</h2>
+          <ul>{lines(recipe.commonMistakes)}</ul>
+        </>
+      ) : null}
+      {recipe.plating ? <p>{pick(other, recipe.plating)}</p> : null}
+      {recipe.substitutions?.length ? (
+        <ul>{lines(recipe.substitutions)}</ul>
+      ) : null}
+      {recipe.storage ? <p>{pick(other, recipe.storage)}</p> : null}
+    </div>
+  );
+}
+
 export function RecipePageClient({ recipe }: Props) {
   const { locale, t } = useLocale();
+  const other = locale === "ko" ? "en" : "ko";
   const title = pick(locale, recipe.title);
   const author =
     recipe.author ??
@@ -64,7 +125,7 @@ export function RecipePageClient({ recipe }: Props) {
               href={recipe.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[var(--leaf)] underline-offset-4 transition hover:underline"
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--leaf)] underline-offset-4 transition hover:underline"
             >
               <span aria-hidden className="inline-block h-2 w-2 rounded-full bg-red-600" />
               {t.watchOnYoutube}
@@ -72,7 +133,7 @@ export function RecipePageClient({ recipe }: Props) {
           </div>
         ) : null}
 
-        <div className="mt-8">
+        <div className="mt-8" lang={locale}>
           <div className="flex flex-wrap gap-3 text-[11px] font-medium tracking-[0.12em] text-[var(--leaf)] sm:uppercase sm:tracking-[0.16em]">
             {recipe.categories.map((categorySlug) => {
               const category = getCategory(categorySlug);
@@ -95,19 +156,19 @@ export function RecipePageClient({ recipe }: Props) {
             {pick(locale, recipe.description)}
           </p>
 
-          <p className="mt-4 text-sm text-[var(--ink-muted)]">
+          <div className="mt-4 flex flex-col gap-1.5 text-sm text-[var(--ink-muted)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-0 sm:gap-y-1">
             <span className="text-[var(--ink-soft)]">
               {t.byAuthor} {author}
             </span>
-            <span aria-hidden className="mx-2">
+            <span className="hidden sm:inline" aria-hidden>
               ·
             </span>
-            <time dateTime={recipe.publishedAt}>
+            <time dateTime={recipe.publishedAt} className="sm:ml-2">
               {t.publishedOn} {formatDate(recipe.publishedAt, locale)}
             </time>
             {recipe.updatedAt ? (
               <>
-                <span aria-hidden className="mx-2">
+                <span className="hidden sm:inline sm:mx-2" aria-hidden>
                   ·
                 </span>
                 <time dateTime={recipe.updatedAt}>
@@ -115,7 +176,7 @@ export function RecipePageClient({ recipe }: Props) {
                 </time>
               </>
             ) : null}
-          </p>
+          </div>
 
           <dl className="mt-8 grid grid-cols-2 gap-4 border-y border-[var(--line)] py-5 sm:grid-cols-4">
             {meta.map((item) => (
@@ -132,7 +193,7 @@ export function RecipePageClient({ recipe }: Props) {
         </div>
 
         {recipe.intro ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.whyThisDish}
             </h2>
@@ -142,7 +203,7 @@ export function RecipePageClient({ recipe }: Props) {
           </section>
         ) : null}
 
-        <section className="mt-14">
+        <section className="mt-14" lang={locale}>
           <h2 className="font-[family-name:var(--font-display)] text-3xl">
             {t.ingredients}
           </h2>
@@ -150,18 +211,20 @@ export function RecipePageClient({ recipe }: Props) {
             {recipe.ingredients.map((ingredient) => (
               <li
                 key={`${ingredient.amount.en}-${ingredient.name.en}`}
-                className="grid grid-cols-[7rem_1fr] gap-4 py-3 text-sm sm:grid-cols-[8.5rem_1fr] sm:text-base"
+                className="grid grid-cols-1 gap-1 py-3.5 text-base sm:grid-cols-[9rem_1fr] sm:gap-4 sm:text-base"
               >
-                <span className="text-[var(--ink-muted)]">
+                <span className="font-medium text-[var(--ink-soft)] sm:font-normal sm:text-[var(--ink-muted)]">
                   {pick(locale, ingredient.amount)}
                 </span>
-                <span>{pick(locale, ingredient.name)}</span>
+                <span className="leading-snug text-[var(--ink)]">
+                  {pick(locale, ingredient.name)}
+                </span>
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="mt-14">
+        <section className="mt-14" lang={locale}>
           <h2 className="font-[family-name:var(--font-display)] text-3xl">
             {t.steps}
           </h2>
@@ -180,7 +243,7 @@ export function RecipePageClient({ recipe }: Props) {
         </section>
 
         {recipe.ingredientSelect ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.ingredientSelect}
             </h2>
@@ -191,7 +254,7 @@ export function RecipePageClient({ recipe }: Props) {
         ) : null}
 
         {recipe.tips && recipe.tips.length > 0 ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.tips}
             </h2>
@@ -206,7 +269,7 @@ export function RecipePageClient({ recipe }: Props) {
         ) : null}
 
         {recipe.doneness ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.doneness}
             </h2>
@@ -217,7 +280,7 @@ export function RecipePageClient({ recipe }: Props) {
         ) : null}
 
         {recipe.commonMistakes && recipe.commonMistakes.length > 0 ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.commonMistakes}
             </h2>
@@ -232,7 +295,7 @@ export function RecipePageClient({ recipe }: Props) {
         ) : null}
 
         {recipe.plating ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.plating}
             </h2>
@@ -243,7 +306,7 @@ export function RecipePageClient({ recipe }: Props) {
         ) : null}
 
         {recipe.substitutions && recipe.substitutions.length > 0 ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.substitutions}
             </h2>
@@ -258,7 +321,7 @@ export function RecipePageClient({ recipe }: Props) {
         ) : null}
 
         {recipe.storage ? (
-          <section className="mt-14">
+          <section className="mt-14" lang={locale}>
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
               {t.storage}
             </h2>
@@ -267,6 +330,8 @@ export function RecipePageClient({ recipe }: Props) {
             </p>
           </section>
         ) : null}
+
+        <CrawlMirror recipe={recipe} other={other} />
       </div>
     </article>
   );

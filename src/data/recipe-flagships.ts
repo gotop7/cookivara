@@ -265,26 +265,28 @@ export const recipeFlagships: Record<string, RecipeEnrichment> = {
   },
   "mapo-tofu": {
     intro: L(
-      "마파두부는 ‘두반장으로 베이스를 만들고, 두부는 중불에서 살살, 산초는 마지막’이 기술입니다. 다진 고기를 볶아 두반장·고춧가루로 붉은 소를 만든 뒤 육수를 더하고, 두부 한 모를 큰 덩어리로 넣어 4–5분 자작하게 익힙니다. 전분물로 농도를 맞춘 다음 산초가루로 ‘마(麻)’를 올립니다. 국물 없이 바싹 졸이면 밥과 안 맞습니다.",
-      "Mapo technique: build a doubanjiang base, handle tofu gently on medium heat, finish with Sichuan pepper. Brown minced meat, fry bean paste and chili, add stock, then simmer large tofu cubes 4–5 minutes. Thicken with slurry, then add ground pepper for ‘ma’. A dry reduction will not hug rice.",
+      "마파두부는 ‘두반장으로 베이스를 만들고, 두부는 중불에서 살살, 산초는 마지막’이 기술입니다. 다진 돼지고기 150g을 3분 볶아 두반장 1½큰술·고춧가루로 붉은 소를 만든 뒤 육수 1컵(240ml)을 더하고, 두부 400g을 큰 덩어리로 넣어 4–5분 자작하게 익힙니다. 전분물 1큰술로 농도를 맞춘 다음 산초가루 ½작은술로 ‘마(麻)’를 올립니다. 국물 없이 바싹 졸이면 밥과 안 맞습니다.",
+      "Mapo technique: build a doubanjiang base, handle tofu gently on medium heat, finish with Sichuan pepper. Brown 150 g minced pork 3 minutes, fry 1½ tbsp bean paste and chili, add 1 cup / 240 ml stock, then simmer 400 g large tofu cubes 4–5 minutes. Thicken with 1 tbsp slurry, then ½ tsp ground pepper for ‘ma’. A dry reduction will not hug rice.",
     ),
     ingredientSelect: L(
-      "두반장은 郫县(비현) 스타일처럼 발효 향이 있는 제품이 깊습니다. 두부는 연두부·순두부보다 부침용 연한 두부가 형태 유지에 유리. 산초는 갓 간 가루가 향이 셉니다. 고기는 돼지가 정석, 없으면 소고기 다짐.",
-      "Doubanjiang with real fermented depth (Pixian-style if you can find it). Soft tofu that still holds cubes beats silken. Freshly ground Sichuan pepper is louder than pre-ground. Pork is classic; beef mince works.",
+      "두반장은 郫县(비현) 스타일처럼 발효 향이 있는 제품이 깊습니다. 두부는 연두부·순두부보다 부침용 연한 두부가 형태 유지에 유리 — 한 모(약 400g)를 2cm 큐브로. 산초는 갓 간 가루가 향이 셉니다. 고기는 지방 있는 돼지 다짐이 정석.",
+      "Doubanjiang with real fermented depth (Pixian-style if you can find it). Soft tofu that still holds 2 cm cubes (~400 g block) beats silken. Freshly ground Sichuan pepper is louder than pre-ground. Fatty pork mince is classic.",
     ),
     doneness: L(
-      "소스는 숟가락으로 떠서 밥 위에 흐를 정도의 자작함. 두부는 형태를 유지하되 입에서 바로 부셔집니다. 맛은 짠매움 위에 산초 얼얼함이 퍼지고, 기름 붉은 점이 표면에 보여야 합니다.",
-      "Sauce should be spoonable and flow over rice. Tofu holds shape but collapses on the tongue. Salty heat first, then numbing tingle; red oil dots on the surface are a good sign.",
+      "소스는 숟가락으로 떠서 밥 위에 흐를 정도의 자작함 — 국물처럼 얇으면 전분물을 ½큰술 더. 두부는 형태를 유지하되 입에서 바로 부셔집니다. 맛은 짠매움 위에 산초 얼얼함이 혀끝을 감돌고, 기름 붉은 점이 표면에 보여야 합니다. 두반장 발효 향이 느껴지지 않으면 베이스를 30초 더 볶았어야 합니다.",
+      "Sauce should be spoonable and flow over rice — if brothy, add ½ tbsp more slurry. Tofu holds shape but collapses on the tongue. Salty heat first, then numbing tingle; red oil dots on the surface are a good sign. If you taste no fermented depth, the doubanjiang needed 30 more seconds in the oil.",
     ),
     tips: [
       L("타이밍: 고기 3분 → 소스 2분 → 두부 4–5분 → 전분·산초.", "Timing: meat 3 min → sauce 2 → tofu 4–5 → slurry and pepper."),
       L("두부는 뒤집기보다 팬을 흔들어 움직입니다.", "Shake the pan instead of stirring hard."),
       L("산초는 불 끈 뒤 또는 아주 약불에서.", "Add Sichuan pepper off heat or on the lowest flame."),
+      L("두반장은 기름에 30–60초 ‘볶아 향을 피운’ 뒤 육수를 붓습니다 — 생으로 넣으면 날것입니다.", "Bloom doubanjiang 30–60 seconds in oil before stock — raw paste tastes harsh."),
     ],
     commonMistakes: [
       L("두부 격하게 저음 → 으깨짐. 고치기: 주걱으로 밀지 말기.", "Hard stirring → crumbled tofu. Fix: don’t push with a spatula."),
       L("산초 초반 → 향 소실. 고치기: 맨 마지막.", "Pepper early → aroma gone. Fix: very end."),
       L("바싹 졸임 → 밥과 안 맞음. 고치기: 육수 조금 더.", "Cooking dry → won’t coat rice. Fix: splash more stock."),
+      L("두반장 미볶음 → 날것 콩 냄새. 고치기: 기름에서 향이 날 때까지.", "Unbloomed paste → raw bean smell. Fix: fry until fragrant in oil."),
     ],
     plating: L(
       "깊은 그릇에 담고 산초·대파·고추기름을 점처럼. 밥은 옆에 따로.",
@@ -337,26 +339,28 @@ export const recipeFlagships: Record<string, RecipeEnrichment> = {
   },
   "pizza-margherita": {
     intro: L(
-      "집 마르게리타의 기술은 ‘토핑을 얇게, 오븐을 최대로’입니다. 토마토·모차렐라·바질만 쓰고, 모차렐라 물기를 짠 뒤, 가정용 오븐 최고 온도(가능하면 스톤·스틸 45분+ 예열)에서 가장자리가 블리스터날 때까지 굽습니다. 토핑이 두꺼우면 가운데가 질척해집니다.",
-      "Home Margherita technique: light toppings, maximum heat. Tomato, mozzarella, basil only — mozzarella well drained — baked as hot as the home oven allows (stone/steel preheated 45+ minutes) until the rim blisters. Heavy toppings guarantee a soggy center.",
+      "집 마르게리타의 기술은 ‘토핑을 얇게, 오븐을 최대로’입니다. 도우 250g(1장)에 으깬 토마토 3–4큰술·모차렐라 125g·바질만 쓰고, 모차렐라 물기를 10분 이상 짠 뒤, 가정용 오븐 최고 온도(가능하면 스톤·스틸 45분+ 예열, 목표 250–290°C)에서 6–10분 가장자리가 블리스터날 때까지 굽습니다. 토핑이 두꺼우면 가운데가 질척해집니다.",
+      "Home Margherita technique: light toppings, maximum heat. One 250 g dough round gets 3–4 tbsp crushed tomato, 125 g mozzarella, and basil — mozzarella drained 10+ minutes — baked as hot as the home oven allows (stone/steel preheated 45+ minutes, aim 250–290°C) for 6–10 minutes until the rim blisters. Heavy toppings guarantee a soggy center.",
     ),
     ingredientSelect: L(
-      "도우 단백질이 너무 낮은 밀가루는 힘이 약합니다(강력·피자용 추천). 토마토는 산마르자노 또는 잘 익은 통조림을 손으로 으깬 것 — 설탕을 많이 넣은 피자소스는 밸런스가 무너집니다. 모차렐라는 신선한 것(물기 제거) 또는 저수분.",
-      "Strong or pizza flour beats low-protein all-purpose for rim structure. Tomatoes: San Marzano or good canned whole, crushed by hand — sugary jar sauce throws the balance. Fresh mozzarella (drained) or low-moisture.",
+      "도우 단백질이 너무 낮은 밀가루는 힘이 약합니다(강력·피자용 추천). 토마토는 산마르자노 또는 잘 익은 통조림을 손으로 으깬 것 — 설탕을 많이 넣은 피자소스는 밸런스가 무너집니다. 모차렐라는 신선한 것(체에 올려 물기 제거) 또는 저수분. 바질은 큰 잎·향 있는 것만.",
+      "Strong or pizza flour beats low-protein all-purpose for rim structure. Tomatoes: San Marzano or good canned whole, crushed by hand — sugary jar sauce throws the balance. Fresh mozzarella drained on a sieve, or low-moisture. Basil: large fragrant leaves only.",
     ),
     doneness: L(
-      "가장자리는 호랑무늬·블리스터, 가운데는 유연하지만 물에 젖지 않음. 치즈는 녹아 얼룩덜룩하고 바질은 선명해야 합니다(오븐 직후 올리기). 맛은 토마토 산미·우유 지방·바질 향의 단순함.",
-      "Rim leopard-spotted and blistered; center flexible, not wet. Cheese mottled and melted; basil vivid (add after baking). Taste is simple: tomato acid, dairy fat, basil.",
+      "가장자리는 호랑무늬·블리스터, 가운데는 유연하지만 물에 젖지 않음 — 집으면 가운데가 늘어지지 않고 탄력. 치즈는 녹아 얼룩덜룩하고 바질은 선명해야 합니다(오븐 직후 올리기). 맛은 토마토 산미·우유 지방·바질 향의 단순함. 가운데가 축축하면 토핑이 과했거나 예열이 부족합니다.",
+      "Rim leopard-spotted and blistered; center flexible, not wet — it should spring, not sag, when lifted. Cheese mottled and melted; basil vivid (add after baking). Taste is simple: tomato acid, dairy fat, basil. A wet center means too much topping or a weak preheat.",
     ),
     tips: [
       L("모차렐라는 물기를 짜고 크게 찢어 올립니다.", "Drain mozzarella well and tear into large pieces."),
       L("바질은 오븐 직후 — 일찍 넣으면 검게 집니다.", "Basil right after baking — earlier and it blackens."),
       L("도우를 냉장고에서 천천히 발효하면 풍미가 깊어집니다.", "A slow cold ferment deepens flavor and chew."),
+      L("소스는 가장자리에서 2cm 안쪽만 — 테두리를 비워야 블리스터가 납니다.", "Keep sauce 2 cm inside the edge so the rim can blister."),
     ],
     commonMistakes: [
       L("토핑 두껍게 → 질척한 가운데. 고치기: 소스 큰술 단위로.", "Heavy toppings → soggy center. Fix: sauce by the spoon, not ladle floods."),
       L("차가운 오븐 → 빵처럼 부풂. 고치기: 예열을 타협하지 말기.", "Cold oven → bread-like rise. Fix: don’t short the preheat."),
       L("소스 과당 → 밸런스 붕괴. 고치기: 소금·올리브오일만.", "Over-sweet sauce → collapse. Fix: salt and olive oil only."),
+      L("도우를 밀대로 과하게 → 가스 소실. 고치기: 손가락으로 가운데만 밀어 림을 남기기.", "Rolling flat kills gas. Fix: fingertip-press the center and leave a rim."),
     ],
     plating: L(
       "도마에 올려 바로 자르고 올리브오일 한 바퀴와 바질 잎.",
@@ -373,26 +377,28 @@ export const recipeFlagships: Record<string, RecipeEnrichment> = {
   },
   "classic-cheeseburger": {
     intro: L(
-      "집버거의 기술은 ‘고기를 과하게 반죽하지 않고, 가운데 딤플, 번 토스트’입니다. 패티는 차갑게·팬은 뜨겁게, 소금은 굽기 직전, 치즈는 마지막 30초. 면당 약 3–4분(중간 두께). 누르면서 굽면 육즙이 빠져 건조해집니다.",
-      "Home burger technique: don’t overwork the meat, dimple the center, toast the bun. Cold patty, hot pan, salt just before cooking, cheese in the last 30 seconds. About 3–4 minutes per side for medium thickness. Pressing squeezes out juices.",
+      "집버거의 기술은 ‘고기를 과하게 반죽하지 않고, 가운데 딤플, 번 토스트’입니다. 패티 1개(약 150–180g, 두께 2cm)는 차갑게·팬은 뜨겁게, 소금·후추는 굽기 직전, 치즈는 마지막 30초. 면당 약 3–4분(미디엄). 누르면서 굽면 육즙이 빠져 건조해지고, ‘스매시’가 아닌 이상 주걱으로 누르지 않습니다.",
+      "Home burger technique: don’t overwork the meat, dimple the center, toast the bun. One patty (~150–180 g, 2 cm thick) stays cold; pan ripping hot; salt/pepper only just before cooking; cheese in the last 30 seconds. About 3–4 minutes per side for medium. Pressing squeezes out juices — this is not a smash burger.",
     ),
     ingredientSelect: L(
-      "소고기는 지방 15–20%(80/20)가 집팬에 맞습니다. 너무 リーン하면 건조합니다. 번은 감자번·브리오슈처럼 살짝 단면이 잘 토스트됩니다. 치즈는 아메리칸이 잘 녹고, 체다는 풍미가 강합니다.",
-      "Beef at 15–20% fat (80/20) suits a home skillet — leaner dries out. Potato or brioche buns toast well. American melts cleanly; cheddar brings sharper flavor.",
+      "소고기는 지방 15–20%(80/20)가 집팬에 맞습니다. 너무 リーン하면 건조합니다. 신선 갈은 날(또는 전날)이 단맛이 살아 있습니다. 번은 감자번·브리오슈처럼 살짝 단면이 잘 토스트됩니다. 치즈는 아메리칸이 잘 녹고, 체다는 풍미가 강합니다. 피클은 얇고 신맛이 선명한 것.",
+      "Beef at 15–20% fat (80/20) suits a home skillet — leaner dries out. Grind the same day (or day before) for sweetness. Potato or brioche buns toast well. American melts cleanly; cheddar brings sharper flavor. Pickles: thin, bright-acid slices.",
     ),
     doneness: L(
-      "겉면은 진한 갈색 크러스트, 속은 선택한 굽기에 맞게(미디엄은 연분홍). 치즈는 패티에 덮이듯 녹고, 번은 바삭한 컷팅면. 맛은 고기 풍미가 먼저, 피클·소스 산미가 뒤를 잘라 줍니다.",
-      "Deep-brown crust outside; interior to your preference (medium stays rosy). Cheese draped over the patty; bun cut faces crisp. Beef first, then pickle/sauce acidity.",
+      "겉면은 진한 갈색 마이야르 크러스트, 속은 선택한 굽기에 맞게(미디엄은 연분홍·육즙이 맑은 분홍). 치즈는 패티 가장자리까지 덮이듯 녹고, 번 컷팅면은 바삭·속은 폭신. 맛은 고기 풍미가 먼저, 피클·소스 산미가 뒤를 잘라 줍니다. 회색빛·건조하면 불을 낮췄거나 너무 오래 눌렀던 것입니다.",
+      "Deep-brown Maillard crust; interior to preference (medium stays rosy with clear pink juices). Cheese draped to the edges; bun cut faces crisp, crumb soft. Beef first, then pickle/sauce acidity. Gray and dry means the pan was too cool or you pressed too long.",
     ),
     tips: [
-      L("뒤집기는 한 번만. 가운데만 살짝 딤플.", "Flip once. Only a light center dimple — don’t smash."),
-      L("타이밍: 면당 3–4분 · 번 토스트 1분.", "Timing: 3–4 min per side · bun toast 1 min."),
+      L("뒤집기는 한 번만. 가운데만 살짝 딤플(가장자리보다 2–3mm 얇게).", "Flip once. Light center dimple 2–3 mm thinner than the rim — don’t smash."),
+      L("타이밍: 면당 3–4분 · 번 토스트 1분 · 치즈 마지막 30초.", "Timing: 3–4 min per side · bun toast 1 min · cheese last 30 sec."),
       L("조립 전에 소스·피클을 준비해 패티가 식지 않게.", "Have sauce and pickles ready so the patty doesn’t cool."),
+      L("팬에 기름은 얇게 — 소고기 지방이 곧 나옵니다. 연기가 나기 직전에 패티 투입.", "Barely oil the pan — beef fat follows. Add the patty just as the pan nearly smokes."),
     ],
     commonMistakes: [
       L("고기 과반죽 → 질긴 패티. 고치기: 가법게 모아만.", "Overworking → tough patty. Fix: just gather into shape."),
       L("차가운 번 → 찐득. 고치기: 컷팅면 토스트 필수.", "Cold bun → steamy limp bread. Fix: always toast cut faces."),
       L("치즈 너무 일찍 → 흘러내림. 고치기: 불 끄기 30초 전.", "Cheese too early → slides off. Fix: last 30 seconds."),
+      L("소금 미리 뿌려 두기 → 수분 배출·건조. 고치기: 팬 들어가기 직전만.", "Salting early → weep and dry. Fix: season only as it hits the pan."),
     ],
     plating: L(
       "하단 번 · 소스 · 패티+치즈 · 피클·양파 · 상추·토마토 · 상단 번. 이쑤시개로 고정 후 반으로.",
@@ -409,26 +415,28 @@ export const recipeFlagships: Record<string, RecipeEnrichment> = {
   },
   "pad-thai": {
     intro: L(
-      "팟타이 기술은 ‘면 불림 정도와 웍 순서’입니다. 쌀국수를 심이 남게 불려 두고, 타마린드·피시소스·팜슈가(또는 설탕) 소스를 미리 섞은 뒤 센 불에서 단백질 → 면·소스 → 숙주·파·땅콩 순으로 넣습니다. 면을 푹 불리면 죽처럼 끊어집니다. 라임은 생략하지 마세요.",
-      "Pad Thai technique is soak level + wok order. Soak rice noodles with a firm core, premix tamarind–fish sauce–palm sugar (or sugar), then on high heat: protein → noodles + sauce → sprouts, scallion, peanuts. Oversoaked noodles break into mush. Do not skip the lime.",
+      "팟타이 기술은 ‘면 불림 정도와 웍 순서’입니다. 쌀국수 200g을 심이 남게 20–30분 불려 두고, 타마린드 2큰술·피시소스 2큰술·팜슈가(또는 설탕) 1½큰술 소스를 미리 섞은 뒤 센 불에서 단백질 → 면·소스 → 숙주·파·땅콩 순으로 넣습니다(합 볶음 4–6분). 면을 푹 불리면 죽처럼 끊어집니다. 라임은 생략하지 마세요.",
+      "Pad Thai technique is soak level + wok order. Soak 200 g rice noodles 20–30 minutes with a firm core; premix 2 tbsp tamarind, 2 tbsp fish sauce, 1½ tbsp palm sugar (or sugar); then on high heat: protein → noodles + sauce → sprouts, scallion, peanuts (4–6 minutes total stir-fry). Oversoaked noodles break into mush. Do not skip the lime.",
     ),
     ingredientSelect: L(
-      "면은 팟타이용 중평면(약 3–5mm). 타마린드 페이스트(물로 희석)가 병당 소스보다 신맛 조절이 쉽습니다. 피시소스는 향이 깨끗한 제품. 숙주는 뿌리가 싱싱한 것 — 시들면 볶을 때 물만 나옵니다.",
-      "Medium flat rice noodles (~3–5 mm). Tamarind paste thinned with water is easier to balance than bottled pad Thai sauce. Clean-tasting fish sauce. Fresh crisp sprouts — wilted ones only water the wok.",
+      "면은 팟타이용 중평면(약 3–5mm). 타마린드 페이스트(물로 희석)가 병당 소스보다 신맛 조절이 쉽습니다. 피시소스는 향이 깨끗한 제품. 숙주는 뿌리가 싱싱한 것 — 시들면 볶을 때 물만 나옵니다. 새우를 쓰면 중하 사이즈 12–16마리(2인분).",
+      "Medium flat rice noodles (~3–5 mm). Tamarind paste thinned with water is easier to balance than bottled pad Thai sauce. Clean-tasting fish sauce. Fresh crisp sprouts — wilted ones only water the wok. For shrimp: 12–16 medium for 2 portions.",
     ),
     doneness: L(
-      "면은 부드럽지만 심이 완전히 사라지지 않은 탄력. 소스는 면에 묻고 팬에 국물처럼 남지 않음. 맛은 신·단·짠이 동시에, 땅콩 고소함과 라임으로 끝. 단맛만 남으면 라임·피시소스를 조금 더.",
-      "Noodles tender with a hint of core; sauce clinging, not soupy. Sour, sweet, and salty at once, finished with peanut and lime. If only sweet remains, add lime and a splash of fish sauce.",
+      "면은 부드럽지만 심이 완전히 사라지지 않은 탄력 — 집으면 늘어지지 않고 탄력. 소스는 면에 묻고 팬에 국물처럼 남지 않음. 맛은 신·단·짠이 동시에, 땅콩 고소함과 라임으로 끝. 단맛만 남으면 라임·피시소스를 ½작은술씩 더. 계란은 살짝 익은 스크램블 조각으로 면에 붙어야 합니다.",
+      "Noodles tender with a hint of core — they should spring, not stretch limp. Sauce clinging, not soupy. Sour, sweet, and salty at once, finished with peanut and lime. If only sweet remains, add ½ tsp lime juice or fish sauce at a time. Egg should cling as soft scramble bits.",
     ),
     tips: [
       L("소스를 미리 한 컵에 섞어 두면 볶는 동안 헤매지 않습니다.", "Mix the sauce in a cup before you start."),
       L("숙주·파·땅콩은 불 끄기 직전.", "Sprouts, scallion, and peanuts at the very end."),
       L("한 번에 2인분만 — 과하면 찐 면이 됩니다.", "Cook for 2 portions max per wok — more becomes steamed noodles."),
+      L("면이 붙으면 소스 1큰술·물 1큰술을 둘러 웍을 흔들어 풉니다 — 저어 부수지 마세요.", "If noodles stick, splash 1 tbsp sauce + 1 tbsp water and toss — don’t stir-break them."),
     ],
     commonMistakes: [
       L("면 과불리기 → 끊어짐. 고치기: 아직 심이 있을 때 건지기.", "Oversoaking → breakage. Fix: stop while a core remains."),
       L("약한 불 → 찜. 고치기: 연기 직전 온도.", "Low heat → steaming. Fix: nearly smoking wok."),
       L("라임 생략 → 단짠만. 고치기: 웨지 필수.", "Skipping lime → only sweet-salty. Fix: wedges on every plate."),
+      L("숙주를 너무 일찍 → 숨 죽고 물 생김. 고치기: 마지막 15–20초만.", "Sprouts early → wilt and water. Fix: last 15–20 seconds only."),
     ],
     plating: L(
       "면에 땅콩·숙주·라임·고수. 고추 플레이크는 테이블에.",
@@ -460,11 +468,13 @@ export const recipeFlagships: Record<string, RecipeEnrichment> = {
       L("가람마살라는 마지막에 넣어 향을 살립니다.", "Add garam masala at the end for aroma."),
       L("타이밍: 재우기 1h+ → 굽기 12–15분 → 소스 15분.", "Timing: marinate 1h+ → broil/grill 12–15 → sauce 15."),
       L("크림은 약불에서 — 분리되면 불을 끄고 저어 회복을 시도.", "Keep cream on low heat; if it splits, kill heat and stir to recover."),
+      L("브로일 시 팬을 오븐 상단에서 15cm 정도 — 더 가까우면 겉만 타고 속은 덜 익습니다.", "Broil ~15 cm from the element — closer chars the outside before the center cooks."),
     ],
     commonMistakes: [
       L("재우기 생략 → 향이 겉만. 고치기: 최소 1시간.", "Skipping marinade → surface spices only. Fix: at least 1 hour."),
       L("크림 팔팔 끓임 → 분리. 고치기: 약불·마지막 투입.", "Boiling cream hard → split. Fix: low heat, add late."),
       L("소금 부족 → 텁텁. 고치기: 소스 간을 닭과 따로 보기.", "Under salting → pasty. Fix: season sauce on its own."),
+      L("재운 닭을 소스에만 넣고 삶기 → 그을림·요거트 향 없음. 고치기: 반드시 따로 구운 뒤 합치기.", "Simmering marinated chicken only in sauce → no char. Fix: broil/grill first, then combine."),
     ],
     plating: L(
       "깊은 그릇에 소스·닭, 고수·생크림 스월, 난/밥.",
@@ -496,11 +506,13 @@ export const recipeFlagships: Record<string, RecipeEnrichment> = {
       L("육수는 항상 따뜻하게 — 차가운 육수는 쌀을 멈춥니다.", "Keep stock hot — cold stock stalls the rice."),
       L("타이밍: 합 18–22분. 알덴테에서 불 끄고 치즈.", "Timing: 18–22 minutes. Kill heat at al dente, then cheese."),
       L("버섯은 센 불에 한 겹으로 구워 수분을 날립니다.", "Brown mushrooms in a single layer on high heat to drive off water."),
+      L("와인은 쌀이 거의 마른 뒤 넣고 알코올 향이 날아갈 때까지 30–60초 저어 줍니다.", "Add wine when the rice looks nearly dry; stir 30–60 seconds until the alcohol smell lifts."),
     ],
     commonMistakes: [
       L("육수 한 번에 → 죽. 고치기: 국자 단위, 흡수 후 다음.", "All stock at once → porridge. Fix: ladle, wait, repeat."),
       L("버섯 처음부터 → 찐 식감. 고치기: 따로 구워 마지막 합치기.", "Mushrooms from the start → steamed. Fix: brown separately, fold in last."),
       L("끓이며 파마산 → 끈적. 고치기: 불 끈 뒤 마네카투라.", "Cheese while boiling → gluey. Fix: mantecatura off heat."),
+      L("알덴테 지나침 → 죽. 고치기: 18분부터 30초마다 씹어 보고 심이 남을 때 불 끄기.", "Past al dente → porridge. Fix: taste from minute 18; kill heat while a tiny core remains."),
     ],
     plating: L(
       "따뜻한 접시에 파도가 보이게 담고 버섯·파마산·후추·파슬리. 바로.",
@@ -517,26 +529,28 @@ export const recipeFlagships: Record<string, RecipeEnrichment> = {
   },
   "strawberry-banana-smoothie": {
     intro: L(
-      "이 스무디의 기술은 ‘액체는 최소로 시작, 얼린 과일로 농도’입니다. 딸기·바나나·요거트(또는 우유)를 블렌딩하되, 처음부터 액을 많이 붓지 말고 원하는 점도까지 추가합니다. 단맛은 반점 있는 바나나로 먼저 맞추고, 아침 5분 분량입니다. 실온 과일만 쓰면 묽고 미지근합니다.",
-      "Smoothie technique: start with minimal liquid and let frozen fruit set the body. Blend strawberry, banana, and yogurt or milk — thin only as needed. Spotty bananas set sweetness before any added sugar. Five-minute breakfast. Room-temp fruit alone goes thin and lukewarm.",
+      "이 스무디의 기술은 ‘액체는 최소로 시작, 얼린 과일로 농도’입니다. 딸기 1½컵(약 200g)·반점 바나나 1개·요거트 ½컵(120g)을 블렌딩하되, 우유는 2–4큰술부터만 넣고 원하는 점도까지 추가합니다. 단맛은 반점 있는 바나나로 먼저 맞추고, 아침 5분 분량입니다. 실온 과일만 쓰면 묽고 미지근합니다.",
+      "Smoothie technique: start with minimal liquid and let frozen fruit set the body. Blend 1½ cups / ~200 g strawberries, 1 spotty banana, and ½ cup / 120 g yogurt — add milk only 2–4 tbsp at a time. Spotty bananas set sweetness before any added sugar. Five-minute breakfast. Room-temp fruit alone goes thin and lukewarm.",
     ),
     ingredientSelect: L(
-      "딸기는 향이 있는 익은 것(또는 냉동). 바나나는 반점 있는 숙성 과일. 요거트는 플레인 — 가당 요거트면 추가 단맛을 줄이세요. 우유가 필요하면 소량부터.",
-      "Ripe fragrant strawberries (or frozen). Spotty ripe bananas. Plain yogurt — if sweetened, skip extra sugar. Add milk only in small splashes.",
+      "딸기는 향이 있는 익은 것(또는 냉동 — 냉동이면 액체를 더 줄이세요). 바나나는 반점 있는 숙성 과일(초록 바나나는 떫고 풀립니다). 요거트는 플레인 — 가당 요거트면 추가 단맛을 줄이세요. 우유가 필요하면 소량부터.",
+      "Ripe fragrant strawberries (or frozen — use even less liquid if frozen). Spotty ripe bananas (green ones taste starchy). Plain yogurt — if sweetened, skip extra sugar. Add milk only in small splashes.",
     ),
     doneness: L(
-      "빨대로 천천히 올라올 농도, 분리되지 않은 균일 색. 맛은 딸기 향·바나나 단맛·요거트 산미. 물처럼 묽으면 얼린 과일·요거트를 더하고, 덩어리면 10초 더 블렌딩.",
-      "Should climb a straw slowly with an even color, no separation. Strawberry aroma, banana sweetness, yogurt tang. Too thin → more frozen fruit or yogurt; grainy → blend 10 seconds more.",
+      "빨대로 천천히 올라올 농도(유리잔을 기울여도 바로 흐르지 않음), 분리되지 않은 분홍·연한 균일 색. 맛은 딸기 향이 먼저, 바나나 단맛·요거트 산미가 뒤를 받칩니다. 물처럼 묽으면 얼린 과일·요거트를 더하고, 씨·덩어리가 남으면 10–15초 더 블렌딩. 거품만 많으면 액체가 과한 신호입니다.",
+      "Should climb a straw slowly (not pour off a tilted glass instantly) with an even pink color, no separation. Strawberry aroma first, then banana sweetness and yogurt tang. Too thin → more frozen fruit or yogurt; seeds/grain → blend 10–15 seconds more. Excess foam usually means too much liquid.",
     ),
     tips: [
       L("단백질을 높이려면 그릭 요거트 120g(약 ½컵).", "For more protein, use 120 g / ½ cup Greek yogurt."),
       L("일부를 전날 얼려 두면 각빙 없이 걸쭉합니다.", "Freeze some fruit the night before for thickness without ice dilution."),
       L("마시기 직전 블렌딩 — 두면 분리됩니다.", "Blend just before drinking — it separates if it sits."),
+      L("재료 순서: 액체·요거트 → 바나나 → 딸기 — 칼날이 먼저 액을 잡아야 막히지 않습니다.", "Load liquid/yogurt → banana → strawberries so the blade catches liquid first."),
     ],
     commonMistakes: [
       L("액체 과다 → 물 스무디. 고치기: 최소량으로 시작.", "Too much liquid → watery. Fix: start minimal."),
       L("실온 과일만 → 미지근·묽음. 고치기: 일부 냉동.", "Only room-temp fruit → lukewarm and thin. Fix: freeze some."),
       L("가당 재료 중복 → 과도한 단맛. 고치기: 플레인 요거트+숙성 바나나.", "Stacked sweeteners → cloying. Fix: plain yogurt + ripe banana."),
+      L("각빙만으로 농도 → 녹으면 묽어짐. 고치기: 얼린 과일로 바디를 만들기.", "Ice-only thickness → watery as it melts. Fix: build body with frozen fruit."),
     ],
     plating: L(
       "차가운 글라스에 붓고 딸기 슬라이스·바나나 칩. 빨대와 바로.",

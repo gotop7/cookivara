@@ -46,7 +46,7 @@ export default function HomePage() {
               {t.heroTagline}
             </p>
             <p
-              className="animate-rise mt-3 max-w-md text-sm leading-relaxed text-white/80 sm:text-lg"
+              className="animate-rise mt-3 max-w-md text-sm leading-relaxed text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.55)] sm:text-lg"
               style={{ animationDelay: "200ms" }}
             >
               {t.heroBody}

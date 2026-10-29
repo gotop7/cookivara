@@ -17,27 +17,27 @@ export function SiteHeader() {
 
   return (
     <header className="max-w-[100%] overflow-x-clip border-b border-[var(--line)] bg-[var(--cream)]/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3.5 sm:px-8 sm:py-5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3.5 sm:gap-3 sm:px-8 sm:py-5">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-80 sm:gap-3.5"
+          className="flex min-w-0 shrink items-center gap-2 transition-opacity hover:opacity-80 sm:gap-3.5"
         >
           <BrandLogo size="nav" priority />
-          <span className="font-brand text-2xl font-semibold text-[var(--ink)] sm:text-3xl">
+          <span className="font-brand text-xl font-semibold text-[var(--ink)] sm:text-3xl">
             Cookivara
           </span>
         </Link>
-        <div className="flex shrink-0 items-center gap-2 sm:gap-7">
-          <nav className="flex flex-nowrap items-center gap-0.5 text-sm font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-7">
+          <nav className="flex flex-nowrap items-center gap-0 text-sm font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
             <Link
               href="/recipes"
-              className="whitespace-nowrap rounded-md px-2 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
+              className="whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
             >
               {t.navRecipes}
             </Link>
             <Link
               href="/#shelves"
-              className="whitespace-nowrap rounded-md px-2 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
+              className="whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
             >
               {t.navBrowse}
             </Link>
