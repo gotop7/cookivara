@@ -27,17 +27,17 @@ export function SiteHeader() {
             Cookivara
           </span>
         </Link>
-        <div className="flex min-w-0 items-center gap-3 sm:gap-7">
-          <nav className="flex items-center gap-1 text-base font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-7">
+          <nav className="flex flex-nowrap items-center gap-0.5 text-sm font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
             <Link
               href="/recipes"
-              className="rounded-md px-3 py-2 transition-colors hover:text-[var(--ink)]"
+              className="whitespace-nowrap rounded-md px-2 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
             >
               {t.navRecipes}
             </Link>
             <Link
               href="/#shelves"
-              className="rounded-md px-3 py-2 transition-colors hover:text-[var(--ink)]"
+              className="whitespace-nowrap rounded-md px-2 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
             >
               {t.navBrowse}
             </Link>

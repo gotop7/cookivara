@@ -27,7 +27,7 @@ export default function HomePage() {
           style={{ background: "var(--hero-scrim)" }}
           aria-hidden
         />
-        <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] w-full max-w-6xl flex-col justify-end px-5 pb-20 pt-28 sm:px-8 sm:pb-28">
+        <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] w-full max-w-6xl flex-col justify-end px-5 pb-12 pt-24 sm:px-8 sm:pb-20">
           <div className="max-w-2xl text-white">
             <div className="animate-rise flex items-center gap-3 sm:gap-5">
               <BrandLogo
@@ -40,19 +40,19 @@ export default function HomePage() {
               </h1>
             </div>
             <p
-              className="animate-rise mt-7 max-w-xl font-[family-name:var(--font-display)] text-2xl font-medium leading-snug text-white sm:mt-8 sm:text-3xl md:text-[2.05rem]"
+              className="animate-rise mt-5 max-w-xl font-[family-name:var(--font-display)] text-xl font-medium leading-snug text-white sm:mt-6 sm:text-3xl md:text-[2.05rem]"
               style={{ animationDelay: "100ms" }}
             >
               {t.heroTagline}
             </p>
             <p
-              className="animate-rise mt-4 max-w-md text-base leading-relaxed text-white/78 sm:text-lg"
+              className="animate-rise mt-3 max-w-md text-sm leading-relaxed text-white/80 sm:text-lg"
               style={{ animationDelay: "200ms" }}
             >
               {t.heroBody}
             </p>
             <div
-              className="animate-rise mt-9 flex flex-wrap gap-3"
+              className="animate-rise mt-6 flex flex-wrap gap-3 sm:mt-8"
               style={{ animationDelay: "300ms" }}
             >
               <Link
