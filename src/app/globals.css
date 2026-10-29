@@ -78,8 +78,9 @@ a {
   letter-spacing: -0.01em;
 }
 
-/* Mobile header: drop wordmark so Recipes + KO|EN never clip */
-@media (max-width: 480px) {
+/* Narrow header: drop wordmark so Recipes + KO|EN never clip.
+   Breakpoint sits above Chrome headless’s ~500px floor and typical phones. */
+@media (max-width: 700px) {
   .brand-wordmark {
     display: none !important;
   }

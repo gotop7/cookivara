@@ -28,6 +28,7 @@ export function SiteHeader() {
           </span>
         </Link>
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-7">
+          <LanguageToggle />
           <nav className="flex flex-nowrap items-center gap-0 text-sm font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
             <Link
               href="/recipes"
@@ -42,7 +43,6 @@ export function SiteHeader() {
               {t.navBrowse}
             </Link>
           </nav>
-          <LanguageToggle />
         </div>
       </div>
       <nav aria-label={t.categoriesAria} className="max-w-[100%] overflow-x-clip border-t border-[var(--line)]">
