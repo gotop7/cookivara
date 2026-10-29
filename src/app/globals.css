@@ -78,6 +78,13 @@ a {
   letter-spacing: -0.01em;
 }
 
+/* Mobile header: drop wordmark so Recipes + KO|EN never clip */
+@media (max-width: 480px) {
+  .brand-wordmark {
+    display: none !important;
+  }
+}
+
 @keyframes rise-in {
   from {
     opacity: 0;

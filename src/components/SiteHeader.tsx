@@ -16,14 +16,14 @@ export function SiteHeader() {
   )?.slug;
 
   return (
-    <header className="max-w-[100%] overflow-x-clip border-b border-[var(--line)] bg-[var(--cream)]/95 backdrop-blur-sm">
+    <header className="max-w-[100%] border-b border-[var(--line)] bg-[var(--cream)]/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3.5 sm:gap-3 sm:px-8 sm:py-5">
         <Link
           href="/"
-          className="flex min-w-0 shrink items-center gap-2 transition-opacity hover:opacity-80 sm:gap-3.5"
+          className="flex min-w-0 items-center gap-2 transition-opacity hover:opacity-80 sm:gap-3.5"
         >
           <BrandLogo size="nav" priority />
-          <span className="font-brand hidden text-xl font-semibold text-[var(--ink)] min-[420px]:inline sm:text-3xl">
+          <span className="brand-wordmark font-brand text-xl font-semibold text-[var(--ink)] sm:text-3xl">
             Cookivara
           </span>
         </Link>
@@ -45,7 +45,7 @@ export function SiteHeader() {
           <LanguageToggle />
         </div>
       </div>
-      <nav aria-label={t.categoriesAria} className="border-t border-[var(--line)]">
+      <nav aria-label={t.categoriesAria} className="max-w-[100%] overflow-x-clip border-t border-[var(--line)]">
         <ul className="mx-auto flex max-w-6xl gap-1 overflow-x-auto overscroll-x-contain px-4 py-2.5 text-sm font-semibold tracking-[0.04em] text-[var(--ink-muted)] [scrollbar-width:thin] sm:gap-2 sm:px-8 sm:py-3 sm:text-base sm:tracking-[0.08em]">
           {categories.map((category) => {
             const isActive = activeCategory === category.slug;
