@@ -23,12 +23,11 @@ export function SiteHeader() {
           className="flex min-w-0 shrink items-center gap-2 transition-opacity hover:opacity-80 sm:gap-3.5"
         >
           <BrandLogo size="nav" priority />
-          <span className="font-brand text-xl font-semibold text-[var(--ink)] sm:text-3xl">
+          <span className="font-brand hidden text-xl font-semibold text-[var(--ink)] min-[420px]:inline sm:text-3xl">
             Cookivara
           </span>
         </Link>
-        <div className="flex shrink-0 items-center gap-1 sm:gap-7">
-          <LanguageToggle />
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-7">
           <nav className="flex flex-nowrap items-center gap-0 text-sm font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
             <Link
               href="/recipes"
@@ -43,6 +42,7 @@ export function SiteHeader() {
               {t.navBrowse}
             </Link>
           </nav>
+          <LanguageToggle />
         </div>
       </div>
       <nav aria-label={t.categoriesAria} className="border-t border-[var(--line)]">
