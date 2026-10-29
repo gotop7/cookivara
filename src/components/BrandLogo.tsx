@@ -8,8 +8,12 @@ type BrandLogoProps = {
 };
 
 const sizes = {
-  nav: { box: 48, width: 48, height: 48 },
-  hero: { box: 112, width: 112, height: 112 },
+  nav: { width: 48, height: 48, className: "h-12 w-12" },
+  hero: {
+    width: 112,
+    height: 112,
+    className: "h-[4.5rem] w-[4.5rem] sm:h-24 sm:w-24 md:h-28 md:w-28",
+  },
 } as const;
 
 export function BrandLogo({
@@ -26,8 +30,7 @@ export function BrandLogo({
       width={dims.width}
       height={dims.height}
       priority={priority}
-      className={`object-contain ${className}`}
-      style={{ width: dims.box, height: dims.box }}
+      className={`object-contain ${dims.className} ${className}`}
     />
   );
 }

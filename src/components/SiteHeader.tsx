@@ -20,10 +20,10 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3.5 sm:px-8 sm:py-5">
         <Link
           href="/"
-          className="flex min-w-0 shrink-0 items-center gap-3 transition-opacity hover:opacity-80 sm:gap-3.5"
+          className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-80 sm:gap-3.5"
         >
           <BrandLogo size="nav" priority />
-          <span className="font-brand truncate text-2xl font-semibold tracking-tight text-[var(--ink)] sm:text-3xl">
+          <span className="font-brand text-2xl font-semibold text-[var(--ink)] sm:text-3xl">
             Cookivara
           </span>
         </Link>

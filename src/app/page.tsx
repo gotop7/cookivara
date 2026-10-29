@@ -13,13 +13,13 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative isolate min-h-[min(92vh,880px)] w-full max-w-[100%] overflow-hidden">
+      <section className="relative isolate min-h-[min(100svh,920px)] w-full max-w-[100%] overflow-hidden">
         <Image
           src="/images/home-hero.webp"
           alt={t.heroImageAlt}
           fill
           priority
-          className="object-cover object-[center_40%]"
+          className="object-cover object-[center_38%]"
           sizes="100vw"
         />
         <div
@@ -27,33 +27,33 @@ export default function HomePage() {
           style={{ background: "var(--hero-scrim)" }}
           aria-hidden
         />
-        <div className="relative z-10 mx-auto flex min-h-[min(92vh,880px)] w-full max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 sm:pb-24">
-          <div className="max-w-xl text-white">
-            <div className="animate-rise flex items-end gap-4 sm:gap-6">
+        <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] w-full max-w-6xl flex-col justify-end px-5 pb-20 pt-28 sm:px-8 sm:pb-28">
+          <div className="max-w-2xl text-white">
+            <div className="animate-rise flex items-center gap-3 sm:gap-5">
               <BrandLogo
                 size="hero"
                 priority
-                className="rounded-2xl bg-[#f4efe4] shadow-sm ring-1 ring-white/20 sm:rounded-3xl"
+                className="shrink-0 drop-shadow-[0_8px_24px_rgba(0,0,0,0.28)]"
               />
-              <h1 className="font-brand text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl md:text-8xl">
+              <h1 className="font-brand text-[clamp(2.4rem,7vw,5.75rem)] font-semibold leading-none text-white">
                 Cookivara
               </h1>
             </div>
             <p
-              className="animate-rise mt-4 text-lg text-white/90 sm:text-xl"
-              style={{ animationDelay: "120ms" }}
+              className="animate-rise mt-7 max-w-xl font-[family-name:var(--font-display)] text-2xl font-medium leading-snug text-white sm:mt-8 sm:text-3xl md:text-[2.05rem]"
+              style={{ animationDelay: "100ms" }}
             >
               {t.heroTagline}
             </p>
             <p
-              className="animate-rise mt-3 max-w-md text-sm leading-relaxed text-white/75 sm:text-base"
-              style={{ animationDelay: "220ms" }}
+              className="animate-rise mt-4 max-w-md text-base leading-relaxed text-white/78 sm:text-lg"
+              style={{ animationDelay: "200ms" }}
             >
               {t.heroBody}
             </p>
             <div
-              className="animate-rise mt-8 flex flex-wrap gap-3"
-              style={{ animationDelay: "320ms" }}
+              className="animate-rise mt-9 flex flex-wrap gap-3"
+              style={{ animationDelay: "300ms" }}
             >
               <Link
                 href="/recipes/gochujang-tofu-bibimbap"
@@ -63,7 +63,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/recipes"
-                className="rounded-md border border-white/70 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+                className="rounded-md border border-white/65 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
               >
                 {t.ctaBrowseRecipes}
               </Link>

@@ -8,7 +8,7 @@ export const messages = {
     languageAria: "언어 선택",
     heroTagline: "좋아하는 부엌별로 정리한 집밥.",
     heroBody:
-      "완성된 한국 비빔밥 한 그릇부터 시작하세요. 중국, 유럽, 미국, 월드, 스무디, 채식 선반을 하나씩 채워 갑니다.",
+      "한국 비빔밥부터 시작해, 일곱 선반의 레시피를 한국어와 영어로 천천히 채웁니다.",
     ctaCookBibimbap: "비빔밥 요리하기",
     ctaBrowseRecipes: "레시피 보기",
     shelvesTitle: "일곱 개의 부엌 선반",
@@ -45,7 +45,7 @@ export const messages = {
     prepCookMeta: (prep: number, cook: number) =>
       `준비 ${prep}분 · 조리 ${cook}분`,
     totalTimeMeta: (total: number, level: string) => `${total}분 · ${level}`,
-    footerTagline: "Cookivara — 다시 만들고 싶은 레시피.",
+    footerTagline: "다시 만들고 싶은 레시피.",
     footerBrandLine: "브랜드 Cookivara · 사이트 {domain}",
     footerNavAria: "푸터 메뉴",
     footerAllRecipes: "모든 레시피",
@@ -67,7 +67,7 @@ export const messages = {
     languageAria: "Language",
     heroTagline: "Home cooking, sorted by the kitchens you love.",
     heroBody:
-      "Start with one complete Korean bowl, then grow the shelves — Chinese, European, American, World, Smoothie, and Vegetarian.",
+      "Start with Korean bibimbap, then grow seven shelves — in Korean and English.",
     ctaCookBibimbap: "Cook the bibimbap",
     ctaBrowseRecipes: "Browse recipes",
     shelvesTitle: "Seven kitchen shelves",
@@ -104,7 +104,7 @@ export const messages = {
     prepCookMeta: (prep: number, cook: number) =>
       `${prep} min prep · ${cook} min cook`,
     totalTimeMeta: (total: number, level: string) => `${total} min · ${level}`,
-    footerTagline: "Cookivara — recipes worth cooking again.",
+    footerTagline: "recipes worth cooking again.",
     footerBrandLine: "Brand Cookivara · site {domain}",
     footerNavAria: "Footer",
     footerAllRecipes: "All recipes",

@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site";
 import { useLocale } from "@/i18n/LocaleProvider";
 
 export function SiteFooter() {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
 
   const links = [
     { href: "/about", label: t.footerAbout },
@@ -17,16 +17,22 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-auto border-t border-[var(--line)] bg-[var(--cream)]">
-      {/* cache-bust: audit upgrade 2026-10-28 */}
+      {/* cache-bust: homepage brand polish 2026-10-29 */}
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-[var(--ink-soft)] sm:px-8">
         <p>
-          {t.footerTagline}
+          <span className="font-brand font-semibold text-[var(--ink)]">
+            Cookivara
+          </span>
+          <span> — {t.footerTagline}</span>
           <span className="ml-2 text-[10px] tracking-wide text-[var(--ink-muted)]">
-            v2026.10.28b
+            v2026.10.29
           </span>
         </p>
         <p className="text-xs text-[var(--ink-muted)]">
-          {t.footerBrandLine.replace("{domain}", siteConfig.displayDomain)}
+          {locale === "ko" ? "브랜드 " : "Brand "}
+          <span className="font-brand">Cookivara</span>
+          {locale === "ko" ? " · 사이트 " : " · site "}
+          {siteConfig.displayDomain}
         </p>
         <nav
           aria-label={t.footerNavAria}

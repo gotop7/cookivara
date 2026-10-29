@@ -68,9 +68,14 @@ a {
   text-decoration: none;
 }
 
-/* Latin brand wordmark — Fraunces; Hangul still falls through to Pretendard */
+/* Latin brand wordmark — Fraunces; Hangul still falls through to Pretendard.
+   Never mid-word break (body uses overflow-wrap: anywhere). */
 .font-brand {
   font-family: var(--font-brand), var(--font-ui);
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  letter-spacing: -0.01em;
 }
 
 @keyframes rise-in {
