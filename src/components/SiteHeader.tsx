@@ -28,6 +28,7 @@ export function SiteHeader() {
           </span>
         </Link>
         <div className="flex shrink-0 items-center gap-1 sm:gap-7">
+          <LanguageToggle />
           <nav className="flex flex-nowrap items-center gap-0 text-sm font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
             <Link
               href="/recipes"
@@ -37,12 +38,11 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/#shelves"
-              className="hidden whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] min-[400px]:inline-flex sm:px-3"
+              className="hidden whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] sm:inline-flex sm:px-3"
             >
               {t.navBrowse}
             </Link>
           </nav>
-          <LanguageToggle />
         </div>
       </div>
       <nav aria-label={t.categoriesAria} className="border-t border-[var(--line)]">

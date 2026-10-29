@@ -25,7 +25,7 @@ export function SiteFooter() {
           </span>
           <span> — {t.footerTagline}</span>
           <span className="ml-2 text-[10px] tracking-wide text-[var(--ink-muted)]">
-            v2026.10.29f
+            v2026.10.29g
           </span>
         </p>
         <p className="text-xs text-[var(--ink-muted)]">
