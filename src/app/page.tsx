@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative isolate min-h-[min(100svh,920px)] w-full max-w-[100%] overflow-hidden">
+      <section className="relative isolate min-h-[calc(100svh-9.75rem)] w-full max-w-[100%] overflow-hidden sm:min-h-[calc(100svh-8.75rem)]">
         <Image
           src="/images/home-hero.webp"
           alt={t.heroImageAlt}
@@ -27,7 +27,7 @@ export default function HomePage() {
           style={{ background: "var(--hero-scrim)" }}
           aria-hidden
         />
-        <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] w-full max-w-6xl flex-col justify-end px-5 pb-12 pt-24 sm:px-8 sm:pb-20">
+        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-9.75rem)] w-full max-w-6xl flex-col justify-end px-5 pb-10 pt-10 sm:min-h-[calc(100svh-8.75rem)] sm:px-8 sm:pb-14 sm:pt-16">
           <div className="max-w-2xl text-white">
             <div className="animate-rise flex items-center gap-3 sm:gap-5">
               <BrandLogo
