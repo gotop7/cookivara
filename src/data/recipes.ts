@@ -32,6 +32,10 @@ export type Recipe = {
   commonMistakes?: LocalizedString[];
   /** Flagship recipes: how to plate / present */
   plating?: LocalizedString;
+  /** Flagship: how to choose ingredients for this dish */
+  ingredientSelect?: LocalizedString;
+  /** Flagship: finished look + taste cues */
+  doneness?: LocalizedString;
   ingredients: Ingredient[];
   steps: LocalizedString[];
 };
@@ -107,20 +111,23 @@ export const recipes: Recipe[] = [
     image: "/recipes/kimchi-jjigae.jpg",
     youtubeUrl: "https://www.youtube.com/watch?v=rJgb92JWMCE",
     publishedAt: "2024-03-11",
+    updatedAt: "2026-10-29",
     author: "Cookivara Kitchen",
     ingredients: [
-      ing("2컵", "2 cups", "묵은 김치", "aged kimchi"),
-      ing("200g", "7 oz", "돼지고기", "pork"),
-      ing("1모", "1 block", "두부", "tofu"),
-      ing("3컵", "3 cups", "육수", "stock"),
+      ing("2컵(~300g)", "2 cups (~300 g)", "묵은 김치", "aged kimchi"),
+      ing("200g", "7 oz", "돼지고기(목살·앞다리)", "pork (shoulder or similar)"),
+      ing("300g", "10 oz", "두부(부침용·연한 것)", "soft tofu (holds cubes)"),
+      ing("3컵(720ml)", "3 cups (720 ml)", "육수", "stock"),
       ing("1큰술", "1 tbsp", "고춧가루", "gochugaru"),
+      ing("2–3큰술", "2–3 tbsp", "김치국물(선택)", "kimchi brine (optional)"),
+      ing("1작은술", "1 tsp", "식용유", "neutral oil"),
       ing("1개", "1", "대파", "scallion"),
     ],
-        steps: [
-      L("묵은 김치는 한입 크기로 썰고, 돼지고기는 얇게 썰어 준비합니다.", "Cut aged kimchi into bite-size pieces and thinly slice the pork."),
-      L("중불 냄비에 약간의 기름을 두르고 돼지고기를 2–3분 볶아 겉면이 하얗게 익으면 김치와 고춧가루를 넣고 5분간 더 볶아 신내를 날립니다.", "Over medium heat, sauté pork 2–3 minutes until opaque, then add kimchi and gochugaru and fry 5 minutes to deepen the flavor."),
-      L("육수를 부어 끓어오르면 중약불로 줄여 12–15분 끓여 국물이 빨갛고 진해지게 합니다.", "Add stock, bring to a boil, then simmer 12–15 minutes until the broth is deep red and rich."),
-      L("두부를 도톰하게 썰어 넣고 3–4분 더 끓여 속이 따뜻해지게 합니다.", "Add thick tofu slices and simmer 3–4 minutes until heated through."),
+    steps: [
+      L("묵은 김치 2컵(~300g)은 한입 크기로 썰고, 돼지고기 200g은 얇게 썰어 준비합니다.", "Cut 2 cups (~300 g) aged kimchi into bite-size pieces and thinly slice 200 g / 7 oz pork."),
+      L("중불 냄비에 식용유 1작은술을 두르고 돼지고기를 2–3분 볶아 겉면이 하얗게 익으면 김치·고춧가루 1큰술·선택으로 김치국물 2–3큰술을 넣고 5분 더 볶아 신내를 날립니다.", "Over medium heat, sauté pork in 1 tsp oil 2–3 minutes until opaque, then add kimchi, 1 tbsp gochugaru, and optional 2–3 tbsp kimchi brine; fry 5 minutes to deepen flavor."),
+      L("육수 3컵(720ml)을 부어 끓어오르면 중약불로 줄여 12–15분 끓여 국물이 빨갛고 진해지게 합니다.", "Add 3 cups / 720 ml stock, bring to a boil, then simmer 12–15 minutes until the broth is deep red and rich."),
+      L("두부 300g(10oz)을 도톰하게 썰어 넣고 3–4분 더 끓여 속이 따뜻해지게 합니다.", "Add 300 g / 10 oz tofu in thick slices and simmer 3–4 minutes until heated through."),
       L("대파를 송송 썰어 올리고 한소끔 더 끓인 뒤, 국물이 보글보글할 때 바로 냅니다.", "Scatter sliced scallion, give one last bubble, and serve while the stew is still vigorously simmering."),
     ],
   },
@@ -5672,8 +5679,10 @@ function applyEnrichment(recipe: Recipe): Recipe {
     storage: extra.storage,
     commonMistakes: extra.commonMistakes,
     plating: extra.plating,
-    // Flagship audit pass date
-    updatedAt: flagship ? "2026-10-28" : recipe.updatedAt,
+    ingredientSelect: extra.ingredientSelect,
+    doneness: extra.doneness,
+    // Only bump when flagship content was meaningfully rewritten
+    updatedAt: flagship ? "2026-10-29" : recipe.updatedAt,
   };
 }
 

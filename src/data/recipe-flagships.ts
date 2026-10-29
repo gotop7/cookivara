@@ -4,431 +4,551 @@ import type { RecipeEnrichment } from "./recipe-enrichments";
 const L = (ko: string, en: string): LocalizedString => ({ ko, en });
 
 /**
- * Deep original enrichment for 15 flagship recipes (audit upgrade).
- * Merged on top of base recipeEnrichments — adds why-this-version detail,
- * tested notes, common mistakes, timing cues, and plating.
+ * Deep original enrichment for 15 flagship recipes (AdSense readiness).
+ * Each dish gets technique unique to THIS recipe, ingredient selection,
+ * finished look/taste, common mistakes + fixes, and honest timing/units.
+ * Merged over base recipeEnrichments in getRecipe / getAllRecipes.
  */
 export const recipeFlagships: Record<string, RecipeEnrichment> = {
   "gochujang-tofu-bibimbap": {
     intro: L(
-      "이 버전은 고기를 빼고도 포만감이 남도록 두부를 고추장에 10분 재운 뒤 팬에서 캐러멜화하는 집밥형 비빔밥입니다. 채소는 한꺼번에 볶지 않고 당근·숙주·시금치를 1–2분씩 따로 볶아 색과 아삭함을 지킵니다. 밥 2컵(생쌀 기준, 약 4인분)·두부 400g(14oz)·고추장 3큰술이 기준 분량이며, 주말 브런치에도 그릇만 구역별로 담으면 손님용으로 통합니다.",
-      "This home version skips meat but stays filling: tofu marinates 10 minutes in gochujang, then sears until the edges caramelize. Vegetables cook in separate 1–2 minute batches (carrot, sprouts, spinach) so colors stay bright. Baseline: 2 cups rice (uncooked, ~4 servings), 400 g / 14 oz tofu, 3 tbsp gochujang. Plated in sections, it also works as weekend brunch for guests.",
+      "이 비빔밥은 ‘고기 없이도 한 그릇이 성립’하도록 두부만 고추장에 제대로 입히는 집밥형입니다. 핵심 기법은 두부 400g(14oz)을 키친타월로 2–3분 누른 뒤 고추장 3큰술·간장 1큰술·참기름 1큰술에 10분 재우고, 중강불에서 면당 3–4분(합 6–8분) 구워 가장자리만 캐러멜화하는 것입니다. 채소(당근·숙주·시금치)는 절대 한 팬에 몰지 않고 각 1–2분씩 따로 볶아 색을 지킵니다. 밥은 생쌀 2컵(약 4인분) 기준이며, 비빌 때는 밥의 김을 뺀 뒤가 맞습니다.",
+      "This bibimbap is built so one bowl feels complete without meat: 400 g / 14 oz tofu is pressed 2–3 minutes, marinated 10 minutes in 3 tbsp gochujang + 1 tbsp soy + 1 tbsp sesame oil, then seared 3–4 minutes per side (6–8 minutes total) until only the edges caramelize. Carrot, sprouts, and spinach each get their own 1–2 minute sauté — never one crowded pan. Baseline rice is 2 cups uncooked (~4 servings); mix only after steam has left the rice.",
+    ),
+    ingredientSelect: L(
+      "두부는 ‘단단한(firm)’만 — 순두부는 부서집니다. 고추장은 단맛이 있는 시판 제품이 집밥에 맞고, 너무 짠 제품이면 꿀 ½큰술을 준비하세요. 시금치는 줄기가 연한 것, 숙주는 뿌리가 싱싱하고 냄새 없는 것, 당근은 심이 하얗지 않은 중간 굵기. 쌀은 흰 멥쌀(단립)이 비빔에 가장 잘 붙습니다.",
+      "Use firm tofu only — silken falls apart. Choose a gochujang with some sweetness for home cooking; if yours is harsh, keep ½ tbsp honey ready. Spinach with tender stems, sprouts that smell clean, carrots without a woody white core. Short-grain white rice clings best when mixed.",
+    ),
+    doneness: L(
+      "완성 그릇은 구역별 색이 선명해야 하고, 두부는 겉면이 짙은 호박색·속은 아직 촉촉해야 합니다. 비빈 뒤에는 밥알이 윤기 있고 매콤달콤하며, 채소 아삭함이 살아 있어야 합니다. 고추장 향만 자극적으로 치고 단맛이 없으면 꿀·물을 ½작은술씩 더해 맞추세요.",
+      "Before mixing, colors should read in clean sections; tofu edges deep amber, centers still moist. After mixing, rice should look glossy, taste sweet-heat, and keep vegetable crunch. If you only get raw chili burn, balance with ½ tsp honey or water at a time.",
     ),
     tips: [
-      L("두부는 키친타월로 2–3분 눌러 물기를 뺀 뒤 구워야 부서지지 않고 갈변이 납니다.", "Press tofu 2–3 minutes in towels before searing so it browns instead of steaming."),
-      L("고추장 소스가 너무 되면 물 1작은술, 너무 짜면 꿀 ½큰술로 균형을 맞춥니다.", "If the glaze is pasty, loosen with 1 tsp water; if harsh, round with ½ tbsp honey."),
-      L("타이밍: 밥이 뜸 들 때 두부 재우기 → 두부 굽기(6–8분) → 채소 볶기(합 6분) → 담기.", "Timing cue: while rice rests, marinate tofu → sear 6–8 min → veg ~6 min total → plate."),
-      L("달걀프라이는 그릇에 담기 직전에 구워 노른자가 흐르는 상태를 유지하세요.", "Fry the egg last so the yolk stays runny for mixing."),
+      L("타이밍: 밥 뜸 들 때 두부 재우기 → 두부 굽기 6–8분 → 채소 합 ~6분 → 달걀프라이는 담기 직전.", "Timing: marinate tofu while rice rests → sear 6–8 min → veg ~6 min total → fry the egg last."),
+      L("팬에 물이 고이면 불을 잠시 높여 물기를 날린 뒤 계속 굽습니다.", "If water pools in the pan, spike the heat briefly to drive it off, then keep searing."),
+      L("참기름 ½작은술은 ‘비비기 전’ 가장자리에만 — 많으면 느끼해집니다.", "Finish with only ½ tsp sesame oil at the rim before mixing — more turns greasy."),
     ],
     commonMistakes: [
-      L("젖은 두부를 바로 굽기 — 팬에 물이 고여 양념이 벗겨집니다.", "Searing wet tofu — water pools and the glaze slides off."),
-      L("채소를 한 팬에 몰아넣기 — 색이 탁해지고 숨이 과하게 죽습니다.", "Crowding all vegetables at once — colors dull and textures turn soggy."),
-      L("뜨거운 밥 위에 바로 비비기 — 채소가 숨이 죽어 아삭함이 사라집니다. 밥은 살짝 식힌 뒤.", "Mixing on piping-hot rice — vegetables wilt. Let rice steam off first."),
+      L("젖은 두부를 바로 굽기 → 양념이 벗겨짐. 고치기: 2–3분 눌러 물기 제거.", "Searing wet tofu → glaze slides off. Fix: press 2–3 minutes first."),
+      L("채소 몰아 볶기 → 색 탁해짐. 고치기: 종류별로 팬을 비우고 볶기.", "Crowding vegetables → muddy colors. Fix: empty the pan between batches."),
+      L("뜨거운 밥에 바로 비비기 → 채소 숨 죽음. 고치기: 주걱으로 풀어 1–2분 식히기.", "Mixing on piping-hot rice → wilted veg. Fix: fluff and rest rice 1–2 minutes."),
     ],
     plating: L(
-      "넓은 그릇에 밥을 낮게 깔고, 시금치·당근·숙주·두부를 시계방향으로 구역을 나눠 올립니다. 가운데에 달걀프라이, 가장자리에 참기름 ½작은술과 통깨. 비비기 전에 사진 찍기 좋은 구성입니다.",
-      "Spread rice low in a wide bowl; arrange spinach, carrot, sprouts, and tofu in clock-face sections. Center a fried egg; finish with ½ tsp sesame oil and sesame seeds at the rim. Mix only after you’ve shown off the colors.",
+      "넓은 그릇에 밥을 낮게 깔고 시금치·당근·숙주·두부를 시계방향으로 올립니다. 가운데 달걀프라이, 가장자리에 참기름·통깨. 비비기 전 구성이 ‘완성 사진’입니다.",
+      "Spread rice low; arrange spinach, carrot, sprouts, and tofu clock-face style. Center the egg; sesame oil and seeds at the rim. The unmixed bowl is the hero shot.",
     ),
     substitutions: [
       L("두부 대신 느타리·새송이 200g 또는 템페.", "Swap tofu for 200 g oyster/king oyster mushrooms or tempeh."),
       L("현미밥·퀴노아로 바꿔도 비빔 질감이 잘 나옵니다.", "Brown rice or quinoa also mix well."),
-      L("달걀 대신 아보카도 ½개를 슬라이스해 올립니다.", "Half an avocado, sliced, instead of a fried egg."),
+      L("달걀 대신 아보카도 ½개 슬라이스.", "Half an avocado, sliced, instead of a fried egg."),
     ],
     storage: L(
-      "밥·채소·두부를 따로 밀폐용기에 담아 냉장 2일. 먹을 때 밥만 데워 비빕니다. 냉동은 비추천(두부와 채소 식감이 무너짐).",
-      "Store rice, vegetables, and tofu separately up to 2 days refrigerated. Reheat only the rice before mixing. Freezing is not recommended — tofu and veg textures collapse.",
+      "밥·채소·두부를 따로 밀폐해 냉장 2일. 먹을 때 밥만 데워 비빕니다. 냉동 비추천(두부·채소 식감 붕괴).",
+      "Store rice, vegetables, and tofu separately up to 2 days refrigerated. Reheat only the rice before mixing. Freezing collapses tofu and veg textures.",
     ),
   },
   "kimchi-jjigae": {
     intro: L(
-      "묵은김치의 산미가 국물에 녹아야 하는 집밥 찌개입니다. 이 버전은 돼지고기 200g을 먼저 2–3분 볶아 기름을 내고, 김치 2컵과 고춧가루 1큰술을 5분 더 볶아 신내를 날린 뒤 육수 3컵으로 12–15분 끓입니다. 두부는 마지막 3–4분에만 넣어 형태를 지킵니다.",
-      "This stew needs aged kimchi’s acidity in the broth. Our home method: sauté 200 g pork 2–3 minutes, fry 2 cups kimchi with 1 tbsp gochugaru for 5 minutes to soften the sharp smell, then simmer in 3 cups stock 12–15 minutes. Tofu goes in only for the last 3–4 minutes so it stays intact.",
+      "김치찌개의 성패는 ‘묵은김치를 볶아 신내를 날린 뒤’ 국물을 붓는지에 달립니다. 이 버전: 돼지고기 200g(7oz)을 2–3분 볶아 기름을 내고, 김치 2컵(~300g)과 고춧가루 1큰술을 5분 더 볶은 다음 육수 3컵(720ml)으로 12–15분 끓입니다. 두부 300g(10oz)은 마지막 3–4분에만 넣습니다. 총 약 30분, 밥과 함께 4인분입니다.",
+      "Kimchi jjigae succeeds when you fry aged kimchi before the broth. This version: sauté 200 g / 7 oz pork 2–3 minutes, fry 2 cups kimchi (~300 g) with 1 tbsp gochugaru for 5 minutes, then simmer in 3 cups / 720 ml stock for 12–15 minutes. Add 300 g / 10 oz tofu only for the last 3–4 minutes. About 30 minutes total; serves 4 with rice.",
+    ),
+    ingredientSelect: L(
+      "김치는 최소 2주 익어 시큼하고 국물이 붉은 묵은김치 — 겉절이·생김치는 국물이 얕습니다. 돼지는 목살·앞다리처럼 살짝 지방 있는 부위가 국물에 고소함을 줍니다. 두부는 부침용·중간 경도(연두부가 형태 유지에 유리). 육수는 멸치·다시마 또는 담백한 닭육수; 물만 쓸 때는 다시다 ½작은술.",
+      "Kimchi must be well fermented (2+ weeks), sour, with red brine — fresh kimchi makes a thin stew. Pork with a little fat (shoulder/belly trim) enriches the broth. Soft-to-medium tofu holds better than silken. Stock: anchovy-kelp or light chicken; if using water, add ½ tsp dashida.",
+    ),
+    doneness: L(
+      "국물은 탁하지 않게 붉고, 김치 잎은 투명해질 정도로 익었으며, 고기는 씹을 때 질기지 않아야 합니다. 맛은 신맛 위에 감칠맛·고소한 돼지 기름이 깔리고, 매운맛은 목 뒤에서 천천히 올라옵니다. 짜면 물 ¼컵, 싱거우면 김치국물 1큰술로 맞춥니다.",
+      "Broth should be clear-red (not muddy); kimchi leaves soft and translucent; pork tender. Taste: sourness first, then savoriness and pork fat, with heat that builds slowly. Too salty → ¼ cup water; too mild → 1 tbsp kimchi brine.",
     ),
     tips: [
-      L("김치는 최소 2주 이상 익은 묵은김치. 겉절이로는 국물이 약합니다.", "Use well-fermented kimchi (2+ weeks); fresh kimchi makes a weak broth."),
-      L("김치국물 2–3큰술을 볶을 때 넣으면 감칠맛이 진해집니다.", "Add 2–3 tbsp kimchi brine while frying for deeper flavor."),
-      L("타이밍: 볶기 8분 → 끓이기 12–15분 → 두부 3–4분. 총 약 30분.", "Timing: fry ~8 min → simmer 12–15 → tofu 3–4. About 30 minutes total."),
+      L("김치 볶을 때 김치국물 2–3큰술을 넣으면 감칠맛이 진해집니다.", "Add 2–3 tbsp kimchi brine while frying for deeper flavor."),
+      L("타이밍: 볶기 ~8분 → 끓이기 12–15분 → 두부 3–4분.", "Timing: fry ~8 min → simmer 12–15 → tofu 3–4."),
+      L("센 불로만 두면 국물이 줄고 짜집니다. 끓인 뒤 중약불.", "High heat the whole time reduces and oversalts — drop to a gentle simmer."),
     ],
     commonMistakes: [
-      L("생김치를 그대로 끓이기 — 국물이 밋밋하고 신맛이 거칠습니다.", "Boiling fresh kimchi as-is — thin broth and harsh sourness."),
-      L("두부를 처음부터 넣기 — 오래 끓이면 부서집니다.", "Adding tofu at the start — it falls apart after a long simmer."),
-      L("센 불만 유지하기 — 국물이 줄고 짜집니다. 끓인 뒤엔 중약불.", "Staying on high heat — broth reduces and turns salty. Drop to a gentle simmer."),
+      L("생김치를 그대로 끓이기 → 밋밋·거친 신맛. 고치기: 반드시 5분 볶기.", "Boiling fresh kimchi as-is → thin, harsh sourness. Fix: fry 5 minutes first."),
+      L("두부 처음부터 → 부서짐. 고치기: 마지막 3–4분만.", "Tofu from the start → crumbles. Fix: last 3–4 minutes only."),
+      L("뚜껑 없이 팔팔 → 국물 과다 증발. 고치기: 반쯤 덮고 중약불.", "Hard boil uncovered → broth vanishes. Fix: partial lid, gentle simmer."),
     ],
     plating: L(
-      "뚝배기나 낮은 냄비 그대로 상에 올리고, 대파를 마지막에 뿌려 보글보글하는 상태로 냅니다. 밥·계란후라이·김치를 곁들이면 한 상입니다.",
-      "Serve bubbling in a ttukbaegi or low pot with scallion scattered at the end. Pair with rice, a fried egg, and extra kimchi.",
+      "뚝배기나 낮은 냄비 그대로 상에 올리고 대파를 마지막에 뿌려 보글보글한 상태로 냅니다. 밥·계란후라이·여분 김치가 한 상입니다.",
+      "Serve bubbling in a ttukbaegi or low pot; scallion at the end. Rice, a fried egg, and extra kimchi complete the table.",
     ),
     substitutions: [
-      L("돼지고기 대신 참치캔 1개, 스팸 150g, 또는 버섯 200g.", "Use 1 can tuna, 150 g spam, or 200 g mushrooms instead of pork."),
+      L("돼지고기 대신 참치캔 1개, 스팸 150g, 또는 버섯 200g.", "1 can tuna, 150 g spam, or 200 g mushrooms instead of pork."),
       L("육수 대신 물 3컵 + 다시다 ½작은술.", "Water 3 cups plus ½ tsp dashida if you lack stock."),
     ],
     storage: L(
-      "식혀 밀폐 후 냉장 3일. 다시 끓여 데웁니다. 두부는 데울 때 살살.",
-      "Cool, refrigerate up to 3 days, and reboil to reheat. Handle tofu gently so it doesn’t fall apart.",
+      "식혀 밀폐 후 냉장 3일. 다시 끓여 데웁니다. 두부는 살살.",
+      "Cool, refrigerate up to 3 days, and reboil to reheat. Handle tofu gently.",
     ),
   },
   "bulgogi": {
     intro: L(
-      "얇은 등심 500g(약 1.1lb)을 간장 4큰술·설탕 2큰술·참기름 1큰술·마늘·양파에 최소 30분(가능하면 2시간) 재워 센 불에 1–2분씩 나눠 굽는 집밥 BBQ입니다. 배나 양파의 단맛이 육질을 부드럽게 하고, 팬에 한꺼번에 넣지 않는 것이 이 버전의 핵심입니다.",
-      "Thin ribeye (500 g / 1.1 lb) marinates at least 30 minutes (up to 2 hours) in 4 tbsp soy, 2 tbsp sugar, 1 tbsp sesame oil, garlic, and onion, then sears hot in 1–2 minute batches. Pear or onion sugar tenderizes; cooking in batches — not crowding — is what makes this version brown instead of stew.",
+      "집밥 불고기의 기술은 ‘얇게 + 배치 굽기’입니다. 등심 500g(1.1lb)을 2–3mm로 썰어 간장 4큰술·설탕 2큰술·참기름 1큰술·마늘·양파(선택 배 2큰술)에 최소 30분(가능하면 2시간) 재운 뒤, 센 불 팬에 한꺼번에 넣지 말고 1–2분씩 나눠 구워 캐러멜만 남깁니다. 삶아지듯 익히면 불고기가 아닙니다.",
+      "Home bulgogi is thin slices + batch searing. Slice 500 g / 1.1 lb ribeye 2–3 mm, marinate at least 30 minutes (up to 2 hours) in 4 tbsp soy, 2 tbsp sugar, 1 tbsp sesame oil, garlic, onion (optional 2 tbsp grated pear), then sear hot in 1–2 minute batches. If it stews in its own liquid, it is no longer bulgogi.",
+    ),
+    ingredientSelect: L(
+      "등심·차돌처럼 결이 곱고 지방이 얇게 박힌 부위. 미리 썰린 ‘불고기용’도 가능하되 두께가 5mm 넘으면 직접 더 썰거나 두드려 주세요. 간장은 양조간장, 배는 무른 배(또는 사과) — 아삭한 배는 당분이 덜합니다.",
+      "Choose finely grained ribeye or similar with thin fat seams. Store-sliced ‘bulgogi cut’ works if under ~5 mm; thicker pieces need another pass. Brewed soy sauce; soft ripe pear (or apple) — crisp underripe fruit sweetens less.",
+    ),
+    doneness: L(
+      "고기는 겉면이 밤색으로 그을리고 윤기 있는 양념이 얇게 붙어야 합니다. 식감은 질기지 않고 단짠이 먼저, 참기름 향이 뒤에 옵니다. 육즙이 팬에 흥건하면 덜 줄인 상태 — 자작한 글레이즈까지 30–60초 더.",
+      "Beef should be chestnut-brown with a thin glossy glaze. Tender chew; sweet-salty first, sesame after. If juice floods the pan, cook 30–60 seconds more until it clings.",
     ),
     tips: [
-      L("고기는 살짝 언 상태(15–20분 냉동)에서 썰면 2–3mm로 균일하게 썰립니다.", "Slice beef after 15–20 minutes in the freezer for even 2–3 mm cuts."),
-      L("양념에 간 배 2큰술을 넣으면 육질이 더 부드러워집니다.", "2 tbsp grated pear in the marinade makes the beef especially tender."),
-      L("타이밍: 재우기 30분+ → 배치당 1–2분 볶기 → 양념 줄이기 1분.", "Timing: marinate 30+ min → 1–2 min per batch → 1 min to glaze."),
+      L("15–20분 살짝 얼리면 2–3mm로 균일하게 썰립니다.", "15–20 minutes in the freezer makes even 2–3 mm slices easy."),
+      L("타이밍: 재우기 30분+ → 배치당 1–2분 → 글레이즈 1분.", "Timing: marinate 30+ min → 1–2 min per batch → 1 min to glaze."),
+      L("양파를 고기와 같이 재우면 단맛·수분이 함께 나옵니다.", "Marinating onion with the beef adds sweetness and moisture together."),
     ],
     commonMistakes: [
-      L("고기를 한 번에 몰아넣기 — 물이 나와 삶아지듯 익습니다.", "Crowding the pan — meat stews in its own liquid."),
-      L("두꺼운 고기 — 양념이 안 배이고 질겨집니다. 얇게.", "Thick slices — marinade won’t penetrate and chew toughens."),
-      L("약한 불 — 캐러멜이 안 생깁니다. 팬이 뜨거울 때 넣으세요.", "Low heat — no caramelization. Wait until the pan is ripping hot."),
+      L("한 번에 몰아넣기 → 삶아짐. 고치기: 팬 면적의 절반만 채우기.", "Crowding → stewing. Fix: fill only half the pan each batch."),
+      L("두꺼운 고기 → 양념 안 배임. 고치기: 2–3mm 또는 고기망치.", "Thick slices → marinade stays surface-level. Fix: 2–3 mm or pound thin."),
+      L("약한 불 → 회색빛. 고치기: 팬이 연기가 나기 직전일 때 투입.", "Low heat → gray meat. Fix: wait until the pan is nearly smoking."),
     ],
     plating: L(
-      "접시에 고기를 얇게 펼치고 통깨·대파를 뿌립니다. 상추·깻잎·쌈장·밥을 옆에 두면 가족 식탁의 주인공이 됩니다.",
-      "Fan the beef thinly; finish with sesame seeds and scallion. Set lettuce, perilla, ssamjang, and rice beside it for wraps.",
+      "접시에 얇게 펼치고 통깨·대파. 상추·깻잎·쌈장·밥을 옆에 두면 가족 식탁 중심이 됩니다.",
+      "Fan thinly; sesame and scallion on top. Lettuce, perilla, ssamjang, and rice turn it into the table centerpiece.",
     ),
     substitutions: [
       L("소고기 대신 닭 허벅지살 500g 또는 포토벨로 4개.", "Chicken thigh 500 g or 4 portobello caps."),
-      L("설탕 대신 꿀 1½큰술 또는 메이플 시럽.", "Honey 1½ tbsp or maple instead of sugar."),
+      L("설탕 대신 꿀 1½큰술 또는 메이플.", "Honey 1½ tbsp or maple instead of sugar."),
     ],
     storage: L(
-      "익힌 불고기 냉장 3일. 재운 생고기 냉장 1일 또는 양념과 함께 냉동 1개월.",
-      "Cooked bulgogi keeps 3 days refrigerated. Raw marinated beef: 1 day fridge or 1 month frozen in marinade.",
+      "익힌 것 냉장 3일. 재운 생고기 냉장 1일 또는 양념과 냉동 1개월.",
+      "Cooked: 3 days fridge. Raw marinated: 1 day fridge or 1 month frozen in marinade.",
     ),
   },
   "japchae": {
     intro: L(
-      "당면 200g을 6–8분 삶아 찬물에 헹군 뒤, 시금치·당근·버섯을 각각 볶아 간장 3큰술·참기름 1큰술로 버무리는 잔치·도시락용 잡채입니다. 면을 과하게 익히지 않고, 채소를 마지막에 합치는 것이 이 버전의 식감 비결입니다.",
-      "Japchae for celebrations and lunchboxes: boil 200 g sweet-potato noodles 6–8 minutes, rinse cold, then toss with separately sautéed spinach, carrot, and mushrooms plus 3 tbsp soy and 1 tbsp sesame oil. Slightly undercooked noodles and late mixing keep the chew and color.",
+      "잡채의 식감은 ‘당면을 덜 익히고, 채소는 따로, 마지막에만 버무림’에서 나옵니다. 당면 200g을 6–8분 삶아 찬물 헹군 뒤, 시금치·당근·버섯을 각 2–3분 볶고 간장 3큰술·참기름 1큰술로 큰 볼에서 살살 섞습니다. 면과 채소를 오래 함께 볶으면 색이 탁해지고 면이 붙습니다.",
+      "Japchae chew comes from slightly undercooked noodles, separate vegetable sautés, and a late toss. Boil 200 g sweet-potato noodles 6–8 minutes, rinse cold, sauté spinach/carrot/mushrooms 2–3 minutes each, then gently dress with 3 tbsp soy and 1 tbsp sesame oil in a large bowl. Long stir-frying noodles with veg dulls color and clumps the strands.",
+    ),
+    ingredientSelect: L(
+      "당면은 굵기가 중간인 고구마 전분면(투명해지는 것). 너무 가는 면은 쉽게 퍼집니다. 시금치는 어린잎, 표고는 갓이 두툼한 것. 간장은 왜간장·양조간장 모두 가능하되 진한 국간장이면 양을 ⅔로.",
+      "Medium-width sweet-potato starch noodles that turn translucent — ultra-thin ones overcook fast. Tender spinach; thick-capped shiitake. Brewed soy is fine; if using dark soup soy, start at ⅔ the amount.",
+    ),
+    doneness: L(
+      "면은 투명하고 탄력 있으며 이빨에 살짝 걸려야 합니다. 채소는 숨만 죽고 선명한 색. 맛은 간장·참기름이 고르게 배되 짜지 않고, 식혀도 면이 한 덩어리로 굳지 않아야 합니다.",
+      "Noodles translucent with bounce and a slight bite; vegetables wilted but vivid. Soy-sesame should coat evenly without salt shock; cooled noodles should still separate, not cement.",
     ),
     tips: [
-      L("당면은 ‘살짝 덜 익은’ 느낌이 알맞습니다. 양념 후 조금 더 불습니다.", "Undercook noodles slightly — they swell after dressing."),
-      L("채소는 숨만 죽이고(각 2–3분), 당면과 큰 볼에서 손으로 살살.", "Wilt vegetables lightly (2–3 min each); toss gently by hand in a large bowl."),
-      L("차게 먹을 때는 참기름 ½큰술을 더 둘러 주세요.", "For cold servings, add an extra ½ tbsp sesame oil."),
+      L("당면은 ‘살짝 덜 익은’ 느낌이 정답 — 양념 후 조금 더 붑니다.", "Undercook noodles slightly — they swell after dressing."),
+      L("뜨거울 때 참기름을 먼저, 간장 나중 — 면 붙음 방지.", "Oil first while warm, soy second — prevents clumping."),
+      L("차게 낼 때는 참기름 ½큰술을 더 둘러 주세요.", "For cold servings, add an extra ½ tbsp sesame oil."),
     ],
     commonMistakes: [
-      L("당면을 푹 삶기 — 버무리면 퍼져 끈적해집니다.", "Overboiling noodles — they turn gluey once dressed."),
-      L("뜨거울 때 간장만 들이붓기 — 면이 서로 붙습니다. 참기름을 먼저.", "Pouring soy onto hot bare noodles — they clump. Oil first."),
-      L("채소를 면과 오래 볶기 — 색이 탁해집니다. 버무리기만.", "Long stir-frying veg with noodles — colors dull. Toss only."),
+      L("당면 푹 삶기 → 끈적. 고치기: 패키지보다 1분 일찍 건지기.", "Overboiling → glue. Fix: drain 1 minute early."),
+      L("뜨거운 면에 간장만 → 뭉침. 고치기: 참기름 선코팅.", "Soy on bare hot noodles → clumps. Fix: oil coat first."),
+      L("채소·면 장시간 볶음 → 탁한 색. 고치기: 볼에서 버무리기만.", "Long wok time with veg → dull color. Fix: toss only in a bowl."),
     ],
     plating: L(
-      "긴 접시에 면을 느슨히 담고 채소 색이 보이게 펼칩니다. 통깨는 살짝만 뿌리고, 필요하면 계란지단 채를 올립니다.",
-      "Loosen noodles on a long platter so vegetable colors show. Sprinkle sesame seeds lightly; optional egg strips on top.",
+      "긴 접시에 면을 느슨히 펼쳐 채소 색이 보이게. 통깨는 살짝, 선택으로 계란지단 채.",
+      "Loosen on a long platter so colors show. Light sesame; optional egg strips.",
     ),
     substitutions: [
-      L("소고기 없이 버섯·두부만으로 채식 잡채.", "Skip beef; use mushrooms or tofu for a vegetarian version."),
+      L("소고기 없이 버섯·두부만으로 채식 잡채.", "Skip beef; mushrooms or tofu for vegetarian japchae."),
       L("당면 대신 쌀국수(식감은 달라짐).", "Rice noodles work in a pinch with a different chew."),
     ],
     storage: L(
-      "밀폐 냉장 3일. 전자레인지에 살짝 데우거나 팬에 참기름과 함께 볶아 데웁니다.",
-      "Airtight in the fridge 3 days. Reheat gently in the microwave or a skillet with sesame oil.",
+      "밀폐 냉장 3일. 전자레인지 또는 팬에 참기름과 함께 살짝 데움.",
+      "Airtight fridge 3 days. Reheat gently in microwave or skillet with sesame oil.",
     ),
   },
   "tteokbokki": {
     intro: L(
-      "가래떡 400g을 미지근한 물에 10분 불린 뒤, 육수 2컵·고추장 2큰술·고춧가루 1큰술로 8–10분 조리는 집밥 떡볶이입니다. 국물이 ‘자작하게 떡에 붙는’ 농도까지 줄이는 것이 목표이며, 어묵은 마지막 2–3분에 넣습니다.",
-      "Home tteokbokki: soak 400 g rice cakes 10 minutes, then simmer in 2 cups stock with 2 tbsp gochujang and 1 tbsp gochugaru for 8–10 minutes until the sauce clings. Fish cakes join only for the last 2–3 minutes.",
+      "집 떡볶이는 ‘떡을 불린 뒤, 국물이 떡에 자작하게 붙을 때까지’가 기술입니다. 가래떡 400g을 미지근한 물에 10분 불리고, 육수 2컵(480ml)·고추장 2큰술·고춧가루 1큰술로 8–10분 조립니다. 어묵은 마지막 2–3분. 국물이 국처럼 남으면 덜 졸인 것이고, 떡만 타고 국물이 없으면 과하게 졸인 것입니다.",
+      "Home tteokbokki technique: soak, then reduce until sauce clings. Soak 400 g rice cakes 10 minutes in lukewarm water; simmer in 2 cups / 480 ml stock with 2 tbsp gochujang and 1 tbsp gochugaru for 8–10 minutes. Fish cakes join only for the last 2–3 minutes. Broth-like liquid means under-reduced; dry scorched cakes mean you went too far.",
+    ),
+    ingredientSelect: L(
+      "가래떡은 냉장·냉동 모두 가능하되 단단하면 반드시 불리기. 너무 가는 ‘궁중 떡’은 빨리 퍼지니 일반 분식용 굵기가 다루기 쉽습니다. 고추장은 단맛 있는 제품, 고춧가루는 보통 매운맛. 육수는 멸치·다시마가 분식 맛에 가깝습니다.",
+      "Cylinder rice cakes (fridge or frozen) — always soak if hard. Ultra-thin ‘royal’ cakes overcook fast; standard snack-shop thickness is easier. Sweet-leaning gochujang; medium gochugaru. Anchovy-kelp stock tastes closest to street stalls.",
+    ),
+    doneness: L(
+      "떡은 겉이 윤기 있고 속까지 말랑하며, 소스는 숟가락을 따라 천천히 흐를 농도. 맛은 매콤달콤하고 약간의 감칠맛; 쓴맛·탄 맛이 나면 불을 줄이고 물 2큰술을 넣어 풀어요.",
+      "Cakes glossy outside and soft through the center; sauce should ribbon slowly off a spoon. Sweet-heat with savoriness — bitterness or scorch means lower heat and loosen with 2 tbsp water.",
     ),
     tips: [
-      L("떡이 단단하면 반드시 불려 사용. 냉동 떡도 동일.", "Always soak hard or frozen cakes until pliable."),
-      L("국물이 너무 줄면 물 2–3큰술씩 추가해 농도만 맞춥니다.", "If the sauce reduces too far, splash in 2–3 tbsp water."),
-      L("마지막에 버터 ½작은술을 넣으면 국물이 윤기 납니다.", "½ tsp butter at the end adds gloss."),
+      L("국물이 너무 줄면 물 2–3큰술씩 추가해 농도만 맞춥니다.", "If sauce reduces too far, splash in 2–3 tbsp water."),
+      L("마지막 버터 ½작은술은 선택 — 윤기와 부드러운 끝맛.", "Optional ½ tsp butter at the end for gloss and a softer finish."),
+      L("가끔 저어 떡이 바닥에 눌어붙지 않게 합니다.", "Stir occasionally so cakes don’t stick and scorch."),
     ],
     commonMistakes: [
-      L("불리지 않은 떡 — 겉만 익고 속은 딱딱합니다.", "Unsoaked cakes — soft outside, hard inside."),
-      L("처음부터 어묵·라면을 넣기 — 국물이 탁하고 밀가루 맛이 납니다.", "Adding fish cake or ramen from the start — cloudy, starchy sauce."),
-      L("뚜껑을 닫고 방치 — 떡이 서로 붙습니다. 가끔 저어 주세요.", "Covering and walking away — cakes stick. Stir occasionally."),
+      L("불리지 않은 떡 → 겉만 익고 속 딱딱. 고치기: 10분 불리기.", "Unsoaked cakes → hard cores. Fix: soak 10 minutes."),
+      L("처음부터 어묵·라면 → 국물 탁해짐. 고치기: 마지막 2–3분.", "Fish cake/ramen from the start → cloudy starch. Fix: last 2–3 minutes."),
+      L("뚜껑 닫고 방치 → 떡 뭉침. 고치기: 열어 두고 저어 주기.", "Covered and ignored → stuck cakes. Fix: lid off, stir."),
     ],
     plating: L(
-      "깊은 그릇에 떡과 국물을 함께 담고 대파·참깨를 올립니다. 치열한 분식 느낌보다 ‘윤기 나는 한 그릇’이 목표입니다.",
-      "Serve cakes and sauce together in a deep bowl with scallion and sesame. Aim for a glossy one-bowl look, not a dried-out street-stall pile.",
+      "깊은 그릇에 떡과 소스를 함께, 대파·참깨. ‘윤기 나는 한 그릇’이 목표입니다.",
+      "Deep bowl with cakes and sauce together; scallion and sesame. Aim for glossy one-bowl, not a dried pile.",
     ),
     substitutions: [
-      L("고추장 대신 칠리페이스트 1½큰술 + 된장 ½큰술.", "1½ tbsp chili paste plus ½ tbsp doenjang can approximate gochujang."),
+      L("고추장 대신 칠리페이스트 1½큰술 + 된장 ½큰술.", "1½ tbsp chili paste + ½ tbsp doenjang approximates gochujang."),
       L("떡 대신 당면이나 우동면.", "Glass noodles or udon can stand in for rice cakes."),
     ],
     storage: L(
-      "식후 바로 먹는 게 최선. 남으면 냉장 1일, 데울 때 물을 조금 넣어 풀어 줍니다.",
-      "Best eaten immediately. Leftovers: 1 day fridge; reheat with a splash of water. Cakes firm up quickly.",
+      "바로 먹는 게 최선. 남으면 냉장 1일, 데울 때 물을 조금 넣어 풉니다.",
+      "Best immediate. Leftovers: 1 day fridge; reheat with a splash of water.",
+    ),
+  },
+  "kimbap": {
+    intro: L(
+      "김밥 단면이 예쁜 이유는 ‘속 재료를 얇고 물기 없이, 밥은 미지근할 때’ 말기 때문입니다. 밥은 뜨거울 때 참기름·소금으로 간하고, 김이 빠질 때까지 기다린 뒤 단무지·당근·시금치·계란·햄(또는 두부)을 과하게 넣지 말고 말아 2cm 두께로 썹니다. 뜨거운 밥으로 말면 김이 찢깁니다.",
+      "Clean kimbap spirals come from thin, dry fillings and rolling while rice is only warm. Season rice with sesame oil and salt while hot, wait until steam fades, then roll without overfilling pickled radish, carrot, spinach, egg, and ham or tofu. Slice ~2 cm. Hot rice tears the nori.",
+    ),
+    ingredientSelect: L(
+      "김은 구운 김밥용(두껍고 향이 고소한 것). 밥은 식은 후에도 찰진 흰 멥쌀. 단무지는 시판 노란 단무지가 수분을 예측하기 쉽고, 시금치·당근은 볶은 뒤 꼭 짜서 물기를 제거하세요.",
+      "Use roasted kimbap nori (thicker, toasty). Short-grain rice that stays sticky when cool. Store-bought danmuji is predictable; squeeze spinach and carrot dry after cooking.",
+    ),
+    doneness: L(
+      "말은 김이 팽팽하고 밥이 밖으로 삐져나오지 않아야 합니다. 썰면 속이 중심으로 모인 나선형. 맛은 참기름·단무지 단짠이 먼저, 채소 아삭함이 뒤에. 김이 축축하면 밥이 너무 뜨거웠거나 속 물기가 남은 것입니다.",
+      "Rolls should feel taut with no rice leaking. Cross-sections show a centered spiral. Taste: sesame and pickle first, crunch after. Soggy nori means rice was too hot or fillings too wet.",
+    ),
+    tips: [
+      L("칼날에 참기름을 바르면 밥이 덜 붙습니다.", "Oil the knife between cuts for clean slices."),
+      L("김발에 랩을 씌우면 청소가 쉽고 압력이 고릅니다.", "Line the bamboo mat with plastic wrap for even pressure and easy cleanup."),
+      L("재료는 길이를 김 폭에 맞춰 미리 잘라 두면 말이 단단해집니다.", "Pre-cut fillings to nori width so the roll stays tight."),
+    ],
+    commonMistakes: [
+      L("속 과다 → 김 터짐. 고치기: 재료를 김 면적의 ⅔만.", "Overfilling → split nori. Fix: fill only ⅔ of the sheet width."),
+      L("뜨거운 밥 → 김 축축·찢김. 고치기: 미지근할 때까지 대기.", "Hot rice → soggy/tearing nori. Fix: wait until just warm."),
+      L("물기 미제거 → 질척한 밥. 고치기: 채소를 면보로 짜기.", "Wet fillings → mushy rice. Fix: wring vegetables in a towel."),
+    ],
+    plating: L(
+      "2cm로 썰어 단면이 보이게 엇갈려 담고 통깨를 살짝.",
+      "Slice ~2 cm, stagger so spirals show, light sesame sprinkle.",
+    ),
+    substitutions: [
+      L("햄 대신 불고기·참치·크림치즈.", "Bulgogi, tuna, or cream cheese fillings."),
+      L("현미밥·퀴노아로 건강식(찰기가 덜함).", "Brown rice or quinoa for a lighter roll (less sticky)."),
+    ],
+    storage: L(
+      "실온 반나절. 냉장 시 밥이 굳으니 먹기 전 상온 10분. 냉동 후 전자레인지 해동 가능.",
+      "Room temp half a day. From the fridge, rest 10 minutes before eating. Freeze and microwave if needed.",
     ),
   },
   "kung-pao-chicken": {
     intro: L(
-      "전분으로 코팅한 닭을 센 불에 빠르게 볶고, 마른 고추·산초·땅콩으로 마감하는 집밥형 쿵파오입니다. 소스는 달콤·짭짤·살짝 신맛의 균형을 맞추며, 평일 저녁 밥 위에 올리기 좋게 한 팬으로 끝냅니다.",
-      "Home kung pao: starch-velveted chicken seared hot and fast, finished with dried chilies, Sichuan peppercorn, and peanuts. The sauce balances sweet, salty, and lightly tart — a one-wok weeknight rice bowl.",
+      "쿵파오의 집밥 기술은 ‘전분 벨벳팅 + 센 불 짧은 볶음’입니다. 닭을 전분·약간 간장에 재워 표면을 보호한 뒤, 마른 고추·산초 향만 낸 웍에서 빠르게 볶고 달콤·짭짤·살짝 신 소스로 30–60초 코팅합니다. 땅콩은 마지막 30초 — 처음부터 넣으면 불리거나 탑니다. 평일 저녁 한 팬, 밥 위에 올리기 좋은 분량입니다.",
+      "Home kung pao is starch velveting plus a short, ripping-hot stir-fry. Velvet chicken in starch and a splash of soy, flash-fry in a wok perfumed with dried chilies and Sichuan pepper, then coat 30–60 seconds in a sweet-salty-tart sauce. Peanuts only in the last 30 seconds. One-wok weeknight rice-bowl portions.",
+    ),
+    ingredientSelect: L(
+      "닭은 허벅지살이 촉촉합니다(가슴살이면 재우기를 정확히). 산초는 향이 살아 있는 통알 — 가루만 있으면 맨 마지막에. 마른 고추는 씨 일부를 털어 매운맛 조절. 땅콩은 이미 구운·무염이 다루기 쉽습니다.",
+      "Thigh meat stays juicier (breast needs precise velveting). Whole Sichuan peppercorns with aroma — if only powder, add at the very end. Shake seeds from dried chilies to dial heat. Roasted unsalted peanuts are easiest.",
+    ),
+    doneness: L(
+      "닭은 겉면이 살짝 그을리고 속은 분홍 없이 촉촉. 소스는 팬에 흥건하지 않고 재료에 붙어 윤기가 납니다. 맛은 단짠 뒤 산초의 얼얼함, 땅콩 고소함. 쓴맛이 나면 산초·고추를 태운 것입니다.",
+      "Chicken lightly browned outside, moist and opaque inside. Sauce clings glossy, not puddled. Sweet-salty first, then peppercorn tingle and peanut. Bitterness means scorched chili or pepper.",
     ),
     tips: [
-      L("산초는 너무 오래 볶으면 써지니 향만 내고 약하게.", "Don’t burn Sichuan pepper — toast briefly for aroma."),
-      L("팬이 충분히 뜨거울 때 닭을 넣어 물기가 생기지 않게 합니다.", "Use a ripping-hot wok so the chicken sears."),
-      L("땅콩은 마지막 30초에 넣어 바삭함을 유지하세요.", "Add peanuts in the last 30 seconds so they stay crunchy."),
+      L("팬이 충분히 뜨거울 때 닭을 넣어 물이 생기지 않게 합니다.", "Wait for a ripping-hot wok so chicken sears, not steams."),
+      L("소스는 미리 컵에 섞어 두고 볶는 동안 계량하지 않습니다.", "Premix sauce in a cup — no measuring mid-stir-fry."),
+      L("산초는 향만 내고 건져도 됩니다 — 오래 볶으면 씁니다.", "Toast peppercorns briefly for aroma; pull them if they risk burning."),
     ],
     commonMistakes: [
-      L("약한 불에서 오래 볶기 — 닭이 질기고 소스가 물려집니다.", "Low-and-slow stir-fry — tough chicken and watery sauce."),
-      L("산초를 태우기 — 쓴맛만 남습니다.", "Burning peppercorns — only bitterness left."),
-      L("땅콩을 처음부터 넣기 — 불리거나 타기 쉽습니다.", "Peanuts from the start — soggy or scorched."),
+      L("약한 불 긴 볶음 → 질긴 닭·물은 소스. 고치기: 불 높이고 배치.", "Low-and-slow → tough chicken, watery sauce. Fix: higher heat, batches."),
+      L("산초 태움 → 쓴맛. 고치기: 10–15초만 향 피우기.", "Burning peppercorns → bitter. Fix: 10–15 seconds aroma only."),
+      L("땅콩 초반 투입 → 축축/탄맛. 고치기: 마지막 30초.", "Peanuts early → soggy or scorched. Fix: last 30 seconds."),
     ],
     plating: L(
-      "흰 밥 위에 볶음을 올리고 대파·땅콩이 보이게 합니다. 마른 고추는 먹어도 되지만 장식처럼 올려도 됩니다.",
-      "Spoon over white rice so scallion and peanuts show. Dried chilies can be eaten or left as garnish.",
+      "흰 밥 위에 볶음을 올리고 대파·땅콩이 보이게. 마른 고추는 먹거나 장식으로.",
+      "Spoon over white rice so scallion and peanuts show. Dried chilies are edible or garnish.",
     ),
     substitutions: [
       L("닭 대신 두부·새우.", "Tofu or shrimp work well."),
-      L("산초가 없으면 후추+칠리플레이크(맛은 달라짐).", "No Sichuan pepper? Black pepper + chili flakes (different heat)."),
+      L("산초 없으면 후추+칠리플레이크(맛은 다름).", "No Sichuan pepper? Black pepper + chili flakes (different heat)."),
     ],
     storage: L(
-      "냉장 2일. 팬에 빠르게 데우거나 전자레인지. 땅콩은 따로 보관하면 더 바삭합니다.",
-      "Fridge 2 days. Reheat in a hot pan or microwave. Store peanuts separately for crunch.",
+      "냉장 2일. 팬에 빠르게 데우기. 땅콩은 따로 두면 더 바삭.",
+      "Fridge 2 days. Reheat in a hot pan. Store peanuts separately for crunch.",
     ),
   },
   "mapo-tofu": {
     intro: L(
-      "부드러운 두부와 두반장·산초의 얼얼함을 밥에 비벼 먹는 쓰촨 집밥입니다. 매운맛은 두반장 양으로 조절하고, 마지막 산초가루가 ‘마(麻)’를 완성합니다. 국물처럼 자작한 소스가 목표입니다.",
-      "Silky tofu in doubanjiang sauce with Sichuan tingle — mapo meant for rice. Dial heat with the bean paste; finish with ground Sichuan pepper for the classic ‘ma’. Aim for a saucy, spoonable consistency.",
+      "마파두부는 ‘두반장으로 베이스를 만들고, 두부는 중불에서 살살, 산초는 마지막’이 기술입니다. 다진 고기를 볶아 두반장·고춧가루로 붉은 소를 만든 뒤 육수를 더하고, 두부 한 모를 큰 덩어리로 넣어 4–5분 자작하게 익힙니다. 전분물로 농도를 맞춘 다음 산초가루로 ‘마(麻)’를 올립니다. 국물 없이 바싹 졸이면 밥과 안 맞습니다.",
+      "Mapo technique: build a doubanjiang base, handle tofu gently on medium heat, finish with Sichuan pepper. Brown minced meat, fry bean paste and chili, add stock, then simmer large tofu cubes 4–5 minutes. Thicken with slurry, then add ground pepper for ‘ma’. A dry reduction will not hug rice.",
+    ),
+    ingredientSelect: L(
+      "두반장은 郫县(비현) 스타일처럼 발효 향이 있는 제품이 깊습니다. 두부는 연두부·순두부보다 부침용 연한 두부가 형태 유지에 유리. 산초는 갓 간 가루가 향이 셉니다. 고기는 돼지가 정석, 없으면 소고기 다짐.",
+      "Doubanjiang with real fermented depth (Pixian-style if you can find it). Soft tofu that still holds cubes beats silken. Freshly ground Sichuan pepper is louder than pre-ground. Pork is classic; beef mince works.",
+    ),
+    doneness: L(
+      "소스는 숟가락으로 떠서 밥 위에 흐를 정도의 자작함. 두부는 형태를 유지하되 입에서 바로 부셔집니다. 맛은 짠매움 위에 산초 얼얼함이 퍼지고, 기름 붉은 점이 표면에 보여야 합니다.",
+      "Sauce should be spoonable and flow over rice. Tofu holds shape but collapses on the tongue. Salty heat first, then numbing tingle; red oil dots on the surface are a good sign.",
     ),
     tips: [
-      L("두부는 중불에서 살살 저어 형태를 유지합니다.", "Stir gently over medium heat so tofu stays intact."),
-      L("전분물로 농도를 맞춘 뒤 산초를 뿌립니다.", "Thicken with slurry, then finish with Sichuan pepper."),
-      L("타이밍: 고기 볶기 3분 → 소스 2분 → 두부 4–5분.", "Timing: meat 3 min → sauce 2 → tofu 4–5."),
+      L("타이밍: 고기 3분 → 소스 2분 → 두부 4–5분 → 전분·산초.", "Timing: meat 3 min → sauce 2 → tofu 4–5 → slurry and pepper."),
+      L("두부는 뒤집기보다 팬을 흔들어 움직입니다.", "Shake the pan instead of stirring hard."),
+      L("산초는 불 끈 뒤 또는 아주 약불에서.", "Add Sichuan pepper off heat or on the lowest flame."),
     ],
     commonMistakes: [
-      L("두부를 격하게 저어 으깨기.", "Stirring tofu hard until it crumbles."),
-      L("산초를 볶음 초반에 넣기 — 향이 날아갑니다.", "Adding peppercorn early — aroma cooks off."),
-      L("소스 없이 바싹 졸이기 — 밥과 안 어울립니다.", "Reducing dry — it needs sauce for rice."),
+      L("두부 격하게 저음 → 으깨짐. 고치기: 주걱으로 밀지 말기.", "Hard stirring → crumbled tofu. Fix: don’t push with a spatula."),
+      L("산초 초반 → 향 소실. 고치기: 맨 마지막.", "Pepper early → aroma gone. Fix: very end."),
+      L("바싹 졸임 → 밥과 안 맞음. 고치기: 육수 조금 더.", "Cooking dry → won’t coat rice. Fix: splash more stock."),
     ],
     plating: L(
-      "깊은 그릇에 담고 산초가루·대파·고추기름을 점처럼 올립니다. 밥은 옆에 따로.",
-      "Serve in a deep bowl with Sichuan pepper, scallion, and a few drops of chili oil. Rice on the side.",
+      "깊은 그릇에 담고 산초·대파·고추기름을 점처럼. 밥은 옆에 따로.",
+      "Deep bowl; Sichuan pepper, scallion, chili-oil dots. Rice on the side.",
     ),
     substitutions: [
-      L("고기 없이 표고·팽이로 채식 마파.", "Shiitake and enoki for a meatless mapo."),
-      L("순두부 대신 부침용 연두부를 쓰면 형태가 더 잘 유지됩니다.", "Soft (not silken) tofu holds shape better."),
+      L("고기 없이 표고·팽이로 채식 마파.", "Shiitake and enoki for meatless mapo."),
+      L("순두부 대신 부침용 연두부 — 형태가 더 잘 유지됩니다.", "Soft (not silken) tofu holds shape better."),
     ],
     storage: L(
-      "냉장 2일. 약불에 살살 데웁니다. 산초는 먹기 직전에 다시 조금 뿌리면 좋습니다.",
+      "냉장 2일. 약불에 살살 데움. 산초는 먹기 직전 한 꼬집 더.",
       "Fridge 2 days. Reheat gently. A fresh pinch of Sichuan pepper at the table helps.",
     ),
   },
   "spaghetti-carbonara": {
     intro: L(
-      "계란·치즈·구운 구안찰레(또는 판체타)의 유화 소스로 면을 코팅하는 로마식 집밥입니다. 불 위에서 계란을 익히지 않고, 면수 전분으로 크림처럼 만드는 것이 이 버전의 핵심입니다. 생크림은 쓰지 않습니다.",
-      "Roman-style carbonara coats pasta in an emulsion of egg, cheese, and rendered guanciale or pancetta — no cream. The trick is off-heat emulsifying with starchy pasta water so the sauce turns silky, not scrambled.",
+      "카르보나라의 유일한 기술은 ‘불 위에서 계란을 익히지 않는 유화’입니다. 구안찰레(또는 판체타)를 5–7분 렌더링하고, 면을 삶아 면수 ½컵을 남긴 뒤, 불을 끈 팬에서 계란+페코리노를 면수 전분으로 30초 안에 크림처럼 만듭니다. 생크림은 쓰지 않습니다. 스크램블이 되는 순간 실패입니다.",
+      "Carbonara’s technique is one move: emulsify egg and cheese off heat. Render guanciale or pancetta 5–7 minutes, boil pasta, reserve ½ cup water, kill the heat, and turn eggs + pecorino into silk with starchy water in about 30 seconds. No cream. Scrambled eggs mean the pan was still too hot.",
+    ),
+    ingredientSelect: L(
+      "구안찰레가 정석(향이 진함). 없으면 판체타, 그다음이 두꺼운 베이컨(연기 향은 달라짐). 치즈는 페코리노 로마노 — 파마산만 쓰면 덜 짭짤하고 덜 양젖 향. 계란은 신선하고 실온에 가까운 것이 유화에 유리합니다.",
+      "Guanciale is classic; pancetta next; thick bacon last (smokier). Pecorino Romano beats Parmesan alone for salt and sheepy bite. Room-temperature fresh eggs emulsify more reliably.",
+    ),
+    doneness: L(
+      "소스는 면에 코팅되어 흐르지 않고, 노란빛이 균일하며 알갱이(스크램블)가 없어야 합니다. 맛은 후추·소금 치즈·돼지지방이 동시에. 너무 되직하면 면수 1큰술, 너무 묽으면 치즈를 조금 더.",
+      "Sauce should coat strands without puddling; even yellow, zero scrambled bits. Pepper, salty cheese, and pork fat at once. Too thick → 1 tbsp pasta water; too thin → a little more cheese.",
     ),
     tips: [
-      L("면수 ½컵을 미리 남겨 두고, 불을 끈 팬에서 소스를 만듭니다.", "Reserve ½ cup pasta water; build the sauce off heat."),
       L("계란+페코리노를 미리 섞어 두면 실패가 줄어듭니다.", "Whisk eggs and pecorino ahead to reduce scrambling risk."),
-      L("타이밍: 구안찰레 5–7분 → 면 삶기 → 불 끄고 30초 유화.", "Timing: render meat 5–7 min → boil pasta → kill heat and emulsify ~30 sec."),
+      L("팬이 아직도 지글거리면 10–20초 더 기다렸다가 섞으세요.", "If the pan is still sizzling, wait 10–20 seconds before adding egg."),
+      L("타이밍: 렌더 5–7분 → 면 삶기 → 불 끄고 30초 유화.", "Timing: render 5–7 → boil pasta → off heat, emulsify ~30 sec."),
     ],
     commonMistakes: [
-      L("센 불에서 계란 섞기 — 스크램블이 됩니다.", "Mixing eggs over high heat — scrambled eggs."),
-      L("생크림 추가 — 정통 질감과 다릅니다.", "Adding cream — different dish entirely."),
-      L("면수만 부족 — 소스가 덩어립니다. 조금씩 추가.", "Too little pasta water — sauce clumps. Add gradually."),
+      L("센 불에서 계란 → 스크램블. 고치기: 불 완전 OFF.", "Eggs on high heat → scramble. Fix: heat fully off."),
+      L("생크림 추가 → 다른 요리. 고치기: 면수+치즈만.", "Adding cream → different dish. Fix: pasta water + cheese only."),
+      L("면수 부족 → 덩어리. 고치기: 한 큰술씩 추가하며 흔들기.", "Too little water → clumps. Fix: add tbsp by tbsp while tossing."),
     ],
     plating: L(
-      "따뜻한 접시에 말고 후추를 두껍게, 페코리노를 얇게 더 뿌립니다. 바로 먹습니다.",
-      "Twirl onto a warm plate; crack plenty of black pepper and a last shower of pecorino. Eat immediately.",
+      "따뜻한 접시에 말고 후추를 두껍게, 페코리노를 한 번 더. 바로 먹습니다.",
+      "Twirl onto a warm plate; heavy black pepper and a last shower of pecorino. Eat at once.",
     ),
     substitutions: [
-      L("구안찰레 대신 판체타 또는 두꺼운 베이컨(연기 향은 달라짐).", "Pancetta or thick bacon instead of guanciale (smokier)."),
-      L("페코리노 대신 파마산 일부 혼합 가능.", "Part Parmesan can stand in for some pecorino."),
+      L("구안찰레 → 판체타 또는 두꺼운 베이컨.", "Pancetta or thick bacon instead of guanciale."),
+      L("페코리노 일부를 파마산으로 혼합 가능.", "Part Parmesan can stand in for some pecorino."),
     ],
     storage: L(
-      "바로 먹는 요리. 남으면 냉장 1일, 면수·물을 조금 넣어 약불에 풀며 데우되 질감은 떨어집니다.",
-      "Best fresh. Leftovers 1 day fridge; loosen with water over low heat — texture will suffer.",
+      "바로 먹는 요리. 남으면 냉장 1일, 물·면수로 약불에 풀되 질감은 떨어집니다.",
+      "Best fresh. Leftovers 1 day fridge; loosen with water over low heat — texture suffers.",
     ),
   },
   "pizza-margherita": {
     intro: L(
-      "토마토·모차렐라·바질만으로 토핑을 단순화한 나폴리 감성 집 피자입니다. 도우를 너무 두껍게 올리지 않고, 오븐을 가능한 한 뜨겁게(가정용 최대) 예열하는 것이 바삭한 가장자리의 비결입니다.",
-      "Margherita keeps toppings to tomato, mozzarella, and basil. Don’t overload the dough, and preheat the oven as hot as your home oven allows — that’s how you get blistered edges at home.",
+      "집 마르게리타의 기술은 ‘토핑을 얇게, 오븐을 최대로’입니다. 토마토·모차렐라·바질만 쓰고, 모차렐라 물기를 짠 뒤, 가정용 오븐 최고 온도(가능하면 스톤·스틸 45분+ 예열)에서 가장자리가 블리스터날 때까지 굽습니다. 토핑이 두꺼우면 가운데가 질척해집니다.",
+      "Home Margherita technique: light toppings, maximum heat. Tomato, mozzarella, basil only — mozzarella well drained — baked as hot as the home oven allows (stone/steel preheated 45+ minutes) until the rim blisters. Heavy toppings guarantee a soggy center.",
+    ),
+    ingredientSelect: L(
+      "도우 단백질이 너무 낮은 밀가루는 힘이 약합니다(강력·피자용 추천). 토마토는 산마르자노 또는 잘 익은 통조림을 손으로 으깬 것 — 설탕을 많이 넣은 피자소스는 밸런스가 무너집니다. 모차렐라는 신선한 것(물기 제거) 또는 저수분.",
+      "Strong or pizza flour beats low-protein all-purpose for rim structure. Tomatoes: San Marzano or good canned whole, crushed by hand — sugary jar sauce throws the balance. Fresh mozzarella (drained) or low-moisture.",
+    ),
+    doneness: L(
+      "가장자리는 호랑무늬·블리스터, 가운데는 유연하지만 물에 젖지 않음. 치즈는 녹아 얼룩덜룩하고 바질은 선명해야 합니다(오븐 직후 올리기). 맛은 토마토 산미·우유 지방·바질 향의 단순함.",
+      "Rim leopard-spotted and blistered; center flexible, not wet. Cheese mottled and melted; basil vivid (add after baking). Taste is simple: tomato acid, dairy fat, basil.",
     ),
     tips: [
       L("모차렐라는 물기를 짜고 크게 찢어 올립니다.", "Drain mozzarella well and tear into large pieces."),
-      L("바질은 오븐 직후 올려 향을 지킵니다.", "Add basil right after baking to keep aroma."),
-      L("스톤·스틸이 있으면 45분 이상 예열.", "Preheat a stone or steel at least 45 minutes."),
+      L("바질은 오븐 직후 — 일찍 넣으면 검게 집니다.", "Basil right after baking — earlier and it blackens."),
+      L("도우를 냉장고에서 천천히 발효하면 풍미가 깊어집니다.", "A slow cold ferment deepens flavor and chew."),
     ],
     commonMistakes: [
-      L("토핑을 두껍게 — 가운데가 질척해집니다.", "Heavy toppings — soggy center."),
-      L("차가운 오븐 — 도우가 빵처럼 부풉니다.", "Cold oven — bread-like rise instead of blister."),
-      L("소스에 설탕을 과하게 — 밸런스가 무너집니다.", "Over-sweetening sauce — balance collapses."),
+      L("토핑 두껍게 → 질척한 가운데. 고치기: 소스 큰술 단위로.", "Heavy toppings → soggy center. Fix: sauce by the spoon, not ladle floods."),
+      L("차가운 오븐 → 빵처럼 부풂. 고치기: 예열을 타협하지 말기.", "Cold oven → bread-like rise. Fix: don’t short the preheat."),
+      L("소스 과당 → 밸런스 붕괴. 고치기: 소금·올리브오일만.", "Over-sweet sauce → collapse. Fix: salt and olive oil only."),
     ],
     plating: L(
-      "도마나 판에 올려 바로 자르고, 올리브오일 한 바퀴와 바질 잎을 올립니다.",
-      "Slide onto a board, cut immediately, finish with a loop of olive oil and fresh basil.",
+      "도마에 올려 바로 자르고 올리브오일 한 바퀴와 바질 잎.",
+      "Board, cut immediately, loop of olive oil and fresh basil.",
     ),
     substitutions: [
-      L("신선한 모차렐라 대신 저수분 모차렐라(물기 적음).", "Low-moisture mozzarella if fresh is too wet."),
+      L("신선 모차렐라 대신 저수분(물기 적음).", "Low-moisture mozzarella if fresh is too wet."),
       L("산 마르자노 대신 잘 익은 통토마토를 으깨어 사용.", "Crushed ripe canned tomatoes if San Marzano aren’t available."),
     ],
     storage: L(
-      "실온 반나절. 냉장 시 팬이나 에어프라이어로 재바삭. 냉동 가능(소스·치즈는 질감 변화).",
-      "Room temp half a day. Re-crisp in a skillet or air fryer from the fridge. Freezing works with some texture loss.",
+      "실온 반나절. 냉장 시 팬·에어프라이어로 재바삭. 냉동은 질감 변화.",
+      "Room temp half a day. Re-crisp in skillet or air fryer from fridge. Freezing changes texture.",
     ),
   },
   "classic-cheeseburger": {
     intro: L(
-      "소고기 패티를 두껍게 뭉치지 않고, 가운데를 살짝 눌러 굽는 집밥 치즈버거입니다. 소금은 굽기 직전에, 치즈는 불 끄기 직전 30초에 올려 녹입니다. 번을 가볍게 토스트하는 것이 완성도를 가릅니다.",
-      "A home cheeseburger with a lightly pressed center so the patty cooks evenly. Salt just before the pan; melt cheese in the last 30 seconds. Toasting the bun is what separates ‘fine’ from ‘done’.",
+      "집버거의 기술은 ‘고기를 과하게 반죽하지 않고, 가운데 딤플, 번 토스트’입니다. 패티는 차갑게·팬은 뜨겁게, 소금은 굽기 직전, 치즈는 마지막 30초. 면당 약 3–4분(중간 두께). 누르면서 굽면 육즙이 빠져 건조해집니다.",
+      "Home burger technique: don’t overwork the meat, dimple the center, toast the bun. Cold patty, hot pan, salt just before cooking, cheese in the last 30 seconds. About 3–4 minutes per side for medium thickness. Pressing squeezes out juices.",
+    ),
+    ingredientSelect: L(
+      "소고기는 지방 15–20%(80/20)가 집팬에 맞습니다. 너무 リーン하면 건조합니다. 번은 감자번·브리오슈처럼 살짝 단면이 잘 토스트됩니다. 치즈는 아메리칸이 잘 녹고, 체다는 풍미가 강합니다.",
+      "Beef at 15–20% fat (80/20) suits a home skillet — leaner dries out. Potato or brioche buns toast well. American melts cleanly; cheddar brings sharper flavor.",
+    ),
+    doneness: L(
+      "겉면은 진한 갈색 크러스트, 속은 선택한 굽기에 맞게(미디엄은 연분홍). 치즈는 패티에 덮이듯 녹고, 번은 바삭한 컷팅면. 맛은 고기 풍미가 먼저, 피클·소스 산미가 뒤를 잘라 줍니다.",
+      "Deep-brown crust outside; interior to your preference (medium stays rosy). Cheese draped over the patty; bun cut faces crisp. Beef first, then pickle/sauce acidity.",
     ),
     tips: [
-      L("패티는 차갑게, 팬은 뜨겁게.", "Cold patty, hot pan."),
-      L("뒤집기는 한 번만. 누르지 말고 가운데만 살짝 딤플.", "Flip once. Don’t press — just a light center dimple."),
-      L("타이밍: 면당 3–4분(중간 두께) · 번 토스트 1분.", "Timing: 3–4 min per side (medium thickness) · bun toast 1 min."),
+      L("뒤집기는 한 번만. 가운데만 살짝 딤플.", "Flip once. Only a light center dimple — don’t smash."),
+      L("타이밍: 면당 3–4분 · 번 토스트 1분.", "Timing: 3–4 min per side · bun toast 1 min."),
+      L("조립 전에 소스·피클을 준비해 패티가 식지 않게.", "Have sauce and pickles ready so the patty doesn’t cool."),
     ],
     commonMistakes: [
-      L("고기를 과하게 반죽 — 질긴 패티.", "Overworking the meat — tough patty."),
-      L("차가운 번에 패티 — 빵이 찐득해집니다.", "Cold bun under hot patty — steamy, limp bread."),
-      L("치즈를 너무 일찍 — 흘러내려 탑핑이 무너집니다.", "Cheese too early — it slides and collapses the stack."),
+      L("고기 과반죽 → 질긴 패티. 고치기: 가법게 모아만.", "Overworking → tough patty. Fix: just gather into shape."),
+      L("차가운 번 → 찐득. 고치기: 컷팅면 토스트 필수.", "Cold bun → steamy limp bread. Fix: always toast cut faces."),
+      L("치즈 너무 일찍 → 흘러내림. 고치기: 불 끄기 30초 전.", "Cheese too early → slides off. Fix: last 30 seconds."),
     ],
     plating: L(
-      "하단 번 · 소스 · 패티+치즈 · 피클·양파 · 상추·토마토 · 상단 번. 이쑤시개로 고정해 반으로 자릅니다.",
-      "Bottom bun · sauce · patty+cheese · pickle/onion · lettuce/tomato · top bun. Skewer and halve.",
+      "하단 번 · 소스 · 패티+치즈 · 피클·양파 · 상추·토마토 · 상단 번. 이쑤시개로 고정 후 반으로.",
+      "Bottom bun · sauce · patty+cheese · pickle/onion · lettuce/tomato · top. Skewer and halve.",
     ),
     substitutions: [
       L("소고기 대신 칠면조·식물성 패티.", "Turkey or plant-based patties."),
-      L("아메리칸 치즈 대신 체다·스위스.", "Cheddar or Swiss instead of American."),
+      L("아메리칸 대신 체다·스위스.", "Cheddar or Swiss instead of American."),
     ],
     storage: L(
-      "조립 전 패티만 냉장 2일. 조립된 버거는 바로 먹는 게 최선.",
+      "조립 전 패티만 냉장 2일. 조립된 버거는 바로.",
       "Cooked patties alone: 2 days fridge. Assembled burgers are best immediately.",
     ),
   },
   "pad-thai": {
     intro: L(
-      "쌀국수를 타마린드·피시소스·팜슈가(또는 설탕) 소스에 빠르게 볶는 태국 집밥형 팟타이입니다. 면을 미리 불려 두고, 센 불에서 소스·숙주·땅콩 순으로 넣는 타이밍이 핵심입니다.",
-      "Home pad Thai tosses soaked rice noodles in a tamarind–fish sauce–palm sugar glaze over high heat. Soak noodles ahead; the order — sauce, then sprouts, then peanuts — keeps chew and crunch.",
+      "팟타이 기술은 ‘면 불림 정도와 웍 순서’입니다. 쌀국수를 심이 남게 불려 두고, 타마린드·피시소스·팜슈가(또는 설탕) 소스를 미리 섞은 뒤 센 불에서 단백질 → 면·소스 → 숙주·파·땅콩 순으로 넣습니다. 면을 푹 불리면 죽처럼 끊어집니다. 라임은 생략하지 마세요.",
+      "Pad Thai technique is soak level + wok order. Soak rice noodles with a firm core, premix tamarind–fish sauce–palm sugar (or sugar), then on high heat: protein → noodles + sauce → sprouts, scallion, peanuts. Oversoaked noodles break into mush. Do not skip the lime.",
+    ),
+    ingredientSelect: L(
+      "면은 팟타이용 중평면(약 3–5mm). 타마린드 페이스트(물로 희석)가 병당 소스보다 신맛 조절이 쉽습니다. 피시소스는 향이 깨끗한 제품. 숙주는 뿌리가 싱싱한 것 — 시들면 볶을 때 물만 나옵니다.",
+      "Medium flat rice noodles (~3–5 mm). Tamarind paste thinned with water is easier to balance than bottled pad Thai sauce. Clean-tasting fish sauce. Fresh crisp sprouts — wilted ones only water the wok.",
+    ),
+    doneness: L(
+      "면은 부드럽지만 심이 완전히 사라지지 않은 탄력. 소스는 면에 묻고 팬에 국물처럼 남지 않음. 맛은 신·단·짠이 동시에, 땅콩 고소함과 라임으로 끝. 단맛만 남으면 라임·피시소스를 조금 더.",
+      "Noodles tender with a hint of core; sauce clinging, not soupy. Sour, sweet, and salty at once, finished with peanut and lime. If only sweet remains, add lime and a splash of fish sauce.",
     ),
     tips: [
-      L("면은 패키지대로 불리되 ‘아직 심이 있는’ 상태가 좋습니다.", "Soak until pliable but still with a core — they finish in the wok."),
       L("소스를 미리 한 컵에 섞어 두면 볶는 동안 헤매지 않습니다.", "Mix the sauce in a cup before you start."),
-      L("숙주·파·땅콩은 불 끄기 직전에.", "Sprouts, scallion, and peanuts go in at the end."),
+      L("숙주·파·땅콩은 불 끄기 직전.", "Sprouts, scallion, and peanuts at the very end."),
+      L("한 번에 2인분만 — 과하면 찐 면이 됩니다.", "Cook for 2 portions max per wok — more becomes steamed noodles."),
     ],
     commonMistakes: [
-      L("면을 푹 불려 볶기 — 끊어지고 죽처럼 됩니다.", "Oversoaking noodles — they break into mush."),
-      L("약한 불 — 볶음이 아닌 찜이 됩니다.", "Low heat — steaming instead of stir-frying."),
-      L("라임을 안 짜기 — 단짠만 남고 균형이 없습니다.", "Skipping lime — only sweet-salty, no lift."),
+      L("면 과불리기 → 끊어짐. 고치기: 아직 심이 있을 때 건지기.", "Oversoaking → breakage. Fix: stop while a core remains."),
+      L("약한 불 → 찜. 고치기: 연기 직전 온도.", "Low heat → steaming. Fix: nearly smoking wok."),
+      L("라임 생략 → 단짠만. 고치기: 웨지 필수.", "Skipping lime → only sweet-salty. Fix: wedges on every plate."),
     ],
     plating: L(
-      "접시에 면을 담고 땅콩·숙주·라임 웨지·고수를 올립니다. 고추 플레이크는 테이블에.",
-      "Plate noodles with peanuts, sprouts, lime wedges, and cilantro. Chili flakes on the table.",
+      "면에 땅콩·숙주·라임·고수. 고추 플레이크는 테이블에.",
+      "Plate with peanuts, sprouts, lime, cilantro. Chili flakes on the table.",
     ),
     substitutions: [
       L("새우·두부·닭 중 선호 단백질.", "Shrimp, tofu, or chicken."),
-      L("타마린드 대신 라임+황설탕으로 비슷하게(맛은 다름).", "Lime + brown sugar approximates tamarind (different)."),
+      L("타마린드 대신 라임+황설탕(맛은 다름).", "Lime + brown sugar approximates tamarind (different)."),
     ],
     storage: L(
-      "냉장 1–2일. 팬에 물 한 스푼과 함께 빠르게 데웁니다. 숙주는 따로.",
-      "Fridge 1–2 days. Reheat fast in a pan with a spoon of water. Keep sprouts separate.",
+      "냉장 1–2일. 팬에 물 한 스푼과 함께 빠르게 데움. 숙주는 따로.",
+      "Fridge 1–2 days. Reheat fast with a spoon of water. Keep sprouts separate.",
     ),
   },
   "chicken-tikka-masala": {
     intro: L(
-      "요거트에 재운 닭을 구운 뒤, 토마토·크림 소스에 담그는 인도-영국식 집밥 커리입니다. 재우기 시간(최소 1시간, 가능하면 하룻밤)과 소스의 은은한 단맛·산미 균형이 이 버전의 포인트입니다.",
-      "Yogurt-marinated chicken is grilled or broiled, then simmered in a tomato-cream sauce — Anglo-Indian comfort. Marinate at least 1 hour (overnight better); balance the sauce gently sweet and acidic.",
+      "티카 마살라는 ‘요거트 재운 닭을 따로 구운 뒤 소스에 합치는’ 2단 기술입니다. 최소 1시간(가능하면 하룻밤) 재우고, 그릴·브로일로 12–15분 구운 다음, 토마토·크림 소스를 약불로 15분 조려 담급니다. 재우기를 건너뛰면 향이 겉에만 남고, 크림을 팔팔 끓이면 분리될 수 있습니다.",
+      "Tikka masala is a two-stage technique: yogurt-marinated chicken cooked separately, then finished in sauce. Marinate at least 1 hour (overnight better), broil/grill 12–15 minutes, simmer tomato-cream sauce gently 15 minutes, then combine. Skip the marinade and spices stay superficial; hard-boil cream and it can split.",
+    ),
+    ingredientSelect: L(
+      "닭 허벅지살이 촉촉합니다. 요거트는 플레인 전지·그릭(물기 약간 있는 것). 가람마살라는 향이 살아 있는 비교적 신선한 가루. 토마토는 패티드 또는 잘 익은 통조림 — 생토마토만 쓰면 신맛이 거칠 수 있습니다.",
+      "Thighs stay juicier. Plain full-fat or lightly drained Greek yogurt. Fresh-smelling garam masala. Tomato purée or good canned tomatoes — raw tomatoes alone can taste harsh.",
+    ),
+    doneness: L(
+      "닭은 겉에 약간의 그을림, 속은 촉촉. 소스는 주황색·분홍빛으로 윤기 있고 너무 묽지 않음. 맛은 토마토 산미·크림 부드러움·따뜻한 향신료. 가루 맛이 날면 향신료를 오일에서 더 볶았어야 합니다.",
+      "Chicken lightly charred outside, moist inside. Sauce glossy orange-pink, not watery. Tomato acid, cream softness, warm spice. Raw spice powder taste means you needed a longer bloom in oil.",
     ),
     tips: [
-      L("닭은 허벅지살이 촉촉합니다. 가슴살이면 재우기를 길게.", "Thighs stay juicier; if using breast, marinate longer."),
       L("가람마살라는 마지막에 넣어 향을 살립니다.", "Add garam masala at the end for aroma."),
       L("타이밍: 재우기 1h+ → 굽기 12–15분 → 소스 15분.", "Timing: marinate 1h+ → broil/grill 12–15 → sauce 15."),
+      L("크림은 약불에서 — 분리되면 불을 끄고 저어 회복을 시도.", "Keep cream on low heat; if it splits, kill heat and stir to recover."),
     ],
     commonMistakes: [
-      L("재우기 생략 — 향이 겉에만 남습니다.", "Skipping marinade — spices stay superficial."),
-      L("크림을 팔팔 끓이기 — 분리될 수 있습니다. 약불.", "Boiling cream hard — it can split. Keep gentle."),
-      L("소금 없이 토마토만 — 싱겁고 텁텁합니다.", "Tomato without enough salt — dull and pasty."),
+      L("재우기 생략 → 향이 겉만. 고치기: 최소 1시간.", "Skipping marinade → surface spices only. Fix: at least 1 hour."),
+      L("크림 팔팔 끓임 → 분리. 고치기: 약불·마지막 투입.", "Boiling cream hard → split. Fix: low heat, add late."),
+      L("소금 부족 → 텁텁. 고치기: 소스 간을 닭과 따로 보기.", "Under salting → pasty. Fix: season sauce on its own."),
     ],
     plating: L(
-      "깊은 그릇에 소스와 닭을 담고 고수·생크림 스월·난/밥을 곁들입니다.",
-      "Serve in a deep bowl with cilantro, a cream swirl, and naan or rice.",
+      "깊은 그릇에 소스·닭, 고수·생크림 스월, 난/밥.",
+      "Deep bowl with cilantro, cream swirl, naan or rice.",
     ),
     substitutions: [
       L("생크림 대신 코코넛밀크(맛은 달라짐).", "Coconut milk instead of cream (different profile)."),
       L("닭 대신 판니어·콜리플라워.", "Paneer or cauliflower instead of chicken."),
     ],
     storage: L(
-      "냉장 3일, 소스와 함께 냉동 1개월. 약불에 데웁니다.",
+      "냉장 3일, 소스와 냉동 1개월. 약불에 데움.",
       "Fridge 3 days; freeze in sauce 1 month. Reheat gently.",
     ),
   },
   "mushroom-risotto": {
     intro: L(
-      "아르보리오 쌀에 따뜻한 육수를 한 국자씩 넣어가며 저어 크림 질감을 만드는 이탈리아 집밥입니다. 버섯은 따로 센 불에 구워 마지막에 합치고, 파마산·버터로 마네카투라(유화)합니다.",
-      "Home mushroom risotto: warm stock ladle by ladle into arborio until creamy. Brown mushrooms separately on high heat and fold in at the end with Parmesan and butter (mantecatura).",
+      "리소토 기술은 ‘따뜻한 육수를 한 국자씩, 버섯은 따로 구워 마지막에’입니다. 아르보리오를 양파·와인에 투명해질 때까지 볶은(토스타투라) 뒤 18–22분 저어 알덴테에서 불을 끄고 버터·파마산으로 마네카투라합니다. 육수를 한 번에 붓거나 버섯을 처음부터 넣으면 죽·찐 버섯이 됩니다.",
+      "Risotto technique: hot stock ladle by ladle, mushrooms browned separately and folded in last. Toast arborio in onion and wine, stir 18–22 minutes to al dente, kill heat, then mantecatura with butter and Parmesan. Dumping all stock or adding mushrooms at the start yields porridge and steamed fungi.",
+    ),
+    ingredientSelect: L(
+      "쌀은 아르보리오 또는 카르나롤리 — 일반 햇반용 쌀은 전분 구조가 다릅니다. 버섯은 표고·크레미니·혼합, 물기가 과도하게 씻기지 않은 것. 육수는 담백한 닭 또는 채소, 항상 냄비에 따뜻하게 유지.",
+      "Arborio or carnaroli only — table rice has the wrong starch. Mushrooms: shiitake, cremini, or mixed, not waterlogged from washing. Light chicken or vegetable stock kept hot in a separate pot.",
+    ),
+    doneness: L(
+      "리소토는 접시에 ‘파도(all’onda)’가 생겨야 하고, 쌀은 중심에 아주 작은 흰 심. 맛은 버섯 구운 향·파마산·후추. 죽처럼 퍼지면 과하게 저었거나 육수가 많았던 것입니다.",
+      "It should still ‘wave’ (all’onda) on the plate; grains with a tiny white core. Taste: roasted mushroom, Parmesan, pepper. If it spreads like porridge, you overstocked or over-stirred.",
     ),
     tips: [
-      L("육수는 항상 따뜻하게 유지하세요. 차가운 육수는 쌀을 멈춥니다.", "Keep stock hot — cold stock stalls the rice."),
-      L("쌀을 먼저 양파·와인에 투명해질 때까지 볶습니다(토스타투라).", "Toast rice in onion and wine until translucent first."),
-      L("타이밍: 합 18–22분 저어 주기. 알덴테에서 불 끄고 치즈.", "Timing: 18–22 minutes stirring. Kill heat at al dente, then cheese."),
+      L("육수는 항상 따뜻하게 — 차가운 육수는 쌀을 멈춥니다.", "Keep stock hot — cold stock stalls the rice."),
+      L("타이밍: 합 18–22분. 알덴테에서 불 끄고 치즈.", "Timing: 18–22 minutes. Kill heat at al dente, then cheese."),
+      L("버섯은 센 불에 한 겹으로 구워 수분을 날립니다.", "Brown mushrooms in a single layer on high heat to drive off water."),
     ],
     commonMistakes: [
-      L("육수를 한 번에 붓기 — 죽처럼 됩니다.", "Dumping all stock at once — porridge."),
-      L("버섯을 쌀과 처음부터 — 수분이 나와 볶힘이 없습니다.", "Mushrooms with rice from the start — they steam, not brown."),
-      L("파마산을 끓이며 넣기 — 끈적하고 분리됩니다. 불 끈 뒤.", "Cheese while boiling — gluey. Off heat only."),
+      L("육수 한 번에 → 죽. 고치기: 국자 단위, 흡수 후 다음.", "All stock at once → porridge. Fix: ladle, wait, repeat."),
+      L("버섯 처음부터 → 찐 식감. 고치기: 따로 구워 마지막 합치기.", "Mushrooms from the start → steamed. Fix: brown separately, fold in last."),
+      L("끓이며 파마산 → 끈적. 고치기: 불 끈 뒤 마네카투라.", "Cheese while boiling → gluey. Fix: mantecatura off heat."),
     ],
     plating: L(
-      "따뜻한 접시에 ‘파도’가 생기도록 담고, 버섯·파마산·후추·파슬리를 올립니다. 바로 먹습니다.",
-      "Plate on a warm dish so it still ‘waves’; top with mushrooms, Parmesan, pepper, parsley. Serve at once.",
+      "따뜻한 접시에 파도가 보이게 담고 버섯·파마산·후추·파슬리. 바로.",
+      "Warm plate so it waves; mushrooms, Parmesan, pepper, parsley. Serve at once.",
     ),
     substitutions: [
       L("아르보리오 대신 카르나롤리.", "Carnaroli instead of arborio."),
-      L("치킨 스톡 대신 채소 스톡으로 채식.", "Vegetable stock for a vegetarian version."),
+      L("치킨 스톡 대신 채소 스톡으로 채식.", "Vegetable stock for vegetarian risotto."),
     ],
     storage: L(
-      "냉장 2일. 데울 때 육수나 물을 넣어 풀며 약불. 냉동은 질감이 떨어집니다.",
+      "냉장 2일. 데울 때 육수·물을 넣어 약불. 냉동은 질감 하락.",
       "Fridge 2 days. Reheat gently with stock or water. Freezing hurts texture.",
     ),
   },
   "strawberry-banana-smoothie": {
     intro: L(
-      "딸기·바나나·요거트(또는 우유)를 기본으로 하는 가장 정직한 스무디입니다. 얼린 과일을 쓰면 각빙 없이도 걸쭉하고, 단맛은 바나나 숙성도로 먼저 조절합니다. 아침 5분 레시피입니다.",
-      "The honest strawberry-banana baseline: fruit plus yogurt or milk. Frozen fruit thickens without watering down with ice; ripeness of the banana sets sweetness first. A five-minute breakfast.",
+      "이 스무디의 기술은 ‘액체는 최소로 시작, 얼린 과일로 농도’입니다. 딸기·바나나·요거트(또는 우유)를 블렌딩하되, 처음부터 액을 많이 붓지 말고 원하는 점도까지 추가합니다. 단맛은 반점 있는 바나나로 먼저 맞추고, 아침 5분 분량입니다. 실온 과일만 쓰면 묽고 미지근합니다.",
+      "Smoothie technique: start with minimal liquid and let frozen fruit set the body. Blend strawberry, banana, and yogurt or milk — thin only as needed. Spotty bananas set sweetness before any added sugar. Five-minute breakfast. Room-temp fruit alone goes thin and lukewarm.",
+    ),
+    ingredientSelect: L(
+      "딸기는 향이 있는 익은 것(또는 냉동). 바나나는 반점 있는 숙성 과일. 요거트는 플레인 — 가당 요거트면 추가 단맛을 줄이세요. 우유가 필요하면 소량부터.",
+      "Ripe fragrant strawberries (or frozen). Spotty ripe bananas. Plain yogurt — if sweetened, skip extra sugar. Add milk only in small splashes.",
+    ),
+    doneness: L(
+      "빨대로 천천히 올라올 농도, 분리되지 않은 균일 색. 맛은 딸기 향·바나나 단맛·요거트 산미. 물처럼 묽으면 얼린 과일·요거트를 더하고, 덩어리면 10초 더 블렌딩.",
+      "Should climb a straw slowly with an even color, no separation. Strawberry aroma, banana sweetness, yogurt tang. Too thin → more frozen fruit or yogurt; grainy → blend 10 seconds more.",
     ),
     tips: [
-      L("액체는 적게 시작해 원하는 농도까지 추가합니다.", "Start with less liquid; thin to taste."),
-      L("바나나가 반점이 있을수록 덜 달게 추가 설탕이 필요 없습니다.", "Spotty bananas rarely need extra sweetener."),
       L("단백질을 높이려면 그릭 요거트 120g(약 ½컵).", "For more protein, use 120 g / ½ cup Greek yogurt."),
+      L("일부를 전날 얼려 두면 각빙 없이 걸쭉합니다.", "Freeze some fruit the night before for thickness without ice dilution."),
+      L("마시기 직전 블렌딩 — 두면 분리됩니다.", "Blend just before drinking — it separates if it sits."),
     ],
     commonMistakes: [
-      L("처음부터 물·우유를 많이 붓기 — 물처럼 됩니다.", "Too much liquid up front — thin as water."),
-      L("실온 과일만 사용 — 묽고 미지근합니다. 일부는 얼려 두기.", "Only room-temp fruit — thin and lukewarm. Freeze some."),
-      L("오래 방치 — 분리됩니다. 마시기 직전 블렌딩.", "Sitting too long — separates. Blend just before drinking."),
+      L("액체 과다 → 물 스무디. 고치기: 최소량으로 시작.", "Too much liquid → watery. Fix: start minimal."),
+      L("실온 과일만 → 미지근·묽음. 고치기: 일부 냉동.", "Only room-temp fruit → lukewarm and thin. Fix: freeze some."),
+      L("가당 재료 중복 → 과도한 단맛. 고치기: 플레인 요거트+숙성 바나나.", "Stacked sweeteners → cloying. Fix: plain yogurt + ripe banana."),
     ],
     plating: L(
-      "차가운 글라스에 붓고 딸기 슬라이스·바나나 칩을 올립니다. 빨대와 함께 바로.",
-      "Pour into a cold glass; top with a strawberry slice or banana chip. Serve immediately with a straw.",
+      "차가운 글라스에 붓고 딸기 슬라이스·바나나 칩. 빨대와 바로.",
+      "Cold glass; strawberry slice or banana chip; straw; serve immediately.",
     ),
     substitutions: [
       L("유제품 대신 아몬드·오트 밀크.", "Almond or oat milk instead of dairy."),
       L("딸기 대신 냉동 베리 믹스.", "Frozen mixed berries instead of strawberries."),
     ],
     storage: L(
-      "바로 마시는 게 최선. 밀폐 냉장 24시간, 마시기 전 다시 흔들거나 짧게 블렌딩.",
+      "바로 마시는 게 최선. 밀폐 냉장 24시간, 전 흔들거나 짧게 블렌딩.",
       "Best immediate. Airtight fridge 24 hours; shake or blitz briefly before drinking.",
-    ),
-  },
-  "kimbap": {
-    intro: L(
-      "참기름·소금으로 간한 밥에 단무지·당근·시금치·계란·햄(또는 두부)을 올려 단단히 마는 소풍용 김밥입니다. 재료를 너무 두껍게 넣지 않고, 밥이 미지근할 때 마는 것이 단면이 예쁜 비결입니다.",
-      "Picnic kimbap: sesame-salt seasoned rice with pickled radish, carrot, spinach, egg, and ham or tofu, rolled tight. Avoid overfilling, and roll while rice is just warm for clean cross-sections.",
-    ),
-    tips: [
-      L("밥은 뜨거울 때 간하고, 미지근할 때 말아야 김이 찢기지 않습니다.", "Season rice while hot; roll when just warm so nori doesn’t tear."),
-      L("칼날에 참기름을 바르면 밥이 덜 붙습니다.", "Oil the knife between cuts for clean slices."),
-      L("재료는 물기를 꼭 짜서 밥이 질지 않게 합니다.", "Squeeze fillings dry so the rice stays fluffy."),
-    ],
-    commonMistakes: [
-      L("속을 과하게 넣기 — 김이 터지고 단면이 흐트러집니다.", "Overfilling — nori splits and slices smear."),
-      L("뜨거운 밥으로 말기 — 김이 축축해지고 찢깁니다.", "Rolling with hot rice — soggy, tearing nori."),
-      L("재료 물기 미제거 — 밥이 질척해집니다.", "Wet fillings — mushy rice."),
-    ],
-    plating: L(
-      "2cm 두께로 썰어 단면이 보이게 접시에 엇갈려 담습니다. 통깨를 살짝.",
-      "Slice ~2 cm thick and stagger on a plate so the spiral shows. A light sesame sprinkle.",
-    ),
-    substitutions: [
-      L("햄 대신 불고기·참치·크림치즈.", "Bulgogi, tuna, or cream cheese fillings."),
-      L("현미밥·퀴노아로 건강식.", "Brown rice or quinoa for a lighter roll."),
-    ],
-    storage: L(
-      "실온 반나절. 냉장 시 밥이 굳으니 먹기 전 상온 10분. 냉동 후 전자레인지 해동 가능.",
-      "Room temp half a day. Refrigeration hardens rice — rest 10 minutes before eating. Freeze and microwave if needed.",
     ),
   },
 };

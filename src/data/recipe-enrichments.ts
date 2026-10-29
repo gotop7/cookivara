@@ -9,6 +9,10 @@ export type RecipeEnrichment = {
   storage: LocalizedString;
   commonMistakes?: LocalizedString[];
   plating?: LocalizedString;
+  /** How to pick the ingredients that make THIS dish work */
+  ingredientSelect?: LocalizedString;
+  /** What the finished dish should look and taste like */
+  doneness?: LocalizedString;
 };
 
 /**

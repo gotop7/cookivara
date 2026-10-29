@@ -179,6 +179,17 @@ export function RecipePageClient({ recipe }: Props) {
           </ol>
         </section>
 
+        {recipe.ingredientSelect ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.ingredientSelect}
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-[var(--ink-soft)]">
+              {pick(locale, recipe.ingredientSelect)}
+            </p>
+          </section>
+        ) : null}
+
         {recipe.tips && recipe.tips.length > 0 ? (
           <section className="mt-14">
             <h2 className="font-[family-name:var(--font-display)] text-3xl">
@@ -191,6 +202,17 @@ export function RecipePageClient({ recipe }: Props) {
                 </li>
               ))}
             </ul>
+          </section>
+        ) : null}
+
+        {recipe.doneness ? (
+          <section className="mt-14">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl">
+              {t.doneness}
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-[var(--ink-soft)]">
+              {pick(locale, recipe.doneness)}
+            </p>
           </section>
         ) : null}
 

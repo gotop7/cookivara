@@ -14,8 +14,8 @@ export default function TermsPage() {
     <TrustPage
       title={L("이용약관", "Terms of Use")}
       intro={L(
-        `시행일: 2026년 3월 1일 · 최종 업데이트: 2026년 10월 28일. Cookivara(${siteConfig.displayDomain}, ${siteConfig.url})를 이용하면 아래 약관에 동의한 것으로 봅니다. 동의하지 않으면 사이트를 이용하지 마세요.`,
-        `Effective March 1, 2026 · Last updated October 28, 2026. By using Cookivara (${siteConfig.displayDomain}, ${siteConfig.url}) you agree to these terms. If you do not agree, please do not use the site.`,
+        `시행일: 2026년 3월 1일 · 최종 업데이트: 2026년 10월 29일. Cookivara(${siteConfig.displayDomain}, ${siteConfig.url})를 이용하면 아래 약관에 동의한 것으로 봅니다. 동의하지 않으면 사이트를 이용하지 마세요.`,
+        `Effective March 1, 2026 · Last updated October 29, 2026. By using Cookivara (${siteConfig.displayDomain}, ${siteConfig.url}) you agree to these terms. If you do not agree, please do not use the site.`,
       )}
       sections={[
         {
