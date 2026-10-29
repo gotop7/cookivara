@@ -37,7 +37,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/#shelves"
-              className="whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
+              className="hidden whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] min-[400px]:inline-flex sm:px-3"
             >
               {t.navBrowse}
             </Link>

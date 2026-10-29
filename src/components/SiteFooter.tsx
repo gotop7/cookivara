@@ -17,7 +17,7 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-auto border-t border-[var(--line)] bg-[var(--cream)]">
-      {/* cache-bust: crawl + mobile priority pass 2026-10-29e */}
+      {/* cache-bust: crawl + mobile priority pass 2026-10-29f */}
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-[var(--ink-soft)] sm:px-8">
         <p>
           <span className="font-brand font-semibold text-[var(--ink)]">
@@ -25,7 +25,7 @@ export function SiteFooter() {
           </span>
           <span> — {t.footerTagline}</span>
           <span className="ml-2 text-[10px] tracking-wide text-[var(--ink-muted)]">
-            v2026.10.29e
+            v2026.10.29f
           </span>
         </p>
         <p className="text-xs text-[var(--ink-muted)]">
