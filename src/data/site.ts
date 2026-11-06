@@ -1,26 +1,27 @@
 /**
- * Site-wide Cookivara settings — edit contact email / author here.
+ * Cordnook site-wide settings — edit contact / author here.
  *
- * Brand name is Cookivara; the live domain is news24h7d.com until a
- * matching cookivara.com (or similar) domain is purchased.
+ * Brand name is Cordnook. The live domain remains news24h7d.com.
  */
 export const siteConfig = {
-  name: "Cookivara",
-  /** Live site — do not claim this is Cookivara.com */
+  name: "Cordnook",
+  tagline: {
+    ko: "기술·가젯 리뷰와 실전 가이드",
+    en: "Technology & gadget reviews that stay useful",
+  },
   url: "https://www.news24h7d.com",
-  /** Short host shown in About / Contact / footer */
   displayDomain: "news24h7d.com",
   author: {
-    name: "Cookivara Kitchen",
+    name: "Ryan Kim",
     byline: {
-      ko: "Cookivara Kitchen · Ryan Kim",
-      en: "Cookivara Kitchen · Ryan Kim",
+      ko: "Ryan Kim · Cordnook 편집",
+      en: "Ryan Kim · Cordnook editor",
     },
   },
-  /** Must match the live website domain */
   contactEmail: "hello@news24h7d.com",
+  logoPath: "/brand/cordnook-logo.png",
   socialNote: {
-    ko: "레시피 제안·오류 제보는 이메일로 보내 주세요.",
-    en: "Send recipe ideas or corrections by email.",
+    ko: "정정·제보·협업 제안은 이메일로 보내 주세요.",
+    en: "Corrections, tips, and collaboration ideas welcome by email.",
   },
 } as const;

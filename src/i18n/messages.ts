@@ -1,128 +1,106 @@
 import type { Locale } from "./types";
 
-export const messages = {
+export type Messages = {
+  languageAria: string;
+  langKo: string;
+  langEn: string;
+  navHome: string;
+  navReviews: string;
+  navComparisons: string;
+  navHowTo: string;
+  navApps: string;
+  navNews: string;
+  navAbout: string;
+  navContact: string;
+  readMore: string;
+  latest: string;
+  categories: string;
+  minutes: string;
+  published: string;
+  verdict: string;
+  related: string;
+  allInCategory: string;
+  footerTagline: string;
+  footerTrust: string;
+  privacy: string;
+  terms: string;
+  contactCta: string;
+  homeEyebrow: string;
+  homeHeadline: string;
+  homeLead: string;
+  homeCtaPrimary: string;
+  homeCtaSecondary: string;
+  emptyCategory: string;
+  backHome: string;
+};
+
+export const messages: Record<Locale, Messages> = {
   ko: {
-    navRecipes: "레시피",
-    navBrowse: "둘러보기",
-    categoriesAria: "카테고리",
     languageAria: "언어 선택",
-    heroTagline: "좋아하는 부엌별로 정리한 집밥.",
-    heroBody:
-      "한국 비빔밥부터 시작해, 일곱 선반의 레시피를 한국어와 영어로 천천히 채웁니다.",
-    ctaCookBibimbap: "비빔밥 요리하기",
-    ctaBrowseRecipes: "레시피 보기",
-    shelvesTitle: "일곱 개의 부엌 선반",
-    shelvesIntro:
-      "모든 레시피는 분명한 카테고리 아래에 있어, 모음이 커져도 찾기 쉽습니다.",
-    recipesComingSoon: "레시피 준비 중",
-    recipeCount: (n: number) => (n === 1 ? "레시피 1개" : `레시피 ${n}개`),
-    collectionLabel: "모음",
-    allRecipesTitle: "모든 레시피",
-    allRecipesIntro:
-      "일곱 개의 부엌 선반에서 오늘의 집밥을 고르세요. 한국부터 스무디·채식까지 천천히 채워 가는 중입니다.",
-    comingSoon: "곧 공개",
-    noCategoryRecipes: (name: string) => `아직 ${name} 레시피가 없습니다.`,
-    minutesShort: "분",
-    categoryLabel: "카테고리",
-    emptyTitle: (name: string) => `${name} 레시피 준비 중`,
-    emptyBody: (name: string) =>
-      `이 선반에는 아직 공개된 요리가 없습니다. 다른 선반을 둘러보거나 비빔밥부터 시작해 보세요.`,
-    tryBibimbap: "오늘의 비빔밥 먼저 보기",
-    otherShelves: "다른 선반",
-    servings: "인분",
-    prep: "준비",
-    cook: "조리",
-    level: "난이도",
-    ingredients: "재료",
-    steps: "순서",
-    tips: "팁",
-    substitutions: "대체 재료",
-    storage: "보관",
-    whyThisDish: "이 요리에 대하여",
-    byAuthor: "글",
-    publishedOn: "게시",
-    updatedOn: "수정",
-    prepCookMeta: (prep: number, cook: number) =>
-      `준비 ${prep}분 · 조리 ${cook}분`,
-    totalTimeMeta: (total: number, level: string) => `${total}분 · ${level}`,
-    footerTagline: "다시 만들고 싶은 레시피.",
-    footerBrandLine: "브랜드 Cookivara · 사이트 {domain}",
-    footerNavAria: "푸터 메뉴",
-    footerAllRecipes: "모든 레시피",
-    footerAbout: "소개",
-    footerContact: "문의",
-    footerPrivacy: "개인정보",
-    footerTerms: "이용약관",
-    commonMistakes: "흔한 실수",
-    plating: "담는 방법",
-    ingredientSelect: "재료 고르는 법",
-    doneness: "완성 모습·맛",
-    heroImageAlt: "정성껏 차린 집밥 접시들 — 스테이크, 고기 요리, 곡물 보울",
-    watchOnYoutube: "유튜브에서 보기",
     langKo: "한국어",
     langEn: "English",
+    navHome: "홈",
+    navReviews: "리뷰",
+    navComparisons: "비교",
+    navHowTo: "가이드",
+    navApps: "앱",
+    navNews: "뉴스",
+    navAbout: "소개",
+    navContact: "문의",
+    readMore: "읽기",
+    latest: "최신 글",
+    categories: "카테고리",
+    minutes: "분 읽기",
+    published: "게시",
+    verdict: "한줄 평가",
+    related: "같은 카테고리",
+    allInCategory: "이 카테고리 글",
+    footerTagline: "기술·가젯 리뷰와 실전 가이드",
+    footerTrust: "신뢰·정책",
+    privacy: "개인정보",
+    terms: "이용약관",
+    contactCta: "이메일 보내기",
+    homeEyebrow: "Technology & gadget reviews",
+    homeHeadline: "스펙보다, 사기 전에 필요한 말",
+    homeLead:
+      "스마트폰 리뷰, 제품 비교, 앱 튜토리얼, 설정 가이드를 한국어와 영어로 함께 제공합니다.",
+    homeCtaPrimary: "최신 리뷰 보기",
+    homeCtaSecondary: "Cordnook 소개",
+    emptyCategory: "아직 이 카테고리 글이 없습니다.",
+    backHome: "홈으로",
   },
   en: {
-    navRecipes: "Recipes",
-    navBrowse: "Browse",
-    categoriesAria: "Categories",
     languageAria: "Language",
-    heroTagline: "Home cooking, sorted by the kitchens you love.",
-    heroBody:
-      "Start with Korean bibimbap, then grow seven shelves — in Korean and English.",
-    ctaCookBibimbap: "Cook the bibimbap",
-    ctaBrowseRecipes: "Browse recipes",
-    shelvesTitle: "Seven kitchen shelves",
-    shelvesIntro:
-      "Every recipe lives under a clear category so the collection stays easy to browse as it grows.",
-    recipesComingSoon: "Recipes coming soon",
-    recipeCount: (n: number) => (n === 1 ? "1 recipe" : `${n} recipes`),
-    collectionLabel: "Collection",
-    allRecipesTitle: "All recipes",
-    allRecipesIntro:
-      "Browse seven kitchen shelves — Korean through smoothie and vegetarian — and pick tonight’s home cooking.",
-    comingSoon: "Coming soon",
-    noCategoryRecipes: (name: string) => `No ${name.toLowerCase()} recipes yet.`,
-    minutesShort: "min",
-    categoryLabel: "Category",
-    emptyTitle: (name: string) => `${name} recipes coming soon`,
-    emptyBody: (name: string) =>
-      `No dishes on this shelf yet. Browse another kitchen or start with today’s bibimbap.`,
-    tryBibimbap: "Try today's bibimbap instead",
-    otherShelves: "Other shelves",
-    servings: "Servings",
-    prep: "Prep",
-    cook: "Cook",
-    level: "Level",
-    ingredients: "Ingredients",
-    steps: "Steps",
-    tips: "Tips",
-    substitutions: "Substitutions",
-    storage: "Storage",
-    whyThisDish: "About this dish",
-    byAuthor: "By",
-    publishedOn: "Published",
-    updatedOn: "Updated",
-    prepCookMeta: (prep: number, cook: number) =>
-      `${prep} min prep · ${cook} min cook`,
-    totalTimeMeta: (total: number, level: string) => `${total} min · ${level}`,
-    footerTagline: "recipes worth cooking again.",
-    footerBrandLine: "Brand Cookivara · site {domain}",
-    footerNavAria: "Footer",
-    footerAllRecipes: "All recipes",
-    footerAbout: "About",
-    footerContact: "Contact",
-    footerPrivacy: "Privacy",
-    footerTerms: "Terms",
-    commonMistakes: "Common mistakes",
-    plating: "Plating",
-    ingredientSelect: "Choosing ingredients",
-    doneness: "Look and taste when done",
-    heroImageAlt: "Appetizing plated home-cooked dishes on a rustic table",
-    watchOnYoutube: "Watch on YouTube",
     langKo: "한국어",
     langEn: "English",
+    navHome: "Home",
+    navReviews: "Reviews",
+    navComparisons: "Comparisons",
+    navHowTo: "How-To",
+    navApps: "Apps",
+    navNews: "News",
+    navAbout: "About",
+    navContact: "Contact",
+    readMore: "Read",
+    latest: "Latest",
+    categories: "Categories",
+    minutes: "min read",
+    published: "Published",
+    verdict: "Verdict",
+    related: "More in this category",
+    allInCategory: "Articles in this category",
+    footerTagline: "Technology & gadget reviews that stay useful",
+    footerTrust: "Trust & policies",
+    privacy: "Privacy",
+    terms: "Terms",
+    contactCta: "Email us",
+    homeEyebrow: "Technology & gadget reviews",
+    homeHeadline: "What you need before you buy — not just the specs",
+    homeLead:
+      "Smartphone reviews, product comparisons, app tutorials, and setup guides in Korean and English.",
+    homeCtaPrimary: "Browse latest reviews",
+    homeCtaSecondary: "About Cordnook",
+    emptyCategory: "No articles in this category yet.",
+    backHome: "Back home",
   },
-} as const;
-
-export type Messages = (typeof messages)[Locale];
+};

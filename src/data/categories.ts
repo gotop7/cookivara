@@ -1,70 +1,61 @@
 import type { LocalizedString } from "@/i18n/types";
 
+export type CategorySlug =
+  | "reviews"
+  | "comparisons"
+  | "how-to"
+  | "apps"
+  | "news";
+
 export type Category = {
-  slug: string;
+  slug: CategorySlug;
   name: LocalizedString;
   description: LocalizedString;
 };
 
 export const categories: Category[] = [
   {
-    slug: "korean",
-    name: { ko: "한국", en: "Korean" },
+    slug: "reviews",
+    name: { ko: "리뷰", en: "Reviews" },
     description: {
-      ko: "반찬, 찌개, 고추장의 온기가 있는 밥 그릇.",
-      en: "Banchan, stews, and rice bowls with gochujang warmth.",
+      ko: "스마트폰·노트북·주변기기 사용기. 스펙 나열이 아니라 실제 구매 판단에 필요한 장단점을 적습니다.",
+      en: "Hands-on takes on phones, laptops, and accessories — trade-offs that matter before you buy, not spec sheets alone.",
     },
   },
   {
-    slug: "chinese",
-    name: { ko: "중국", en: "Chinese" },
+    slug: "comparisons",
+    name: { ko: "비교", en: "Comparisons" },
     description: {
-      ko: "웍에 살짝 익힌 채소, 부드러운 국물, 평일 볶음 요리.",
-      en: "Wok-kissed vegetables, gentle broths, and weeknight stir-fries.",
+      ko: "비슷한 가격대·비슷한 용도의 제품/앱을 나란히 놓고 누구에게 맞는지 정리합니다.",
+      en: "Side-by-side picks for similar budgets and jobs, with a clear recommendation for who each option fits.",
     },
   },
   {
-    slug: "european",
-    name: { ko: "유럽", en: "European" },
+    slug: "how-to",
+    name: { ko: "가이드", en: "How-To" },
     description: {
-      ko: "투박한 파스타부터 허브가 선명한 접시까지.",
-      en: "From rustic pastas to bright herb-forward plates.",
+      ko: "설정·보안·백업·구매 전 체크리스트처럼 따라 하면 끝나는 실전 가이드입니다.",
+      en: "Practical walkthroughs — setup, privacy, backups, buying checklists — written so you can finish the job.",
     },
   },
   {
-    slug: "american",
-    name: { ko: "미국", en: "American" },
+    slug: "apps",
+    name: { ko: "앱", en: "Apps" },
     description: {
-      ko: "편안한 클래식과 매일의 식탁 메뉴.",
-      en: "Comfort classics and everyday table favorites.",
+      ko: "생산성·사진·유틸 앱 추천과 튜토리얼. 무료/유료 경계와 대안을 함께 적습니다.",
+      en: "Productivity, photo, and utility apps — including free vs paid boundaries and solid alternatives.",
     },
   },
   {
-    slug: "world",
-    name: { ko: "월드", en: "World" },
+    slug: "news",
+    name: { ko: "뉴스", en: "News" },
     description: {
-      ko: "여러 부엌과 문화를 넘나드는 요리.",
-      en: "Dishes that travel well across kitchens and cultures.",
-    },
-  },
-  {
-    slug: "smoothie",
-    name: { ko: "스무디", en: "Smoothie" },
-    description: {
-      ko: "빠르고 신선한 에너지를 위한 블렌드 볼과 잔.",
-      en: "Blended bowls and glasses for quick, fresh fuel.",
-    },
-  },
-  {
-    slug: "vegetarian",
-    name: { ko: "채식", en: "Vegetarian" },
-    description: {
-      ko: "그래도 든든한 식물 중심 식사.",
-      en: "Plant-forward meals that still feel complete.",
+      ko: "플랫폼·표준·정책 변화처럼 독자 선택에 영향을 주는 기술 이슈를 짧게 정리합니다.",
+      en: "Short briefings on platforms, standards, and policy shifts that change what you should buy or configure.",
     },
   },
 ];
 
 export function getCategory(slug: string): Category | undefined {
-  return categories.find((category) => category.slug === slug);
+  return categories.find((c) => c.slug === slug);
 }

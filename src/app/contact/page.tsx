@@ -1,65 +1,45 @@
-"use client";
-
+import type { Metadata } from "next";
 import { TrustPage } from "@/components/TrustPage";
 import { siteConfig } from "@/data/site";
-import { useLocale } from "@/i18n/LocaleProvider";
-import { pick } from "@/i18n/types";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: `Contact Cordnook at ${siteConfig.contactEmail}.`,
+};
 
 const L = (ko: string, en: string) => ({ ko, en });
 
 export default function ContactPage() {
-  const { locale } = useLocale();
-  const email = siteConfig.contactEmail;
-
   return (
     <TrustPage
       title={L("문의", "Contact")}
       intro={L(
-        `Cookivara(${siteConfig.displayDomain})에 대한 레시피 수정 제안, 사진 오류, 협업·광고 문의는 아래 이메일로 보내 주세요. 보통 며칠 안에 답변드립니다.`,
-        `For Cookivara (at ${siteConfig.displayDomain}): send recipe corrections, photo issues, or partnership and advertising questions to the email below. We usually reply within a few days.`,
+        `Cordnook (${siteConfig.displayDomain})에 연락하려면 ${siteConfig.contactEmail}로 메일을 보내 주세요. 정정 요청, 제품 대여·리뷰 제안, 일반 문의에 사용합니다.`,
+        `To reach Cordnook at ${siteConfig.displayDomain}, email ${siteConfig.contactEmail}. Use that address for corrections, review loan offers, and general questions.`,
       )}
       sections={[
         {
           heading: L("이메일", "Email"),
           body: L(
-            `${pick(locale, siteConfig.socialNote)}\n\n${email}`,
-            `${pick(locale, siteConfig.socialNote)}\n\n${email}`,
+            `${siteConfig.contactEmail} — 도메인과 일치하는 공식 연락처입니다. 소셜 DM보다 이메일을 우선합니다.`,
+            `${siteConfig.contactEmail} — the official contact matching our domain. Prefer email over social DMs.`,
           ),
         },
         {
-          heading: L("사이트", "Website"),
+          heading: L("회신 안내", "Response"),
           body: L(
-            `브랜드: ${siteConfig.name}\n라이브 사이트: ${siteConfig.url}`,
-            `Brand: ${siteConfig.name}\nLive site: ${siteConfig.url}`,
+            "영업일 기준 보통 수일 내 회신을 목표로 합니다. 보안·개인정보 관련 민감한 첨부파일은 암호 없이 보내지 마세요.",
+            "We aim to reply within a few business days. Do not send sensitive attachments without encryption.",
           ),
         },
         {
-          heading: L("보내실 때", "What to include"),
-          body: [
-            L(
-              "레시피 이름(또는 URL)과 수정이 필요한 부분",
-              "Recipe name (or URL) and what needs fixing",
-            ),
-            L(
-              "가능하면 사진·스크린샷",
-              "A photo or screenshot when helpful",
-            ),
-            L(
-              "광고·제휴 문의는 사이트/브랜드 소개를 함께",
-              "For ads or partnerships, include a short brand intro",
-            ),
-          ],
+          heading: L("제보·정정", "Tips and corrections"),
+          body: L(
+            siteConfig.socialNote.ko,
+            siteConfig.socialNote.en,
+          ),
         },
       ]}
-    >
-      <p className="mt-10">
-        <a
-          href={`mailto:${email}?subject=${encodeURIComponent("Cookivara contact")}`}
-          className="inline-flex rounded-md bg-[var(--leaf)] px-5 py-3 text-sm font-medium text-white transition hover:bg-[var(--leaf-hover)]"
-        >
-          {locale === "ko" ? "이메일 보내기" : "Send email"}
-        </a>
-      </p>
-    </TrustPage>
+    />
   );
 }

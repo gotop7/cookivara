@@ -1,69 +1,59 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { BrandLogo } from "@/components/BrandLogo";
+import { BrandMark } from "@/components/BrandMark";
 import { LanguageToggle } from "@/components/LanguageToggle";
-import { categories } from "@/data/categories";
 import { useLocale } from "@/i18n/LocaleProvider";
-import { pick } from "@/i18n/types";
+
+const nav = [
+  { href: "/reviews", key: "navReviews" as const },
+  { href: "/comparisons", key: "navComparisons" as const },
+  { href: "/how-to", key: "navHowTo" as const },
+  { href: "/apps", key: "navApps" as const },
+  { href: "/news", key: "navNews" as const },
+];
 
 export function SiteHeader() {
-  const pathname = usePathname();
-  const { locale, t } = useLocale();
-  const activeCategory = categories.find((category) =>
-    pathname?.startsWith(`/categories/${category.slug}`),
-  )?.slug;
+  const { t } = useLocale();
 
   return (
-    <header className="max-w-[100%] border-b border-[var(--line)] bg-[var(--cream)]/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3.5 sm:gap-3 sm:px-8 sm:py-5">
-        <Link
-          href="/"
-          className="flex min-w-0 items-center gap-2 transition-opacity hover:opacity-80 sm:gap-3.5"
+    <header className="sticky top-0 z-40 border-b border-[var(--line)]/80 bg-[rgba(15,20,25,0.88)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+        <BrandMark size="md" showWordmark className="min-w-0" />
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-1 lg:flex"
         >
-          <BrandLogo size="nav" priority />
-          <span className="brand-wordmark font-brand text-xl font-semibold text-[var(--ink)] sm:text-3xl">
-            Cookivara
-          </span>
-        </Link>
-        <div className="flex shrink-0 items-center gap-1 sm:gap-7">
-          <nav className="flex flex-nowrap items-center gap-0 text-sm font-semibold text-[var(--ink-soft)] sm:gap-2 sm:text-lg">
+          {nav.map((item) => (
             <Link
-              href="/recipes"
-              className="whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] sm:px-3"
+              key={item.href}
+              href={item.href}
+              className="rounded-md px-3 py-2 text-sm font-medium text-[var(--ink-soft)] transition-colors hover:bg-[var(--bg-soft)] hover:text-[var(--ink)]"
             >
-              {t.navRecipes}
+              {t[item.key]}
             </Link>
-            <Link
-              href="/#shelves"
-              className="hidden whitespace-nowrap rounded-md px-1.5 py-2 transition-colors hover:text-[var(--ink)] sm:inline-flex sm:px-3"
-            >
-              {t.navBrowse}
-            </Link>
-          </nav>
+          ))}
+        </nav>
+        <div className="flex items-center gap-1 sm:gap-2">
           <LanguageToggle />
         </div>
       </div>
-      <nav aria-label={t.categoriesAria} className="max-w-[100%] overflow-x-clip border-t border-[var(--line)]">
-        <ul className="mx-auto flex max-w-6xl gap-1 overflow-x-auto overscroll-x-contain px-4 py-2.5 text-sm font-semibold tracking-[0.04em] text-[var(--ink-muted)] [scrollbar-width:thin] sm:gap-2 sm:px-8 sm:py-3 sm:text-base sm:tracking-[0.08em]">
-          {categories.map((category) => {
-            const isActive = activeCategory === category.slug;
-            return (
-              <li key={category.slug} className="shrink-0">
-                <Link
-                  href={`/categories/${category.slug}`}
-                  className={`inline-flex min-h-11 items-center rounded-md px-3 py-2 transition-colors hover:text-[var(--ink)] sm:min-h-12 sm:px-3.5 ${
-                    isActive ? "text-[var(--leaf)]" : ""
-                  }`}
-                >
-                  {pick(locale, category.name)}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+      <div className="border-t border-[var(--line)]/60 lg:hidden">
+        <nav
+          aria-label="Categories"
+          className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4 py-2 sm:px-6"
+        >
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="shrink-0 rounded-full border border-[var(--line)] px-3 py-1.5 text-xs font-semibold text-[var(--ink-soft)] transition-colors hover:border-[var(--accent)] hover:text-[var(--ink)]"
+            >
+              {t[item.key]}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 }

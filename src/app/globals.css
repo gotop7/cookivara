@@ -2,39 +2,41 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #f6f2e8;
-  --cream-deep: #ebe4d4;
-  --ink: #1f1c16;
-  --ink-soft: #4a453c;
-  --ink-muted: #7a7366;
-  --line: #ddd4c4;
-  --leaf: #3f5c3a;
-  --leaf-hover: #334b2f;
+  --bg: #0f1419;
+  --bg-elevated: #171d25;
+  --bg-soft: #1c2430;
+  --ink: #e8eef4;
+  --ink-soft: #b4c0ce;
+  --ink-muted: #8492a6;
+  --line: #2a3442;
+  --accent: #2ec4b6;
+  --accent-hover: #25a99d;
+  --amber: #e8a54b;
   --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Noto Sans KR", "Segoe UI", sans-serif;
-  --hero-scrim: linear-gradient(
-    105deg,
-    rgba(18, 22, 16, 0.58) 0%,
-    rgba(18, 22, 16, 0.32) 52%,
-    rgba(18, 22, 16, 0.12) 100%
-  );
-  --shelf-glow: radial-gradient(
-    ellipse 80% 60% at 10% 0%,
-    rgba(99, 122, 78, 0.12),
+  --hero-glow: radial-gradient(
+    ellipse 70% 55% at 85% 10%,
+    rgba(46, 196, 182, 0.16),
     transparent 55%
+  );
+  --hero-glow-2: radial-gradient(
+    ellipse 50% 40% at 10% 90%,
+    rgba(232, 165, 75, 0.08),
+    transparent 50%
   );
 }
 
 @theme inline {
-  --color-cream: var(--cream);
-  --color-cream-deep: var(--cream-deep);
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-soft: var(--bg-soft);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ink-muted: var(--ink-muted);
   --color-line: var(--line);
-  --color-leaf: var(--leaf);
+  --color-accent: var(--accent);
+  --color-amber: var(--amber);
   --font-sans: var(--font-ui);
-  --font-display: var(--font-ui);
 }
 
 * {
@@ -53,11 +55,11 @@ body {
   max-width: 100%;
   overflow-x: clip;
   background:
-    var(--shelf-glow),
-    linear-gradient(180deg, #f8f4ec 0%, #f3eee3 45%, #efe8da 100%);
+    var(--hero-glow),
+    var(--hero-glow-2),
+    linear-gradient(180deg, #0f1419 0%, #121820 48%, #0f1419 100%);
   color: var(--ink);
   font-family: var(--font-ui);
-  font-feature-settings: "ss01" on, "ss02" on;
   -webkit-font-smoothing: antialiased;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -68,28 +70,23 @@ a {
   text-decoration: none;
 }
 
-/* Latin brand wordmark — Fraunces; Hangul still falls through to Pretendard.
-   Never mid-word break (body uses overflow-wrap: anywhere). */
-.font-brand {
-  font-family: var(--font-brand), var(--font-ui);
-  white-space: nowrap;
+.font-display {
+  font-family: var(--font-display), var(--font-ui);
+  letter-spacing: -0.02em;
   overflow-wrap: normal;
   word-break: keep-all;
-  letter-spacing: -0.01em;
 }
 
-/* Narrow header: drop wordmark so Recipes + KO|EN never clip.
-   Breakpoint sits above Chrome headless’s ~500px floor and typical phones. */
-@media (max-width: 700px) {
-  .brand-wordmark {
-    display: none !important;
-  }
+.font-brand {
+  font-family: var(--font-display), var(--font-ui);
+  white-space: nowrap;
+  letter-spacing: -0.03em;
 }
 
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -106,25 +103,24 @@ a {
   }
 }
 
-@keyframes shelf-slide {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+@keyframes accent-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
   }
-  to {
+  50% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 .animate-rise {
-  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade {
-  animation: fade-soft 1s ease both;
+  animation: fade-soft 0.9s ease both;
 }
 
-.animate-shelf {
-  animation: shelf-slide 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+.animate-accent {
+  animation: accent-pulse 3.5s ease-in-out infinite;
 }

@@ -6,7 +6,7 @@ export type LocalizedString = {
 };
 
 export const DEFAULT_LOCALE: Locale = "ko";
-export const LOCALE_STORAGE_KEY = "cookivara-locale";
+export const LOCALE_STORAGE_KEY = "cordnook-locale";
 
 export function pick(locale: Locale, value: LocalizedString): string {
   return value[locale];

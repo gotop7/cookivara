@@ -2,117 +2,119 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BrandLogo } from "@/components/BrandLogo";
+import { ArticleCard } from "@/components/ArticleCard";
 import { categories } from "@/data/categories";
-import { getRecipesByCategory } from "@/data/recipes";
+import { getAllArticles } from "@/data/articles";
+import { siteConfig } from "@/data/site";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { pick } from "@/i18n/types";
 
 export default function HomePage() {
   const { locale, t } = useLocale();
+  const latest = getAllArticles().slice(0, 6);
 
   return (
     <>
-      <section className="relative isolate min-h-[calc(100svh-9.75rem)] w-full max-w-[100%] overflow-hidden sm:min-h-[calc(100svh-8.75rem)]">
-        <Image
-          src="/images/home-hero.webp"
-          alt={t.heroImageAlt}
-          fill
-          priority
-          className="object-cover object-[center_38%]"
-          sizes="100vw"
-        />
+      <section className="relative overflow-hidden border-b border-[var(--line)]">
         <div
-          className="absolute inset-0"
-          style={{ background: "var(--hero-scrim)" }}
+          className="pointer-events-none absolute inset-0 opacity-90"
           aria-hidden
+          style={{
+            backgroundImage:
+              "linear-gradient(115deg, rgba(15,20,25,0.92) 0%, rgba(15,20,25,0.72) 45%, rgba(15,20,25,0.35) 100%), url(/brand/cordnook-logo.png)",
+            backgroundSize: "cover, 55% auto",
+            backgroundPosition: "center, 110% 40%",
+            backgroundRepeat: "no-repeat, no-repeat",
+          }}
         />
-        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-9.75rem)] w-full max-w-6xl flex-col justify-end px-5 pb-10 pt-10 sm:min-h-[calc(100svh-8.75rem)] sm:px-8 sm:pb-14 sm:pt-16">
-          <div className="max-w-2xl text-white">
-            <div className="animate-rise flex items-center gap-3 sm:gap-5">
-              <BrandLogo
-                size="hero"
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-8 px-4 py-16 sm:px-6 sm:py-24 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <div className="animate-fade mb-5 flex items-center gap-3">
+              <Image
+                src={siteConfig.logoPath}
+                alt=""
+                width={48}
+                height={48}
+                className="rounded-xl"
                 priority
-                className="shrink-0 drop-shadow-[0_8px_24px_rgba(0,0,0,0.28)]"
               />
-              <h1 className="font-brand text-[clamp(2.4rem,7vw,5.75rem)] font-semibold leading-none text-white">
-                Cookivara
-              </h1>
+              <p className="font-brand text-2xl text-[var(--ink)] sm:text-3xl">
+                {siteConfig.name}
+              </p>
             </div>
-            <p
-              className="animate-rise mt-5 max-w-xl font-[family-name:var(--font-display)] text-xl font-medium leading-snug text-white sm:mt-6 sm:text-3xl md:text-[2.05rem]"
-              style={{ animationDelay: "100ms" }}
-            >
-              {t.heroTagline}
+            <p className="animate-rise text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">
+              {t.homeEyebrow}
             </p>
-            <p
-              className="animate-rise mt-3 max-w-md text-sm leading-relaxed text-white sm:text-lg"
-              style={{
-                animationDelay: "200ms",
-                textShadow: "0 1px 2px rgba(0,0,0,0.75), 0 2px 14px rgba(0,0,0,0.55)",
-              }}
-            >
-              {t.heroBody}
+            <h1 className="font-display animate-rise mt-3 text-4xl leading-[1.1] text-[var(--ink)] sm:text-5xl lg:text-[3.4rem]" style={{ animationDelay: "80ms" }}>
+              {t.homeHeadline}
+            </h1>
+            <p className="animate-rise mt-4 max-w-xl text-base leading-relaxed text-[var(--ink-soft)] sm:text-lg" style={{ animationDelay: "140ms" }}>
+              {t.homeLead}
             </p>
-            <div
-              className="animate-rise mt-6 flex flex-wrap gap-3 sm:mt-8"
-              style={{ animationDelay: "300ms" }}
-            >
+            <div className="animate-rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: "200ms" }}>
               <Link
-                href="/recipes/gochujang-tofu-bibimbap"
-                className="rounded-md bg-[var(--leaf)] px-5 py-3 text-sm font-medium text-white transition hover:bg-[var(--leaf-hover)]"
+                href="/reviews"
+                className="inline-flex min-h-11 items-center rounded-md bg-[var(--accent)] px-5 text-sm font-bold text-[#06201e] transition-colors hover:bg-[var(--accent-hover)]"
               >
-                {t.ctaCookBibimbap}
+                {t.homeCtaPrimary}
               </Link>
               <Link
-                href="/recipes"
-                className="rounded-md border border-white/65 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+                href="/about"
+                className="inline-flex min-h-11 items-center rounded-md border border-[var(--line)] px-5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--accent)]"
               >
-                {t.ctaBrowseRecipes}
+                {t.homeCtaSecondary}
               </Link>
             </div>
+          </div>
+          <div className="animate-fade hidden max-w-xs text-sm text-[var(--ink-muted)] lg:block" style={{ animationDelay: "240ms" }}>
+            <span className="inline-block h-1.5 w-1.5 animate-accent rounded-full bg-[var(--accent)]" />{" "}
+            {siteConfig.displayDomain}
           </div>
         </div>
       </section>
 
-      <section
-        id="shelves"
-        className="mx-auto max-w-4xl px-5 py-20 sm:px-8 sm:py-28"
-      >
-        <div className="animate-fade">
-          <h2 className="font-[family-name:var(--font-display)] text-4xl tracking-tight text-[var(--ink)] sm:text-5xl">
-            {t.shelvesTitle}
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <h2 className="font-display text-2xl text-[var(--ink)] sm:text-3xl">
+            {t.latest}
           </h2>
-          <p className="mt-4 max-w-2xl text-[var(--ink-soft)]">{t.shelvesIntro}</p>
+          <Link
+            href="/reviews"
+            className="text-sm font-semibold text-[var(--accent)] hover:underline"
+          >
+            {t.navReviews} →
+          </Link>
         </div>
+        <div className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
+          {latest.map((article) => (
+            <ArticleCard key={article.slug} article={article} />
+          ))}
+        </div>
+      </section>
 
-        <ul className="mt-12 divide-y divide-[var(--line)] border-y border-[var(--line)]">
-          {categories.map((category, index) => {
-            const count = getRecipesByCategory(category.slug).length;
-            return (
-              <li
+      <section className="border-t border-[var(--line)] bg-[var(--bg-elevated)]/60">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+          <h2 className="font-display text-2xl text-[var(--ink)] sm:text-3xl">
+            {t.categories}
+          </h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((category, i) => (
+              <Link
                 key={category.slug}
-                className="animate-shelf"
-                style={{ animationDelay: `${80 + index * 60}ms` }}
+                href={`/${category.slug}`}
+                className="animate-rise block border border-[var(--line)] bg-[var(--bg)]/40 p-5 transition-colors hover:border-[var(--accent)]"
+                style={{ animationDelay: `${i * 60}ms` }}
               >
-                <Link
-                  href={`/categories/${category.slug}`}
-                  className="group flex flex-col gap-2 py-6 transition sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
-                >
-                  <span className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)] transition-colors group-hover:text-[var(--leaf)] sm:text-3xl">
-                    {pick(locale, category.name)}
-                  </span>
-                  <span className="max-w-md text-sm leading-relaxed text-[var(--ink-muted)] sm:text-right">
-                    {pick(locale, category.description)}{" "}
-                    <span className="text-[var(--ink-soft)]">
-                      {count === 0 ? t.recipesComingSoon : t.recipeCount(count)}
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                <h3 className="font-display text-xl text-[var(--ink)]">
+                  {pick(locale, category.name)}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--ink-soft)]">
+                  {pick(locale, category.description)}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );

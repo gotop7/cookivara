@@ -32,9 +32,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      const stored =
-        window.localStorage.getItem(LOCALE_STORAGE_KEY) ??
-        window.localStorage.getItem("ladle-leaf-locale");
+      const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
       if (isLocale(stored)) {
         setLocaleState(stored);
       }

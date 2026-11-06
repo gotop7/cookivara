@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Fraunces } from "next/font/google";
+import { Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { siteConfig } from "@/data/site";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
 import "./globals.css";
 
-/** Latin brand wordmark only — body/UI uses Pretendard for Hangul readability */
-const brand = Fraunces({
-  variable: "--font-brand",
+const display = Newsreader({
+  variable: "--font-display",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
@@ -16,11 +15,11 @@ const brand = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Cookivara",
-    template: "%s · Cookivara",
+    default: `${siteConfig.name} — Technology & Gadget Reviews`,
+    template: `%s · ${siteConfig.name}`,
   },
   description:
-    "Cookivara — home recipes by kitchen, in Korean and English. Korean, Chinese, European, American, World, Smoothie, Vegetarian. Live at news24h7d.com.",
+    "Cordnook — smartphone reviews, app tutorials, tech news, software guides, and product comparisons in Korean and English. Live at news24h7d.com.",
   robots: {
     index: true,
     follow: true,
@@ -30,8 +29,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/brand/cookivara-logo.png",
-    apple: "/brand/cookivara-logo.png",
+    icon: siteConfig.logoPath,
+    apple: siteConfig.logoPath,
   },
 };
 
@@ -42,10 +41,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${brand.variable} flex min-h-screen max-w-[100%] flex-col antialiased`}>
+      <body
+        className={`${display.variable} flex min-h-screen max-w-[100%] flex-col antialiased`}
+      >
         <LocaleProvider>
           <SiteHeader />
-          <main className="min-w-0 max-w-[100%] flex-1 overflow-x-clip">{children}</main>
+          <main className="min-w-0 max-w-[100%] flex-1 overflow-x-clip">
+            {children}
+          </main>
           <SiteFooter />
         </LocaleProvider>
       </body>

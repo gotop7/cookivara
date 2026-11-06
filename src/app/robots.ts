@@ -8,7 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
-      // Google AdSense crawler — do not block
       {
         userAgent: "Mediapartners-Google",
         allow: "/",
