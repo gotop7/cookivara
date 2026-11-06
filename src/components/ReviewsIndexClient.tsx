@@ -7,7 +7,7 @@ import {
   getProductReviewsByCategory,
 } from "@/data/product-reviews";
 import { ProductReviewCard } from "@/components/ProductReviewCard";
-import { ReviewSearch } from "@/components/ReviewSearch";
+import { SiteSearch } from "@/components/SiteSearch";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { pick } from "@/i18n/types";
 
@@ -28,7 +28,7 @@ export function ReviewsIndexClient() {
       </p>
 
       <div className="mt-8 max-w-xl">
-        <ReviewSearch autoFocus={false} />
+        <SiteSearch autoFocus={false} />
       </div>
 
       <section className="mt-12">

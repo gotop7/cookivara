@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllArticles } from "@/data/articles";
 import { categories } from "@/data/categories";
+import { comparisonCategories } from "@/data/comparison-categories";
+import { getAllComparisons } from "@/data/comparisons";
 import { reviewCategories } from "@/data/review-categories";
 import { getAllProductReviews } from "@/data/product-reviews";
 import { siteConfig } from "@/data/site";
@@ -46,6 +48,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  const comparisonCategoryRoutes: MetadataRoute.Sitemap =
+    comparisonCategories.map((category) => ({
+      url: `${base}/comparisons/${category.slug}`,
+      lastModified: new Date("2026-11-06"),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    }));
+
+  const comparisonRoutes: MetadataRoute.Sitemap = getAllComparisons().map(
+    (comparison) => ({
+      url: `${base}/comparisons/${comparison.category}/${comparison.slug}`,
+      lastModified: new Date(comparison.publishedAt),
+      changeFrequency: "monthly",
+      priority: 0.75,
+    }),
+  );
+
   const articleRoutes: MetadataRoute.Sitemap = getAllArticles().map(
     (article) => ({
       url: `${base}/articles/${article.slug}`,
@@ -60,6 +79,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryRoutes,
     ...reviewCategoryRoutes,
     ...productReviewRoutes,
+    ...comparisonCategoryRoutes,
+    ...comparisonRoutes,
     ...articleRoutes,
   ];
 }

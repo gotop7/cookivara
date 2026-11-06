@@ -36,6 +36,7 @@ export function ArticlePageClient({ article }: { article: Article }) {
       </p>
       <p className="mt-4 text-sm text-[var(--ink-muted)]">
         {pick(locale, siteConfig.author.byline)}
+        {article.sources?.length ? ` · ${t.editorialNote}` : ""}
       </p>
 
       <div className="mt-10 space-y-9">
@@ -54,6 +55,36 @@ export function ArticlePageClient({ article }: { article: Article }) {
           </section>
         ))}
       </div>
+
+      {article.sources && article.sources.length > 0 ? (
+        <section className="mt-12 border border-[var(--line)] bg-[var(--bg-elevated)] p-5">
+          <h2 className="text-xs font-semibold tracking-[0.14em] text-[var(--accent)] uppercase">
+            {t.sourcesHeading}
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--ink-muted)]">
+            {t.sourcesLead}
+          </p>
+          <ul className="mt-4 space-y-2">
+            {article.sources.map((source) => (
+              <li key={source.url}>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--ink-soft)] underline decoration-[var(--line)] underline-offset-2 hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+                >
+                  {source.videoTitle
+                    ? `${source.name} — ${source.videoTitle}`
+                    : source.name}
+                  <span className="ml-2 text-xs text-[var(--ink-muted)] no-underline">
+                    ({source.kind === "youtube" ? "YouTube" : t.sourceArticle})
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       {article.verdict ? (
         <aside className="mt-12 border border-[var(--accent)]/35 bg-[var(--bg-elevated)] p-5">

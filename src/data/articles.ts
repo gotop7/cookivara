@@ -6,6 +6,13 @@ export type ArticleSection = {
   body: LocalizedString;
 };
 
+export type ArticleSource = {
+  name: string;
+  url: string;
+  kind: "youtube" | "article";
+  videoTitle?: string;
+};
+
 export type Article = {
   slug: string;
   category: CategorySlug;
@@ -16,6 +23,8 @@ export type Article = {
   readingMinutes: number;
   sections: ArticleSection[];
   verdict?: LocalizedString;
+  sources?: ArticleSource[];
+  searchTags?: string[];
 };
 
 const articles: Article[] = [
@@ -41,7 +50,10 @@ const articles: Article[] = [
         },
       },
       {
-        heading: { ko: "카메라: 주간은 안정, 야간은 과처리에 주의", en: "Camera: steady by day, watch night processing" },
+        heading: {
+          ko: "카메라: 주간은 안정, 야간은 과처리에 주의",
+          en: "Camera: steady by day, watch night processing",
+        },
         body: {
           ko: "주간 기본 카메라는 색이 과장되지 않고 디테일이 충분합니다. 3배·5배 줌은 ‘급하면 쓸 수 있는’ 수준을 넘어, SNS용으로는 충분히 게시 가능합니다. 야간은 노이즈 억제가 강해 피부·네온 간판이 매끈해질 때가 있어, 중요한 샷은 프로 모드나 다중 촬영으로 후보를 남기는 편이 낫습니다.",
           en: "Daylight defaults look honest and detailed. 3x and 5x zoom are good enough to post, not just emergency crops. Night shots lean hard on noise reduction — skin and neon signs can look too smooth — so keep a Pro Mode or multi-shot backup for anything that matters.",
@@ -65,54 +77,6 @@ const articles: Article[] = [
     verdict: {
       ko: "펜·줌·배터리를 실제로 쓸 사람에게는 추천. 가벼운 폰을 원하면 플러스/일반 모델이나 경쟁사 소형기를 보세요.",
       en: "Recommended if you will use the pen, zoom, and battery headroom. Want light? Look at smaller Galaxy models or compact rivals.",
-    },
-  },
-  {
-    slug: "iphone-16-pro-vs-pixel-9-pro",
-    category: "comparisons",
-    title: {
-      ko: "아이폰 16 프로 vs 픽셀 9 프로: 2026년에 누구를 살까",
-      en: "iPhone 16 Pro vs Pixel 9 Pro: which to buy in 2026",
-    },
-    excerpt: {
-      ko: "카메라·업데이트·생태계·가격 네 축으로만 비교합니다. ‘승자 하나’보다 사용자 유형별 추천이 목표입니다.",
-      en: "Four axes only — camera, updates, ecosystem, and price — with recommendations by user type, not a single fake winner.",
-    },
-    publishedAt: "2026-10-18",
-    readingMinutes: 8,
-    sections: [
-      {
-        heading: { ko: "한 줄 요약", en: "Quick take" },
-        body: {
-          ko: "이미 에어팟·맥·애플워치를 쓰는 사람은 아이폰 16 프로가 마찰이 적습니다. 구글 서비스 중심이고 카메라 AI·깔끔한 안드로이드를 원하면 픽셀 9 프로가 더 합리적인 경우가 많습니다. 둘 다 ‘나쁜 폰’은 아닙니다.",
-          en: "If you already live in AirPods, Mac, and Apple Watch, the 16 Pro is the lower-friction path. If you are Google-centric and want camera AI plus a clean Android, Pixel 9 Pro often makes more sense. Neither is a bad phone.",
-        },
-      },
-      {
-        heading: { ko: "카메라와 동영상", en: "Still and video" },
-        body: {
-          ko: "아이폰은 동영상 안정성과 색 일관성이 강점입니다. 픽셀은 야간·인물·매직 에디터류 보정에서 ‘한 번에 쓸 만한 결과’가 자주 나옵니다. 영상 작업·가족 기록이 많으면 아이폰, 스냅·편집 편의면 픽셀에 점수를 더 줍니다.",
-          en: "iPhone wins on video stability and color consistency. Pixel often lands a usable still faster at night and with portrait/edit helpers. Heavy video and family archives lean iPhone; snap-and-tidy photography leans Pixel.",
-        },
-      },
-      {
-        heading: { ko: "업데이트·보안·중고 가치", en: "Updates, security, resale" },
-        body: {
-          ko: "둘 다 장기 업데이트를 약속하는 세대입니다. 중고 가격 방어는 대체로 아이폰이 유리합니다. 보안 패치 속도는 픽셀이 구글 디바이스로서 빠른 편이고, 아이폰은 생태계 전체의 보안 모델이 강점입니다.",
-          en: "Both generations promise long software support. Resale usually favors iPhone. Pixel often gets security patches quickly as a Google device; iPhone’s strength is the broader platform security model.",
-        },
-      },
-      {
-        heading: { ko: "추천 매트릭스", en: "Who should pick which" },
-        body: {
-          ko: "아이폰: 맥/아이패드 연동, 장기 중고, 영상 중심. 픽셀: 메시지·사진·구글 워크스페이스 중심, 가격 대비 하드웨어, 안드로이드 순정에 가까운 UX. 둘 중 하나를 ‘무조건’ 고르라면, 주변 기기부터 적으세요.",
-          en: "iPhone: Mac/iPad handoff, resale, video-first. Pixel: Messages/Photos/Workspace life, hardware value, near-stock Android. If you must pick one, start by listing the devices already in your bag.",
-        },
-      },
-    ],
-    verdict: {
-      ko: "생태계가 이미 있으면 아이폰, 구글 중심이면 픽셀. 카메라만으로 고르지 마세요.",
-      en: "Follow your existing ecosystem. Do not decide on camera marketing alone.",
     },
   },
   {
@@ -160,54 +124,6 @@ const articles: Article[] = [
     ],
   },
   {
-    slug: "notion-vs-obsidian-notes",
-    category: "apps",
-    title: {
-      ko: "노션 vs 옵시디언: 노트 앱을 고르는 현실적인 기준",
-      en: "Notion vs Obsidian: practical criteria for picking a notes app",
-    },
-    excerpt: {
-      ko: "협업·데이터베이스가 필요하면 노션, 로컬 파일·링크 사고가 중심이면 옵시디언. 이주 비용까지 포함해 비교합니다.",
-      en: "Notion when you need collaboration and databases; Obsidian when local files and link thinking matter — including migration cost.",
-    },
-    publishedAt: "2026-10-02",
-    readingMinutes: 8,
-    sections: [
-      {
-        heading: { ko: "핵심 차이", en: "The real difference" },
-        body: {
-          ko: "노션은 클라우드 워크스페이스입니다. 표·일정·위키·가벼운 프로젝트 관리가 한곳에 모입니다. 옵시디언은 로컬 마크다운 금고에 가깝습니다. 플러그인으로 확장하지만, ‘팀 위키’보다는 ‘개인 지식 그래프’에 강합니다.",
-          en: "Notion is a cloud workspace — tables, calendars, wikis, light project boards in one place. Obsidian is closer to a local Markdown vault: extensible with plugins, stronger for a personal knowledge graph than a team wiki.",
-        },
-      },
-      {
-        heading: { ko: "언제 노션인가", en: "When Notion wins" },
-        body: {
-          ko: "팀과 같은 페이지를 편집하고, 상태 속성·필터·보드가 필요하면 노션이 빠릅니다. 모바일에서 ‘열어보고 체크’하는 습관에도 적합합니다. 단, 오프라인·대량 페이지·장기 보관 전략은 미리 정해야 합니다.",
-          en: "Shared editing, status properties, filters, and boards are where Notion is fast. It also fits mobile open-and-check habits. Decide offline needs and long-term archive strategy up front.",
-        },
-      },
-      {
-        heading: { ko: "언제 옵시디언인가", en: "When Obsidian wins" },
-        body: {
-          ko: "노트 소유권·이식성·양방향 링크가 중요하면 옵시디언입니다. Git 백업, 순수 마크다운 반출, 커스텀 워크플로에 강점이 있습니다. 팀 실시간 협업은 노션만큼 매끄럽지 않습니다.",
-          en: "Choose Obsidian for ownership, portability, and backlinks. Git backups, plain Markdown export, and custom workflows shine. Live team collaboration is not Notion-smooth.",
-        },
-      },
-      {
-        heading: { ko: "이주 팁", en: "Migration tip" },
-        body: {
-          ko: "한 번에 옮기지 마세요. 새 프로젝트만 새 도구에 두고 30일을 시험한 뒤, 자주 여는 페이지만 이관하세요. ‘완벽한 보관소’보다 ‘매일 여는 습관’이 도구 선택의 정답에 가깝습니다.",
-          en: "Do not migrate everything at once. Run new projects in the new tool for 30 days, then move only pages you open often. Daily habit beats a perfect archive.",
-        },
-      },
-    ],
-    verdict: {
-      ko: "협업·DB → 노션 / 로컬·링크 → 옵시디언. 둘 다 쓰면 용도를 분리하세요.",
-      en: "Collaboration/DB → Notion. Local/links → Obsidian. If you keep both, split jobs clearly.",
-    },
-  },
-  {
     slug: "usb-c-charger-buying-guide",
     category: "how-to",
     title: {
@@ -245,80 +161,6 @@ const articles: Article[] = [
     ],
   },
   {
-    slug: "foldables-worth-it-2026",
-    category: "news",
-    title: {
-      ko: "폴더블 2026: 아직 ‘실험’인가, 주력인가",
-      en: "Foldables in 2026: still an experiment or ready as a daily driver?",
-    },
-    excerpt: {
-      ko: "힌지·디스플레이 내구성, 앱 최적화, 가격이 뒤처지는 구간을 뉴스 브리핑 형식으로 정리합니다.",
-      en: "A briefing on hinge and display durability, app layout maturity, and where price still lags.",
-    },
-    publishedAt: "2026-10-22",
-    readingMinutes: 5,
-    sections: [
-      {
-        heading: { ko: "무엇이 나아졌나", en: "What improved" },
-        body: {
-          ko: "최근 세대는 펼친 화면 주름이 덜 눈에 띄고, 힌지 먼지 유입 대책이 구체적입니다. 멀티태스킹 UI도 ‘데모용’을 넘어 메일+문서 동시 작업이 가능한 수준입니다. 다만 앱마다 비율 대응 편차는 여전합니다.",
-          en: "Recent generations hide the crease better and take dust at the hinge more seriously. Multitasking UIs now handle real mail-plus-docs work, not just demos. App aspect-ratio quality still varies.",
-        },
-      },
-      {
-        heading: { ko: "아직 남는 리스크", en: "Risks that remain" },
-        body: {
-          ko: "교체 비용·보험, 외부 디스플레이 타협, 두께/무게는 여전히 일반 슬래브 대비 불리합니다. ‘태블릿을 따로 들고 다니기 싫다’는 명확한 니즈가 없으면 가성비는 슬래브+중형 태블릿 조합이 나을 수 있습니다.",
-          en: "Repair cost, insurance, cover-display compromises, and thickness still lose to slabs. Without a clear ‘I will not carry a tablet’ need, a slab plus mid tablet can be better value.",
-        },
-      },
-      {
-        heading: { ko: "NookVolt 시각", en: "NookVolt take" },
-        body: {
-          ko: "얼리어답터·디지털 노트 헤비유저에게는 주력 후보가 됐고, 일반 사용자에게는 여전히 선택적 업그레이드입니다. 구매 전 매장에서 한 손으로 펼치기·가방 수납·자주 쓰는 앱 분할 화면을 직접 시험하세요.",
-          en: "Viable as a daily driver for early adopters and heavy digital note-takers; still optional for everyone else. Before buying, try one-hand open, bag fit, and split-screen with your real apps in a store.",
-        },
-      },
-    ],
-  },
-  {
-    slug: "best-free-iphone-photo-editors",
-    category: "apps",
-    title: {
-      ko: "아이폰 무료 사진 편집 앱 추천 4선",
-      en: "Four free iPhone photo editors worth keeping",
-    },
-    excerpt: {
-      ko: "구독 전제 앱 대신, 무료 범위만으로도 결과물이 나오는 편집 앱을 용도별로 골랐습니다.",
-      en: "Editors that still deliver inside the free tier — picked by job, not by subscription pitch.",
-    },
-    publishedAt: "2026-10-08",
-    readingMinutes: 6,
-    sections: [
-      {
-        heading: { ko: "선택 기준", en: "How we chose" },
-        body: {
-          ko: "설치 직후 워터마크 없이 저장 가능한지, 기본 보정(노출·대비·크롭)·선택적 도구가 무료인지, 인터페이스가 한손에 닿는지를 봤습니다. ‘완전 무료 무제한’을 약속하지는 않습니다. 무료 한도 안에서 유용한지를 봤습니다.",
-          en: "We checked export without a forced watermark, whether exposure/contrast/crop and key tools stay free, and whether the UI works one-handed. Not a promise of unlimited free forever — usefulness inside the free tier.",
-        },
-      },
-      {
-        heading: { ko: "용도별 추천", en: "Picks by job" },
-        body: {
-          ko: "빠른 보정의 기본은 사진 앱+편집 편집으로도 충분합니다. 필터·분위기 연출은 Snapseed, 부분 보정·곡선은 같은 Snapseed 또는 Darkroom 무료 범위, 배경 정리·객체 제거 계열은 기기·OS 버전별 내장 도구를 먼저 확인하세요. 유료 전환은 ‘자주 쓰는 한 도구’가 잠길 때만 검토하면 됩니다.",
-          en: "Apple Photos edits cover quick fixes. Snapseed handles mood and selective tools well; Darkroom’s free tier helps with curves. Check built-in cleanup tools for your iOS version before paying for object removal. Only subscribe when one tool you use weekly is gated.",
-        },
-      },
-      {
-        heading: { ko: "워크플로 제안", en: "A simple workflow" },
-        body: {
-          ko: "1) 사진 앱에서 자르기·수평 2) Snapseed에서 선택 보정·분위기 3) 원본은 앨범에 보존. 소셜 업로드 전 과도한 선명도는 줄이세요. 같은 프리셋을 반복하면 피드 톤이 안정됩니다.",
-          en: "1) Crop and level in Photos 2) Selective/mood in Snapseed 3) Keep originals. Ease off sharpening before social upload. Repeating a small preset set keeps your feed consistent.",
-        },
-      },
-    ],
-  },
-  {
     slug: "wifi-7-router-upgrade-checklist",
     category: "how-to",
     title: {
@@ -333,7 +175,10 @@ const articles: Article[] = [
     readingMinutes: 7,
     sections: [
       {
-        heading: { ko: "업그레이드가 필요한 신호", en: "Signs you actually need it" },
+        heading: {
+          ko: "업그레이드가 필요한 신호",
+          en: "Signs you actually need it",
+        },
         body: {
           ko: "유선 속도는 나오는데 무선만 반토막, 밀집 아파트에서 채널 간섭이 심함, 다수 4K 스트림·클라우드 백업이 동시에 끊김 — 이 조합이면 Wi-Fi 6E/7 검토 가치가 있습니다. 단지 ‘숫자가 높다’는 이유만으로는 체감이 작을 수 있습니다.",
           en: "Wired speed is fine but Wi-Fi is half, dense apartment interference is bad, or several 4K streams plus cloud backup stall together — then 6E/7 is worth a look. A bigger marketing number alone may not feel different.",
@@ -355,6 +200,160 @@ const articles: Article[] = [
       },
     ],
   },
+  // ── Sample slice (1 apps + 1 news) for Ryan approval ──
+  {
+    slug: "iphone-duo-app-optimization-week-one",
+    category: "apps",
+    title: {
+      ko: "아이폰 듀오 앱 최적화 1주차: 지금 사도 될까",
+      en: "iPhone Duo app optimization after week one: buy now or wait?",
+    },
+    excerpt: {
+      ko: "잇섭의 소프트웨어·앱 최적화 영상을 바탕으로 한 편집 요약. 우측 상태 바·서드파티 대응·단축어 팁까지.",
+      en: "Editorial summary of ITSub’s software/app optimization video — status-bar layout, third-party readiness, and Shortcut workarounds.",
+    },
+    publishedAt: "2026-11-04",
+    readingMinutes: 8,
+    searchTags: [
+      "iphone duo",
+      "아이폰 듀오",
+      "앱 최적화",
+      "app optimization",
+      "foldable",
+      "itsub",
+      "잇섭",
+      "capcut",
+      "notion",
+      "youtube",
+    ],
+    sources: [
+      {
+        name: "ITSub잇섭",
+        url: "https://www.youtube.com/watch?v=lx8ef0ed690",
+        kind: "youtube",
+        videoTitle:
+          "아이폰 듀오를 지금 꼭 사야만할까? 소프트웨어&앱 최적화가 아쉬운 이유",
+      },
+    ],
+    sections: [
+      {
+        heading: {
+          ko: "편집 요약 (출처 기반)",
+          en: "Editorial summary (sourced)",
+        },
+        body: {
+          ko: "NookVolt는 원본 앱 적합성 랩 테스트가 아닙니다. 아래는 ITSub잇섭 영상 「아이폰 듀오를 지금 꼭 사야만할까? 소프트웨어&앱 최적화가 아쉬운 이유」(https://www.youtube.com/watch?v=lx8ef0ed690)를 시청한 뒤 구매 판단용으로 다시 쓴 요약입니다. 대본을 베끼지 않았습니다. 잇섭은 출시 약 1주일 시점의 UX·스톡 UI 일관성·서드파티 앱·게임·스트리밍 대응을 중심으로 말합니다.",
+          en: "NookVolt is not running original app-compatibility lab tests. This is a buying-focused rewrite after watching ITSub’s “아이폰 듀오를 지금 꼭 사야만할까? 소프트웨어&앱 최적화가 아쉬운 이유” (https://www.youtube.com/watch?v=lx8ef0ed690). We do not copy the transcript. ITSub covers week-one UX, stock UI consistency, third-party apps, games, and streaming readiness.",
+        },
+      },
+      {
+        heading: {
+          ko: "무엇이 어색한가",
+          en: "What feels unfinished",
+        },
+        body: {
+          ko: "커버 디스플레이의 우측 카메라/다이나믹 아일랜드 때문에 시계·요소가 왼쪽으로 밀리고, 잠금 암호 화면은 가운데 — 스톡 UI 안에서도 정렬이 흔들린다고 잇섭은 지적합니다. 플렉스 모드에서는 접는 각도·속도에 따라 커버로 넘어가거나 내부가 유지되는 경계가 애매하고, 화면 회전도 아이패드·일반 아이폰보다 한 박자 느린 체감이 있습니다. 접으면 기본으로 커버에서 앱이 이어져 끄려면 한 번 더 조작이 필요합니다(단축어로 잠금 전환 가능 — 영상 설명란 링크).",
+          en: "ITSub flags stock inconsistency: the cover camera/Dynamic Island pushes the clock left, while the passcode pad stays centered. Flex mode can jump to the cover or stay inside depending on fold angle/speed, and rotation feels a beat slower than iPad or slab iPhones. Folding continues the app on the cover by default — locking on fold needs a Shortcut (linked in the video description).",
+        },
+      },
+      {
+        heading: {
+          ko: "앱·게임: 1주차 현실",
+          en: "Apps and games: week-one reality",
+        },
+        body: {
+          ko: "미최적화 앱은 우측(접힘)~상단(펼침 세로) 여백으로 ‘작은 폰’처럼 느껴질 수 있고, 커버 실사용 영역은 대략 5인치 대각 수준으로 체감된다고 합니다. Notion·YouTube·Netflix·Instagram·ChatGPT 등 대형 앱은 빠르게 맞춰졌지만, CapCut처럼 편집 앱은 아직 빈칸이 남고, 게임은 대부분 미지원에 가깝습니다. 카카오뱅크처럼 하단 독+상단 액션 배치가 가로 공간을 더 넓게 쓰는 사례도 있어, ‘무조건 우측 상태 바’가 유일한 정답은 아니라고 정리합니다.",
+          en: "Unoptimized apps can feel like a tiny phone with empty status-bar margins (~5\" usable cover diagonal in ITSub’s framing). Big apps (Notion, YouTube, Netflix, Instagram, ChatGPT) moved fast; CapCut-style editors and most games still lag. KakaoBank-style top/bottom layouts can feel wider than forced right rails — so the status-bar pattern is not the only good answer.",
+        },
+      },
+      {
+        heading: { ko: "구매 타이밍", en: "Buy timing" },
+        body: {
+          ko: "잇섭 결론에 가깝게: 얼리어답터가 아니면 지금 바로 고가 구매를 강요할 단계는 아닙니다. 호환성 체크(영상에서 안내하는 forduo 류 도구)로 자주 쓰는 앱을 먼저 확인하고, SDK·스토어 제출 기한(영상에 언급된 향후 요건)과 업데이트 속도를 본 뒤 결정하는 편이 안전합니다. NookVolt 자체 앱 감사 결과가 아닙니다.",
+          en: "Aligned with ITSub’s close: unless you are a true early adopter, this is not a must-buy week. Check your daily apps against compatibility tools he links, watch SDK/store timelines and update velocity, then decide. Not a NookVolt app audit.",
+        },
+      },
+    ],
+    verdict: {
+      ko: "앱 대응이 일상에 중요하면 기다리기. 편집·멀티태스킹 실험이면 호환 목록부터.",
+      en: "Wait if app fit matters daily. Experimenting? Audit your app list first.",
+    },
+  },
+  {
+    slug: "best-smartphones-2025-mrwhosetheboss",
+    category: "news",
+    title: {
+      ko: "2025 스마트폰 어워드 브리핑: Mrwhosetheboss가 고른 것들",
+      en: "2025 smartphone awards briefing: what Mrwhosetheboss crowned",
+    },
+    excerpt: {
+      ko: "아이폰 17 ‘글로우업’, Z 트라이폴드, Find X9 프로 배터리 등 — 연말 영상 요약으로 구매 힌트만 뽑았습니다.",
+      en: "iPhone 17 glow-up, Z Trifold, Find X9 Pro battery endurance, and more — buying hints from the year-end awards video.",
+    },
+    publishedAt: "2026-11-05",
+    readingMinutes: 7,
+    searchTags: [
+      "mrwhosetheboss",
+      "best smartphones 2025",
+      "iphone 17",
+      "아이폰 17",
+      "galaxy z trifold",
+      "vivo x300",
+      "oppo find x9",
+      "pixel 9a",
+    ],
+    sources: [
+      {
+        name: "Mrwhosetheboss",
+        url: "https://www.youtube.com/watch?v=Y9JF_yYTNlw",
+        kind: "youtube",
+        videoTitle: "The BEST Smartphones of 2025!",
+      },
+    ],
+    sections: [
+      {
+        heading: {
+          ko: "편집 요약 (출처 기반)",
+          en: "Editorial summary (sourced)",
+        },
+        body: {
+          ko: "NookVolt 자체 연말 랭킹이 아닙니다. Mrwhosetheboss 영상 「The BEST Smartphones of 2025!」(https://www.youtube.com/watch?v=Y9JF_yYTNlw, 2025년 12월경)의 카테고리 수상을 구매자 관점으로 다시 정리한 브리핑입니다. 대본을 베끼지 않았고, 수상 이유의 원 영상에서 확인하세요.",
+          en: "Not a NookVolt year-end ranking. This briefing rewrites category awards from Mrwhosetheboss’s “The BEST Smartphones of 2025!” (https://www.youtube.com/watch?v=Y9JF_yYTNlw, ~Dec 2025) for buyers. We do not copy the script — verify award rationale in the source.",
+        },
+      },
+      {
+        heading: {
+          ko: "눈에 띄는 수상",
+          en: "Standout awards",
+        },
+        body: {
+          ko: "글로우업(가장 뚜렷한 개선)은 기본형 아이폰 17 — 프로모션·저장 용량 등 ‘사도 되는 타이밍’이 뚜렷해졌다는 취지입니다(폴드7도 후보로 언급). 아웃사이드 더 박스에는 갤럭시 Z 트라이폴드 — 10인치급 와이드 내부 화면이 폴더블 대가를 비로소 정당화한다는 논지. 배터리 챔피언 쪽은 듀얼셀·대용량 진영 중 Oppo Find X9 프로를 높이 사고, 영상·사진 특화는 Vivo X300 프로, 간편함은 Pixel 9a, 게이밍은 Red Magic 11 프로 계열이 호명됩니다.",
+          en: "Glow-up goes to base iPhone 17 — ProMotion and storage make it an obvious upgrade window (Fold 7 also mentioned). Outside-the-box: Galaxy Z Trifold, whose ~10\" wide inner panel finally justifies foldable trade-offs. Battery champ lean is Oppo Find X9 Pro among dual-cell endurance phones; filmmaker nod to Vivo X300 Pro; simple pick Pixel 9a; gaming Red Magic 11 Pro-class.",
+        },
+      },
+      {
+        heading: {
+          ko: "피해야 할 함정",
+          en: "Traps to avoid",
+        },
+        body: {
+          ko: "영상은 초박형 계열(예: 갤럭시 S25 엣지·아이폰 에어류)을 ‘예쁜 함정’으로 묶어, 배터리·내구성에서 오래 쓰기 어렵다고 봅니다. ‘숫자만 큰 배터리’보다 최적화·충전·일상 추천 가능성까지 본다는 점도 브리핑 포인트입니다. EU 등 지역별 배터리 용량 차이가 있을 수 있으니 구매 전 현지 스펙을 확인하세요.",
+          en: "Ultra-thins (e.g. Galaxy S25 Edge / iPhone Air-class) are framed as pretty traps on battery and durability. Capacity alone loses to optimization, charging, and whether he would still recommend the phone. Confirm regional battery SKUs before you buy.",
+        },
+      },
+      {
+        heading: { ko: "NookVolt 시각", en: "NookVolt take" },
+        body: {
+          ko: "연말 어워드는 ‘만능 1등’이 아니라 용도별 힌트입니다. 업그레이드 타이밍·폴더블 실험·배터리·촬영·쉬운 UX 중 본인 우선순위를 고른 뒤, 해당 수상작과 현지 가격·AS를 대조하세요. 상세 카메라는 원 영상과 개별 리뷰를 함께 보세요.",
+          en: "Awards are job hints, not one universal winner. Pick your priority — upgrade timing, foldable experiment, endurance, filming, or simplicity — then match local price and support. Dig cameras in the source video and dedicated reviews.",
+        },
+      },
+    ],
+    verdict: {
+      ko: "용도별 숏리스트용 브리핑. 초박형만 보고 사지 마세요.",
+      en: "Use it as a shortlist by job — do not buy ultra-thin on looks alone.",
+    },
+  },
 ];
 
 export function getAllArticles(): Article[] {
@@ -369,4 +368,27 @@ export function getArticle(slug: string): Article | undefined {
 
 export function getArticlesByCategory(category: CategorySlug): Article[] {
   return getAllArticles().filter((a) => a.category === category);
+}
+
+export function searchArticles(query: string): Article[] {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+
+  const tokens = q.split(/\s+/).filter(Boolean);
+
+  return getAllArticles().filter((article) => {
+    const haystack = [
+      article.slug,
+      article.category,
+      article.title.ko,
+      article.title.en,
+      article.excerpt.ko,
+      article.excerpt.en,
+      ...(article.searchTags ?? []),
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return tokens.every((token) => haystack.includes(token));
+  });
 }

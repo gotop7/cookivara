@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ReviewCategory } from "@/data/review-categories";
 import { getProductReviewsByCategory } from "@/data/product-reviews";
 import { ProductReviewCard } from "@/components/ProductReviewCard";
-import { ReviewSearch } from "@/components/ReviewSearch";
+import { SiteSearch } from "@/components/SiteSearch";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { pick } from "@/i18n/types";
 
@@ -33,7 +33,7 @@ export function ReviewCategoryClient({
       </p>
 
       <div className="mt-8 max-w-xl">
-        <ReviewSearch />
+        <SiteSearch />
       </div>
 
       {reviews.length === 0 ? (

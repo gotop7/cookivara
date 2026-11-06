@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { CategoryPage } from "@/components/CategoryPage";
-import { getCategory } from "@/data/categories";
+import { ComparisonsIndexClient } from "@/components/ComparisonsIndexClient";
 
 export const metadata: Metadata = {
   title: "Comparisons",
   description:
-    "NookVolt side-by-side product and app comparisons with clear who-it-fits guidance.",
+    "NookVolt side-by-side comparisons — phones, laptops, and audio with sourced editorial summaries.",
 };
 
 export default function ComparisonsPage() {
-  const category = getCategory("comparisons")!;
-  return <CategoryPage category={category} />;
+  return <ComparisonsIndexClient />;
 }

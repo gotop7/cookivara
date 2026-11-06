@@ -13,13 +13,18 @@ export type Messages = {
   navAbout: string;
   navContact: string;
   allReviews: string;
+  allComparisons: string;
   readMore: string;
   readReview: string;
+  readComparison: string;
   latest: string;
   latestReviews: string;
+  latestComparisons: string;
   categories: string;
   reviewCategoriesHeading: string;
+  comparisonCategoriesHeading: string;
   productsCount: string;
+  comparisonsCount: string;
   minutes: string;
   published: string;
   verdict: string;
@@ -42,8 +47,11 @@ export type Messages = {
   searchResults: string;
   searchEmpty: string;
   searchBrowseAll: string;
+  searchBrowseComparisons: string;
   reviewsIndexTitle: string;
   reviewsIndexLead: string;
+  comparisonsIndexTitle: string;
+  comparisonsIndexLead: string;
   sourcesHeading: string;
   sourcesLead: string;
   sourceArticle: string;
@@ -64,18 +72,23 @@ export const messages: Record<Locale, Messages> = {
     navAbout: "소개",
     navContact: "문의",
     allReviews: "전체 리뷰",
+    allComparisons: "전체 비교",
     readMore: "읽기",
     readReview: "상세 리뷰",
+    readComparison: "상세 비교",
     latest: "최신 글",
     latestReviews: "최근 제품 리뷰",
+    latestComparisons: "최근 비교",
     categories: "카테고리",
     reviewCategoriesHeading: "리뷰 카테고리",
+    comparisonCategoriesHeading: "비교 카테고리",
     productsCount: "제품",
+    comparisonsCount: "비교",
     minutes: "분 읽기",
     published: "게시",
     verdict: "한줄 평가",
     related: "같은 카테고리",
-    moreInCategory: "같은 카테고리 제품",
+    moreInCategory: "같은 카테고리",
     allInCategory: "이 카테고리 글",
     footerTagline: "기술·가젯 리뷰와 실전 가이드",
     footerTrust: "신뢰·정책",
@@ -90,13 +103,17 @@ export const messages: Record<Locale, Messages> = {
     homeCtaSecondary: "NookVolt 소개",
     emptyCategory: "아직 이 카테고리 글이 없습니다.",
     backHome: "홈으로",
-    searchPlaceholder: "제품·제목·카테고리 검색 (한/영)",
+    searchPlaceholder: "제품·비교·제목 검색 (한/영)",
     searchResults: "검색 결과",
-    searchEmpty: "일치하는 리뷰가 없습니다.",
+    searchEmpty: "일치하는 결과가 없습니다.",
     searchBrowseAll: "전체 리뷰 보기",
+    searchBrowseComparisons: "전체 비교 보기",
     reviewsIndexTitle: "제품 리뷰 카탈로그",
     reviewsIndexLead:
       "카테고리별로 고르거나 검색하세요. 각 리뷰는 평판 있는 리뷰 출처를 인용한 편집 요약입니다 — NookVolt가 실험실에서 직접 측정한 결과가 아닙니다.",
+    comparisonsIndexTitle: "제품 비교 카탈로그",
+    comparisonsIndexLead:
+      "폰·노트북·오디오를 나란히 비교합니다. 각 글은 YouTube 등 공개 리뷰를 인용한 편집 요약이며 NookVolt 자체 실험실 측정이 아닙니다.",
     sourcesHeading: "인용 출처",
     sourcesLead:
       "아래 링크의 리뷰·측정을 참고해 작성한 원문 요약입니다. 본문을 베끼지 않았으며, 원문에서 직접 확인하세요.",
@@ -116,13 +133,18 @@ export const messages: Record<Locale, Messages> = {
     navAbout: "About",
     navContact: "Contact",
     allReviews: "All reviews",
+    allComparisons: "All comparisons",
     readMore: "Read",
     readReview: "Full review",
+    readComparison: "Full comparison",
     latest: "Latest",
     latestReviews: "Latest product reviews",
+    latestComparisons: "Latest comparisons",
     categories: "Categories",
     reviewCategoriesHeading: "Review categories",
+    comparisonCategoriesHeading: "Comparison categories",
     productsCount: "products",
+    comparisonsCount: "comparisons",
     minutes: "min read",
     published: "Published",
     verdict: "Verdict",
@@ -142,13 +164,17 @@ export const messages: Record<Locale, Messages> = {
     homeCtaSecondary: "About NookVolt",
     emptyCategory: "No articles in this category yet.",
     backHome: "Back home",
-    searchPlaceholder: "Search products, titles, categories (KO/EN)",
+    searchPlaceholder: "Search products, comparisons, titles (KO/EN)",
     searchResults: "Search results",
-    searchEmpty: "No matching reviews.",
+    searchEmpty: "No matching results.",
     searchBrowseAll: "Browse all reviews",
+    searchBrowseComparisons: "Browse all comparisons",
     reviewsIndexTitle: "Product review catalog",
     reviewsIndexLead:
       "Browse by category or search. Each review is an editorial summary citing reputable sources — not lab measurements by NookVolt.",
+    comparisonsIndexTitle: "Product comparison catalog",
+    comparisonsIndexLead:
+      "Phones, laptops, and audio side by side. Each piece is an editorial summary citing public YouTube reviews — not NookVolt lab tests.",
     sourcesHeading: "Sources cited",
     sourcesLead:
       "Original summaries informed by the linked reviews and measurements. We do not copy their prose — verify details at the source.",
