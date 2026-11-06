@@ -32,6 +32,24 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/reviews/phones" className="hover:text-[var(--accent)]">
+                {locale === "ko" ? "스마트폰" : "Phones"}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/reviews/laptops-tablets"
+                className="hover:text-[var(--accent)]"
+              >
+                {locale === "ko" ? "노트북·태블릿" : "Laptops & Tablets"}
+              </Link>
+            </li>
+            <li>
+              <Link href="/reviews/monitors" className="hover:text-[var(--accent)]">
+                {locale === "ko" ? "모니터" : "Monitors"}
+              </Link>
+            </li>
+            <li>
               <Link href="/comparisons" className="hover:text-[var(--accent)]">
                 {t.navComparisons}
               </Link>

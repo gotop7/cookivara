@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { CategoryPage } from "@/components/CategoryPage";
-import { getCategory } from "@/data/categories";
+import { ReviewsIndexClient } from "@/components/ReviewsIndexClient";
 
 export const metadata: Metadata = {
   title: "Reviews",
   description:
-    "NookVolt smartphone, laptop, and gadget reviews with buying-focused trade-offs.",
+    "NookVolt product review catalog — phones, laptops, monitors, audio, watches, and accessories with sourced buying summaries.",
 };
 
 export default function ReviewsPage() {
-  const category = getCategory("reviews")!;
-  return <CategoryPage category={category} />;
+  return <ReviewsIndexClient />;
 }
