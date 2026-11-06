@@ -5,7 +5,7 @@ import { getCategory } from "@/data/categories";
 export const metadata: Metadata = {
   title: "How-To",
   description:
-    "Cordnook practical tech guides — privacy setup, chargers, Wi-Fi upgrades, and more.",
+    "NookVolt practical tech guides — privacy setup, chargers, Wi-Fi upgrades, and more.",
 };
 
 export default function HowToPage() {

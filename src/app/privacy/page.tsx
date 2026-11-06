@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "Cordnook privacy policy — what we collect and why.",
+  description: "NookVolt privacy policy — what we collect and why.",
 };
 
 const L = (ko: string, en: string) => ({ ko, en });
@@ -14,8 +14,8 @@ export default function PrivacyPage() {
     <TrustPage
       title={L("개인정보 처리방침", "Privacy Policy")}
       intro={L(
-        `Cordnook(${siteConfig.displayDomain})는 사이트 운영에 필요한 최소한의 정보만 다룹니다. 문의는 ${siteConfig.contactEmail}로 하세요.`,
-        `Cordnook (${siteConfig.displayDomain}) collects only what is needed to run the site. Contact ${siteConfig.contactEmail} with privacy questions.`,
+        `NookVolt (${siteConfig.displayDomain})는 사이트 운영에 필요한 최소한의 정보만 다룹니다. 문의는 ${siteConfig.contactEmail}로 하세요.`,
+        `NookVolt (${siteConfig.displayDomain}) collects only what is needed to run the site. Contact ${siteConfig.contactEmail} with privacy questions.`,
       )}
       sections={[
         {

@@ -5,7 +5,7 @@ import { getCategory } from "@/data/categories";
 export const metadata: Metadata = {
   title: "Apps",
   description:
-    "Cordnook app tutorials and recommendations for productivity, photos, and utilities.",
+    "NookVolt app tutorials and recommendations for productivity, photos, and utilities.",
 };
 
 export default function AppsPage() {

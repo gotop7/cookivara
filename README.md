@@ -1,8 +1,8 @@
-# Cordnook
+# NookVolt
 
 Technology & gadget reviews site — smartphones, apps, how-tos, comparisons, and tech news.
 
-- **Brand:** Cordnook
+- **Brand:** NookVolt
 - **Live domain:** [news24h7d.com](https://www.news24h7d.com)
 - **Contact:** hello@news24h7d.com
 - **Stack:** Next.js (App Router), TypeScript, Tailwind CSS

@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "Cordnook terms of use.",
+  description: "NookVolt terms of use.",
 };
 
 const L = (ko: string, en: string) => ({ ko, en });
@@ -28,8 +28,8 @@ export default function TermsPage() {
         {
           heading: L("지적재산", "Intellectual property"),
           body: L(
-            "달리 표시되지 않는 한 사이트 텍스트·브랜드·로고는 Cordnook에 귀속됩니다. 개인적 비상업적 인용은 출처와 링크를 밝혀 주세요. 대량 복제·재배포는 사전 서면 동의 없이 할 수 없습니다.",
-            "Unless noted otherwise, site text, brand, and logo belong to Cordnook. Personal non-commercial quotes should credit and link the source. Bulk copying or redistribution requires prior written consent.",
+            "달리 표시되지 않는 한 사이트 텍스트·브랜드·로고는 NookVolt에 귀속됩니다. 개인적 비상업적 인용은 출처와 링크를 밝혀 주세요. 대량 복제·재배포는 사전 서면 동의 없이 할 수 없습니다.",
+            "Unless noted otherwise, site text, brand, and logo belong to NookVolt. Personal non-commercial quotes should credit and link the source. Bulk copying or redistribution requires prior written consent.",
           ),
         },
         {

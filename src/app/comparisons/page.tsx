@@ -5,7 +5,7 @@ import { getCategory } from "@/data/categories";
 export const metadata: Metadata = {
   title: "Comparisons",
   description:
-    "Cordnook side-by-side product and app comparisons with clear who-it-fits guidance.",
+    "NookVolt side-by-side product and app comparisons with clear who-it-fits guidance.",
 };
 
 export default function ComparisonsPage() {

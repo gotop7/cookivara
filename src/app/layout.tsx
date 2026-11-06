@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: `%s · ${siteConfig.name}`,
   },
   description:
-    "Cordnook — smartphone reviews, app tutorials, tech news, software guides, and product comparisons in Korean and English. Live at news24h7d.com.",
+    "NookVolt — smartphone reviews, app tutorials, tech news, software guides, and product comparisons in Korean and English. Live at news24h7d.com.",
   robots: {
     index: true,
     follow: true,
@@ -29,8 +29,24 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: siteConfig.logoPath,
+    icon: [{ url: "/brand/nookvolt-favicon.png", type: "image/png" }, { url: siteConfig.logoPath }],
     apple: siteConfig.logoPath,
+  },
+  openGraph: {
+    title: `${siteConfig.name} — Technology & Gadget Reviews`,
+    description:
+      "Smartphone reviews, app tutorials, tech news, software guides, and product comparisons in Korean and English.",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [{ url: siteConfig.ogImagePath, width: 1200, height: 630, alt: siteConfig.name }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — Technology & Gadget Reviews`,
+    description:
+      "Smartphone reviews, app tutorials, tech news, software guides, and product comparisons in Korean and English.",
+    images: [siteConfig.ogImagePath],
   },
 };
 

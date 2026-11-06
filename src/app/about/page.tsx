@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About Cordnook — technology & gadget reviews edited by Ryan Kim.",
+  description: "About NookVolt — technology & gadget reviews edited by Ryan Kim.",
 };
 
 const L = (ko: string, en: string) => ({ ko, en });
@@ -12,10 +12,10 @@ const L = (ko: string, en: string) => ({ ko, en });
 export default function AboutPage() {
   return (
     <TrustPage
-      title={L("Cordnook 소개", "About Cordnook")}
+      title={L("NookVolt 소개", "About NookVolt")}
       intro={L(
-        `Cordnook는 스마트폰 리뷰, 제품 비교, 앱 튜토리얼, 소프트웨어 가이드, 기술 뉴스를 다루는 기술·가젯 미디어 브랜드입니다. 사이트는 ${siteConfig.displayDomain}에서 운영합니다.`,
-        `Cordnook is a technology and gadget media brand covering smartphone reviews, product comparisons, app tutorials, software guides, and tech news. The site is operated at ${siteConfig.displayDomain}.`,
+        `NookVolt는 스마트폰 리뷰, 제품 비교, 앱 튜토리얼, 소프트웨어 가이드, 기술 뉴스를 다루는 기술·가젯 미디어 브랜드입니다. 사이트는 ${siteConfig.displayDomain}에서 운영합니다.`,
+        `NookVolt is a technology and gadget media brand covering smartphone reviews, product comparisons, app tutorials, software guides, and tech news. The site is operated at ${siteConfig.displayDomain}.`,
       )}
       sections={[
         {
@@ -35,8 +35,8 @@ export default function AboutPage() {
         {
           heading: L("브랜드와 도메인", "Brand and domain"),
           body: L(
-            `브랜드 이름은 Cordnook입니다. 라이브 도메인은 ${siteConfig.displayDomain}입니다. 문의는 ${siteConfig.contactEmail}로 보내 주세요.`,
-            `The brand name is Cordnook. The live domain is ${siteConfig.displayDomain}. Reach us at ${siteConfig.contactEmail}.`,
+            `브랜드 이름은 NookVolt입니다. 라이브 도메인은 ${siteConfig.displayDomain}입니다. 문의는 ${siteConfig.contactEmail}로 보내 주세요.`,
+            `The brand name is NookVolt. The live domain is ${siteConfig.displayDomain}. Reach us at ${siteConfig.contactEmail}.`,
           ),
         },
         {

@@ -5,7 +5,7 @@ import { getCategory } from "@/data/categories";
 export const metadata: Metadata = {
   title: "Reviews",
   description:
-    "Cordnook smartphone, laptop, and gadget reviews with buying-focused trade-offs.",
+    "NookVolt smartphone, laptop, and gadget reviews with buying-focused trade-offs.",
 };
 
 export default function ReviewsPage() {

@@ -65,7 +65,7 @@ export const messages: Record<Locale, Messages> = {
     homeLead:
       "스마트폰 리뷰, 제품 비교, 앱 튜토리얼, 설정 가이드를 한국어와 영어로 함께 제공합니다.",
     homeCtaPrimary: "최신 리뷰 보기",
-    homeCtaSecondary: "Cordnook 소개",
+    homeCtaSecondary: "NookVolt 소개",
     emptyCategory: "아직 이 카테고리 글이 없습니다.",
     backHome: "홈으로",
   },
@@ -99,7 +99,7 @@ export const messages: Record<Locale, Messages> = {
     homeLead:
       "Smartphone reviews, product comparisons, app tutorials, and setup guides in Korean and English.",
     homeCtaPrimary: "Browse latest reviews",
-    homeCtaSecondary: "About Cordnook",
+    homeCtaSecondary: "About NookVolt",
     emptyCategory: "No articles in this category yet.",
     backHome: "Back home",
   },

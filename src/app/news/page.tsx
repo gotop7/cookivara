@@ -5,7 +5,7 @@ import { getCategory } from "@/data/categories";
 export const metadata: Metadata = {
   title: "News",
   description:
-    "Cordnook tech news briefings on platforms, standards, and buying-relevant shifts.",
+    "NookVolt tech news briefings on platforms, standards, and buying-relevant shifts.",
 };
 
 export default function NewsPage() {

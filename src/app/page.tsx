@@ -21,7 +21,7 @@ export default function HomePage() {
           aria-hidden
           style={{
             backgroundImage:
-              "linear-gradient(115deg, rgba(15,20,25,0.92) 0%, rgba(15,20,25,0.72) 45%, rgba(15,20,25,0.35) 100%), url(/brand/cordnook-logo.png)",
+              "linear-gradient(115deg, rgba(15,20,25,0.92) 0%, rgba(15,20,25,0.72) 45%, rgba(15,20,25,0.35) 100%), url(/brand/nookvolt-logo.png)",
             backgroundSize: "cover, 55% auto",
             backgroundPosition: "center, 110% 40%",
             backgroundRepeat: "no-repeat, no-repeat",

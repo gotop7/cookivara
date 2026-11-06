@@ -273,7 +273,7 @@ const articles: Article[] = [
         },
       },
       {
-        heading: { ko: "Cordnook 시각", en: "Cordnook take" },
+        heading: { ko: "NookVolt 시각", en: "NookVolt take" },
         body: {
           ko: "얼리어답터·디지털 노트 헤비유저에게는 주력 후보가 됐고, 일반 사용자에게는 여전히 선택적 업그레이드입니다. 구매 전 매장에서 한 손으로 펼치기·가방 수납·자주 쓰는 앱 분할 화면을 직접 시험하세요.",
           en: "Viable as a daily driver for early adopters and heavy digital note-takers; still optional for everyone else. Before buying, try one-hand open, bag fit, and split-screen with your real apps in a store.",

@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact Cordnook at ${siteConfig.contactEmail}.`,
+  description: `Contact NookVolt at ${siteConfig.contactEmail}.`,
 };
 
 const L = (ko: string, en: string) => ({ ko, en });
@@ -14,8 +14,8 @@ export default function ContactPage() {
     <TrustPage
       title={L("문의", "Contact")}
       intro={L(
-        `Cordnook (${siteConfig.displayDomain})에 연락하려면 ${siteConfig.contactEmail}로 메일을 보내 주세요. 정정 요청, 제품 대여·리뷰 제안, 일반 문의에 사용합니다.`,
-        `To reach Cordnook at ${siteConfig.displayDomain}, email ${siteConfig.contactEmail}. Use that address for corrections, review loan offers, and general questions.`,
+        `NookVolt (${siteConfig.displayDomain})에 연락하려면 ${siteConfig.contactEmail}로 메일을 보내 주세요. 정정 요청, 제품 대여·리뷰 제안, 일반 문의에 사용합니다.`,
+        `To reach NookVolt at ${siteConfig.displayDomain}, email ${siteConfig.contactEmail}. Use that address for corrections, review loan offers, and general questions.`,
       )}
       sections={[
         {
