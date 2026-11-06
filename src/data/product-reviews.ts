@@ -33,31 +33,36 @@ export type ProductReview = {
  * not lab tests by NookVolt unless stated otherwise.
  */
 const productReviews: ProductReview[] = [
-  // ── Phones ──────────────────────────────────────────────
+  // ── Phones (2025–2026 flagships) ───────────────────────
   {
-    slug: "galaxy-s25-ultra",
+    slug: "galaxy-s26-ultra",
     category: "phones",
-    productName: { ko: "갤럭시 S25 울트라", en: "Galaxy S25 Ultra" },
+    productName: { ko: "갤럭시 S26 울트라", en: "Galaxy S26 Ultra" },
     title: {
-      ko: "갤럭시 S25 울트라: ‘울트라’의 기준이 흔들릴 때",
-      en: "Galaxy S25 Ultra: when “Ultra” stops meaning maxed-out",
+      ko: "갤럭시 S26 울트라: 프라이버시 디스플레이라는 ‘한 방’",
+      en: "Galaxy S26 Ultra: Privacy Display as the headline catch",
     },
     summary: {
-      ko: "펜·줌·배터리는 여전히 강하지만, 올해는 경쟁 대비 ‘올인’ 느낌이 약해졌다는 평가가 많습니다.",
-      en: "Pen, zoom, and battery still deliver — but many reviewers say this Ultra left headroom on the table.",
+      ko: "MKBHD·ITSub·GSMArena 모두 Privacy Display·60W 충전·S Pen을 핵심으로 꼽습니다. 카메라·배터리 용량은 경쟁 대비 ‘올인’이 아니라는 평가도 반복됩니다.",
+      en: "MKBHD, ITSub, and GSMArena all spotlight Privacy Display, 60W charging, and the S Pen — while noting cameras and cell capacity still trail the ultra-competitive pack.",
     },
-    publishedAt: "2026-10-12",
+    publishedAt: "2026-11-06",
     readingMinutes: 8,
-    searchTags: ["samsung", "s25", "삼성", "울트라", "s pen"],
+    searchTags: ["samsung", "s26", "삼성", "울트라", "s pen", "privacy display"],
     sources: [
       {
         name: "Marques Brownlee (MKBHD)",
-        url: "https://www.youtube.com/watch?v=a4NJNdHqs_I",
+        url: "https://www.youtube.com/watch?v=nfHRMqqO578",
+        kind: "youtube",
+      },
+      {
+        name: "ITSub잇섭",
+        url: "https://www.youtube.com/watch?v=NRGuwOiixY4",
         kind: "youtube",
       },
       {
         name: "GSMArena",
-        url: "https://www.gsmarena.com/samsung_galaxy_s25_ultra-review-2793.php",
+        url: "https://www.gsmarena.com/samsung_galaxy_s26_ultra-review-2939p6.php",
         kind: "article",
       },
     ],
@@ -65,54 +70,119 @@ const productReviews: ProductReview[] = [
       {
         heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
         body: {
-          ko: "NookVolt는 전문 하드웨어 랩을 운영하지 않습니다. 아래는 Marques Brownlee(MKBHD) 영상 리뷰와 GSMArena 벤치/실측 글을 바탕으로 한 구매용 요약입니다. MKBHD는 S25 울트라가 여전히 좋은 폰이지만 실리콘 카바이드 배터리·IP69·Qi2 자석 등 ‘울트라답게’ 기대되던 업그레이드를 건너뛰었다고 지적합니다. GSMArena 역시 디자인·배터리 효율·카메라 전반은 칭찬하면서도 S Pen 블루투스 기능 축소와 IP68 수준 방수를 단점으로 적습니다.",
-          en: "NookVolt does not run a hardware lab. This is a buying-focused synthesis of Marques Brownlee’s (MKBHD) video review and GSMArena’s measured write-up. MKBHD calls the phone still excellent but notes skipped “Ultra” upgrades (silicon-carbide battery, IP69, Qi2 magnets). GSMArena praises design, endurance, and cameras while flagging the S Pen’s lost Bluetooth features and “basic” IP68 sealing.",
+          ko: "NookVolt는 하드웨어 랩을 운영하지 않습니다. MKBHD의 S26 Ultra 리뷰(“There’s a Catch”)는 Snapdragon 8 Elite Gen 5 for Galaxy, 얇아진 알루미늄 프레임, 60W 충전, 그리고 정면에선 정상이지만 옆에서는 거의 검게 보이는 Privacy Display를 중심에 둡니다. ITSub잇섭은 울트라에 신기능이 몰리고 기본형은 설득력이 약하다는 현장 톤을 전합니다. GSMArena는 Privacy Display·빠른 충전·배터리 효율·S Pen을 장점으로, IP68·배터리 용량·카메라 하드·장기 부하 스로틀을 단점으로 정리합니다.",
+          en: "NookVolt does not run a hardware lab. MKBHD’s S26 Ultra review (“There’s a Catch”) centers the Snapdragon 8 Elite Gen 5 for Galaxy, a thinner aluminum frame, 60W charging, and Privacy Display that looks normal head-on but blacks out off-axis. ITSub’s first look stresses that Ultra got the interesting upgrades while the base S26 feels thin on change. GSMArena praises Privacy Display, faster charging, endurance efficiency, and the S Pen — and flags basic IP68, cell capacity, camera hardware lag, and heavy sustained CPU throttling.",
         },
       },
       {
         heading: { ko: "누구에게 맞나", en: "Who it fits" },
         body: {
-          ko: "필기·캡처·줌 촬영을 실제로 쓰는 사람, 삼성/안드로이드 생태계에 이미 있는 사람에게는 여전히 설득력 있습니다. ‘가장 완성도 높은 플래그십’만 원하거나 가벼운 폰을 원하면 경쟁기·플러스 모델을 함께 보세요. MKBHD의 표현대로, 올해는 ‘다른 폰을 골라도 된다’는 문이 열려 있습니다.",
-          en: "Still persuasive if you use stylus work, capture markup, and real zoom. If you only want the most complete flagship—or a light phone—compare rivals and smaller Galaxies. As MKBHD puts it, the door is open to buy something else this year.",
+          ko: "S Pen·줌·안드로이드 파워유저, 카페·출장에서 화면 엿보기를 막고 싶은 사람. ‘올해 최고 카메라폰’만 찾거나 가벼운 콤팩트를 원하면 Pixel 10 Pro·iPhone 17 계열을 나란히 보세요.",
+          en: "S Pen, zoom, and Android power users — plus anyone who wants shoulder-surfing protection on trains and flights. Hunting only for the year’s best camera phone or a light compact? Keep Pixel 10 Pro and iPhone 17-class beside it.",
         },
       },
       {
         heading: { ko: "구매 전 체크", en: "Before you buy" },
         body: {
-          ko: "S Pen 원격 셔터/제스처가 필요하면 전작(S24 울트라) 할인도 현실적인 대안입니다(GSMArena 비교 논지와 맞습니다). AI 기능 유료화 시점·가격은 제조사 공지를 확인하세요. 무게와 한손 사용은 매장에서 직접 시험하는 편이 안전합니다.",
-          en: "If Bluetooth S Pen shutter/gestures matter, a discounted S24 Ultra remains a serious option (aligned with GSMArena’s comparison). Confirm AI feature pricing timelines from Samsung. Try weight and one-hand reach in a store.",
+          ko: "Privacy Display가 본인 시야에서도 뿌옇게 느껴지는지 매장에서 켜 보세요(ITSub·사용자 피드백과 맞물리는 포인트). 하드웨어 변화가 작다면 S25 Ultra 할인 재고도 GSMArena가 언급한 현실적 대안입니다. Galaxy AI 언어·유료화 일정을 확인하세요.",
+          en: "Try Privacy Display in-store — some users report haze even for the owner. If the hardware delta feels small, a discounted S25 Ultra remains a GSMArena-noted option. Confirm Galaxy AI language and pricing timelines for your market.",
         },
       },
     ],
     verdict: {
-      ko: "펜·줌 실사용자에게 추천. ‘올해 최고’만 찾는다면 비교표를 더 보세요.",
-      en: "Recommended if you’ll use the pen and zoom. Hunting for a clear “best of year”? Keep comparing.",
+      ko: "펜·프라이버시·충전이 필요하면 Ultra. 카메라 최고점만 보면 비교표를.",
+      en: "Ultra if you want the pen, Privacy Display, and faster charge. Camera-first buyers should keep comparing.",
     },
   },
   {
-    slug: "iphone-16-pro",
+    slug: "iphone-17-pro",
     category: "phones",
-    productName: { ko: "아이폰 16 프로", en: "iPhone 16 Pro" },
+    productName: { ko: "아이폰 17 프로", en: "iPhone 17 Pro" },
     title: {
-      ko: "아이폰 16 프로: 카메라 컨트롤과 ‘업그레이드할 이유’",
-      en: "iPhone 16 Pro: Camera Control and when an upgrade is worth it",
+      ko: "아이폰 17 프로: 영상은 최고, 업그레이드 설득은 ‘조건부’",
+      en: "iPhone 17 Pro: class-leading video, conditional upgrade math",
     },
     summary: {
-      ko: "영상·생태계·중고 가치는 강점. MKBHD는 Pro가 빛나는 지점과 매년 교체할 필요는 없다는 점을 함께 짚습니다.",
-      en: "Video, ecosystem, and resale stay strong. MKBHD highlights where Pro wins — and when yearly upgrades are optional.",
+      ko: "GSMArena는 영상·배터리·충전을 강하게 평가. MKBHD·Mrwhosetheboss는 Pro의 카메라/디자인을 칭찬하면서도 기본 17과의 가격 간극을 함께 논합니다.",
+      en: "GSMArena leans hard into video, battery, and charging. MKBHD and Mrwhosetheboss praise Pro cameras/design — and still debate the gap vs the strong base iPhone 17.",
     },
-    publishedAt: "2026-09-24",
+    publishedAt: "2026-11-05",
+    readingMinutes: 8,
+    searchTags: ["apple", "아이폰", "17 pro", "애플", "a19"],
+    sources: [
+      {
+        name: "Marques Brownlee (MKBHD) — iPhone 17 Pro",
+        url: "https://www.youtube.com/watch?v=q0aFOxT6TNw",
+        kind: "youtube",
+      },
+      {
+        name: "Mrwhosetheboss — iPhone 17 Pro",
+        url: "https://www.youtube.com/watch?v=xRla0izRxqU",
+        kind: "youtube",
+      },
+      {
+        name: "GSMArena",
+        url: "https://www.gsmarena.com/apple_iphone_17_pro-review-2887p6.php",
+        kind: "article",
+      },
+      {
+        name: "Marques Brownlee (MKBHD) — iPhone 17 (base)",
+        url: "https://www.youtube.com/watch?v=rng_yUSwrgU",
+        kind: "youtube",
+      },
+    ],
+    sections: [
+      {
+        heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
+        body: {
+          ko: "GSMArena의 iPhone 17 Pro 리뷰는 새 망원·셀피, 클래스 최상위 영상, 긴 배터리와 빨라진 충전을 장점으로, 무게·장기 GPU 스로틀·망원 ‘기대만큼의 점프’ 부족을 단점으로 적습니다. MKBHD의 Pro 리뷰(“Paradox in a Box”)와 Mrwhosetheboss의 Pro 리뷰는 디자인·카메라 하드웨어를 파고들면서, 같은 시즌 기본 iPhone 17이 120Hz·256GB 등으로 ‘별표 없는’ 선택이 되었다는 MKBHD 논지(별도 기본 17 리뷰)와 함께 읽어야 합니다. NookVolt: 영상·망원·프로 워크플로면 Pro, 대부분의 아이폰 업그레이더는 기본 17을 먼저 보세요.",
+          en: "GSMArena’s iPhone 17 Pro review credits the new tele/selfie cameras, class-leading video, strong battery, and faster charging — while calling out weight, sustained GPU throttling, and a telephoto that isn’t the leap many hoped for. MKBHD’s Pro review (“Paradox in a Box”) and Mrwhosetheboss’s Pro take dig into design and camera hardware; pair them with MKBHD’s base iPhone 17 review (“No Asterisks”), which argues the non-Pro finally feels like a clean buy with 120Hz and 256GB. NookVolt: Pro for video/tele/pro workflows; most iPhone upgraders should shortlist the base 17 first.",
+        },
+      },
+      {
+        heading: { ko: "누구에게 맞나", en: "Who it fits" },
+        body: {
+          ko: "4K 영상·망원·MagSafe 액세서리가 일상인 애플 생태계 사용자. ‘아이폰만 있으면 된다’면 Wirecutter·MKBHD가 밀어 주는 기본 17이 가성비 축입니다.",
+          en: "Apple-ecosystem buyers who shoot 4K video, use telephoto, and live on MagSafe. If you just need “an iPhone,” Wirecutter/MKBHD’s push toward the base 17 is the value axis.",
+        },
+      },
+      {
+        heading: { ko: "구매 전 체크", en: "Before you buy" },
+        body: {
+          ko: "Pro vs 기본 17 가격 차이를 카메라/영상 사용 빈도로 나누세요. 무게감은 매장에서 확인. iOS 26·Apple Intelligence 지역 지원을 확인하세요.",
+          en: "Split the Pro vs base 17 premium by how often you use tele/video. Check weight in-store. Confirm iOS 26 / Apple Intelligence language support for your region.",
+        },
+      },
+    ],
+    verdict: {
+      ko: "영상·망원이면 Pro. 그 외에는 기본 17을 먼저.",
+      en: "Pro for video and tele. Otherwise start with the base 17.",
+    },
+  },
+  {
+    slug: "pixel-10-pro",
+    category: "phones",
+    productName: { ko: "픽셀 10 프로", en: "Pixel 10 Pro" },
+    title: {
+      ko: "픽셀 10 프로: Qi2 자석과 구글 AI, 배터리라는 숙제",
+      en: "Pixel 10 Pro: Qi2 magnets and Google AI — battery still the homework",
+    },
+    summary: {
+      ko: "MKBHD·GSMArena는 Pixelsnap(Qi2)·밝은 LTPO·사진 튜닝을 강점으로, 느린 충전·배터리 지구력을 약점으로 봅니다.",
+      en: "MKBHD and GSMArena praise Pixelsnap (Qi2), a bright LTPO panel, and Pixel photo tuning — and ding slow charging plus middling endurance.",
+    },
+    publishedAt: "2026-11-04",
     readingMinutes: 7,
-    searchTags: ["apple", "아이폰", "16 pro", "애플"],
+    searchTags: ["google", "pixel", "구글", "픽셀", "qi2", "tensor"],
     sources: [
       {
         name: "Marques Brownlee (MKBHD)",
-        url: "https://www.youtube.com/watch?v=MRtg6A1f2Ko",
+        url: "https://www.youtube.com/watch?v=i63u-iAnhuk",
         kind: "youtube",
       },
       {
-        name: "GSMArena (Pixel 9 Pro context)",
-        url: "https://www.gsmarena.com/google_pixel_9_pro-review-2745.php",
+        name: "GSMArena",
+        url: "https://www.gsmarena.com/google_pixel_10_pro-review-2877.php",
         kind: "article",
       },
     ],
@@ -120,149 +190,49 @@ const productReviews: ProductReview[] = [
       {
         heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
         body: {
-          ko: "MKBHD의 iPhone 16/16 Pro 리뷰(Times Have Changed)는 카메라·배터리·Camera Control 버튼, 그리고 Apple Intelligence 시점의 완성도를 중심으로 ‘언제 살지’를 이야기합니다. Pro는 영상 안정성·티타늄 빌드·카메라 하드웨어에서 기본 모델과 확실히 갈라지지만, 직전 Pro를 쓰는 사람에게는 연간 교체 설득력이 약해질 수 있다는 톤입니다. NookVolt는 이를 안드로이드 플래그십(예: GSMArena의 Pixel 9 Pro 실측)과 나란히 놓고, 생태계가 이미 애플이면 마찰이 적다는 구매 프레임으로 정리합니다.",
-          en: "MKBHD’s iPhone 16/16 Pro review (“Times Have Changed”) centers camera, battery, the Camera Control button, and how finished Apple Intelligence felt at review time. Pro separates itself on video, titanium build, and camera hardware — but yearly upgrades from a recent Pro may feel optional. NookVolt pairs that with Android flagship context (e.g. GSMArena’s Pixel 9 Pro testing): if you’re already in Apple’s ecosystem, friction stays low.",
+          ko: "MKBHD의 Pixel 10/Pro 리뷰(“Good News and Bad News”)는 Tensor G5·Gemini AI·Pixelsnap 자석 액세서리 생태계를 호재로, 하드웨어 점프가 크지 않은 점과 배터리/충전 아쉬움을 악재로 나눕니다. GSMArena 실측은 6.3\" LTPO의 매우 높은 밝기, 5배 망원 유지, 7년 업데이트, Qi2 15W를 칭찬하고, ~30W급 유선 충전·Active Use 배터리 점수는 플래그십 대비 보수적이라고 적습니다. NookVolt: 구글 서비스·사진 AI·MagSafe급 자석이 필요하면 Pro, 지구력·게임 지속 성능이면 S26 Ultra/iPhone 17 계열을 비교하세요.",
+          en: "MKBHD’s Pixel 10/Pro review (“Good News and Bad News”) splits Tensor G5, Gemini AI, and Pixelsnap magnets as the upside from a modest hardware leap and soft battery/charging as the downside. GSMArena’s lab notes a very bright 6.3\" LTPO, kept 5x tele, seven years of updates, and Qi2 15W — with ~30W-class wired charging and Active Use endurance that trail the toughest rivals. NookVolt: Pro for Google services, photo AI, and MagSafe-like magnets; compare S26 Ultra / iPhone 17-class when endurance or sustained gaming matter more.",
         },
       },
       {
         heading: { ko: "누구에게 맞나", en: "Who it fits" },
         body: {
-          ko: "에어팟·맥·애플워치를 이미 쓰는 사람, 가족 영상·장기 중고 가치를 중시하는 사람에게 유리합니다. 카메라 AI·순정 안드로이드·가격 대비 하드웨어를 우선하면 Pixel 계열을 함께 보세요.",
-          en: "Best when you already live in AirPods, Mac, and Apple Watch — or prioritize family video and resale. Prefer camera AI, near-stock Android, and hardware value? Put Pixel next to it.",
+          ko: "Messages/Photos/Gemini 중심 생활, 콤팩트 플래그십+실줌, 자석 충전기·스탠드를 쓰고 싶은 안드로이드 사용자.",
+          en: "Messages/Photos/Gemini-first life, compact flagship with real zoom, and Android buyers who want magnetic chargers/stands.",
         },
       },
       {
         heading: { ko: "구매 전 체크", en: "Before you buy" },
         body: {
-          ko: "Camera Control은 습관이 되기까지 연습이 필요합니다. Pro Max 크기는 전작보다 더 커졌다는 현장 피드백이 있으니 매장에서 한 손으로 들어 보세요. AI 기능 지원 국가·언어 일정을 확인하세요.",
-          en: "Camera Control takes practice. Pro Max grew again — try one-handed hold in a store. Confirm Apple Intelligence language/region timing for your market.",
+          ko: "128GB(UFS 3.1) 대신 256GB+를 GSMArena도 권합니다. Pro XL은 화면·배터리 용량이 더 큽니다. Tensor 지속 성능 기대치는 낮추세요.",
+          en: "Skip 128GB (UFS 3.1) for 256GB+ as GSMArena advises. Pro XL adds canvas and battery capacity. Temper Tensor sustained-performance hopes.",
         },
       },
     ],
     verdict: {
-      ko: "애플 생태계면 Pro. 매년 교체는 필수가 아닙니다.",
-      en: "Choose Pro if you’re in Apple’s orbit. Annual upgrades are optional.",
+      ko: "구글 AI·Qi2·콤팩트 줌이면 추천. 배터리는 기대치 조절.",
+      en: "Recommended for Google AI + Qi2 + compact zoom. Temper battery expectations.",
     },
   },
   {
-    slug: "pixel-9-pro",
+    slug: "nothing-phone-3a",
     category: "phones",
-    productName: { ko: "픽셀 9 프로", en: "Pixel 9 Pro" },
+    productName: { ko: "낫싱 폰 (3a)", en: "Nothing Phone (3a)" },
     title: {
-      ko: "픽셀 9 프로: 작은 플래그십에 줌까지",
-      en: "Pixel 9 Pro: a compact flagship that kept the zoom",
+      ko: "낫싱 폰 (3a): $400 아래에서 Glyph가 설득될 때",
+      en: "Nothing Phone (3a): when Glyph design wins under $400",
     },
     summary: {
-      ko: "GSMArena 기준으로 콤팩트 바디에 5배 망원·밝은 디스플레이·장기 업데이트가 강점. Tensor 지속 성능은 약점.",
-      en: "GSMArena: compact body with 5x tele, bright display, long updates — Tensor sustained performance is the caveat.",
+      ko: "Notebookcheck는 디자인·Nothing OS·배터리·6년 보안 업데이트를 높이 평가. eSIM·무선충전 부재는 단점입니다.",
+      en: "Notebookcheck rates design, Nothing OS, battery, and six years of security updates highly — no eSIM or wireless charging.",
     },
-    publishedAt: "2026-09-20",
-    readingMinutes: 7,
-    searchTags: ["google", "pixel", "구글", "픽셀"],
-    sources: [
-      {
-        name: "GSMArena",
-        url: "https://www.gsmarena.com/google_pixel_9_pro-review-2745.php",
-        kind: "article",
-      },
-    ],
-    sections: [
-      {
-        heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
-        body: {
-          ko: "GSMArena의 Pixel 9 Pro 리뷰는 이 모델이 ‘작은 플래그십’에 Pro 기능을 거의 다 담았다고 평가합니다. 48MP 5배 망원, 밝은 LTPO OLED, Wi-Fi 7, 7년 업데이트, 인상적인 카메라·셀피가 장점 목록에 올라갑니다. 반대로 미끄러운 뒷면, Tensor G4의 피크/지속 성능 약점은 명확한 단점입니다. NookVolt는 이를 ‘구글 서비스·사진 AI 중심 사용자용 콤팩트 플래그십’으로 요약합니다.",
-          en: "GSMArena’s Pixel 9 Pro review frames it as a compact flagship that still packs Pro hardware: 48MP 5x tele, bright LTPO OLED, Wi-Fi 7, seven years of updates, and strong stills/selfies. Slippery glass and Tensor G4 peak/sustained performance are the clear cons. NookVolt’s takeaway: compact flagship for Google-centric, photo-AI-first buyers.",
-        },
-      },
-      {
-        heading: { ko: "누구에게 맞나", en: "Who it fits" },
-        body: {
-          ko: "한 손에 들어오는 플래그십, 메시지·포토·워크스페이스 중심 생활, ‘큰 줌이 있는 작은 폰’이 필요하면 후보입니다. 게임·지속 고성능이 우선이면 다른 스냅드래곤/애플 칩셋 기기를 보세요.",
-          en: "Fits one-hand flagship needs, Messages/Photos/Workspace life, and “small phone with real zoom.” Gaming or sustained peak CPU/GPU? Look at Snapdragon or Apple silicon rivals.",
-        },
-      },
-      {
-        heading: { ko: "구매 전 체크", en: "Before you buy" },
-        body: {
-          ko: "유선 충전 와트는 보수적입니다(GSMArena 기준 약 27W급). 케이스 착용을 전제로 잡는 편이 좋습니다. Pro XL과의 차이는 크기·스피커 위주이니, 큰 화면이 필요하면 XL을 비교하세요.",
-          en: "Wired charging is modest (~27W class per GSMArena). Plan on a case. Vs Pro XL, size and speakers dominate — pick XL if you want the bigger canvas.",
-        },
-      },
-    ],
-    verdict: {
-      ko: "콤팩트+줌+구글 AI면 추천. 지속 성능은 기대치 조절.",
-      en: "Recommended for compact + zoom + Google AI. Temper sustained-performance expectations.",
-    },
-  },
-  {
-    slug: "nothing-phone-2a",
-    category: "phones",
-    productName: { ko: "낫싱 폰 (2a 세대 기준)", en: "Nothing Phone (2a-class)" },
-    title: {
-      ko: "중급 안드로이드: 디자인과 ‘충분함’의 균형",
-      en: "Midrange Android: design personality vs enough performance",
-    },
-    summary: {
-      ko: "플래그십이 부담일 때, 깔끔한 소프트웨어와 개성 있는 디자인을 고르는 현실적인 축입니다.",
-      en: "When flagships feel overbuilt — clean software and distinctive design as a practical axis.",
-    },
-    publishedAt: "2026-08-15",
-    readingMinutes: 5,
-    searchTags: ["nothing", "중급", "midrange", "glyph"],
-    sources: [
-      {
-        name: "GSMArena",
-        url: "https://www.gsmarena.com/",
-        kind: "article",
-      },
-      {
-        name: "Marques Brownlee (MKBHD) channel",
-        url: "https://www.youtube.com/@mkbhd",
-        kind: "youtube",
-      },
-    ],
-    sections: [
-      {
-        heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
-        body: {
-          ko: "중급 안드로이드는 스펙표보다 ‘소프트웨어가 깨끗한지’, ‘2–3년 뒤에도 쓸 만한지’가 중요합니다. GSMArena류 실측 사이트에서 배터리·충전·카메라 샘플을 확인하고, MKBHD 등 크리에이터 리뷰에서는 UI 완성도와 카메라 튜닝 체감을 참고하세요. NookVolt는 특정 SKU 광고가 아니라, 중급을 고를 때 플래그십과 같은 체크리스트(업데이트 기간, 수리성, 중고 가치)를 적용하라고 권합니다.",
-          en: "Midrange Android is less about peak specs and more about clean software and whether it still feels fine in 2–3 years. Use measured sites like GSMArena for battery/charging/camera samples; use creator reviews (e.g. MKBHD’s channel) for UI polish and camera tuning feel. NookVolt’s guidance: apply flagship-grade checks — update window, repairability, resale — even on midrange picks.",
-        },
-      },
-      {
-        heading: { ko: "누구에게 맞나", en: "Who it fits" },
-        body: {
-          ko: "예산 상한이 명확하고, 개성 있는 디자인·가벼운 커스텀 UI를 원하는 사람. 망원 줌·최고 영상·최장 업데이트가 필수면 플래그십으로 올리세요.",
-          en: "Clear budget caps and a taste for distinctive design / lighter custom UI. Need tele zoom, top video, or longest updates? Step up to a flagship.",
-        },
-      },
-    ],
-    verdict: {
-      ko: "중급은 ‘부족함’보다 ‘충분함’을 고르세요.",
-      en: "Buy midrange for enough — not for almost-flagship FOMO.",
-    },
-  },
-
-  // ── Laptops & Tablets ───────────────────────────────────
-  {
-    slug: "macbook-air-m3",
-    category: "laptops-tablets",
-    productName: { ko: "맥북 에어 13 M3", en: "MacBook Air 13 M3" },
-    title: {
-      ko: "맥북 에어 M3: 일상용 노트북의 기준점",
-      en: "MacBook Air M3: the everyday notebook baseline",
-    },
-    summary: {
-      ko: "Notebookcheck는 성능·배터리·완성도를 높이 평가. 팬리스라 지속 부하와 닫힌 상태 외부 모니터 사용은 한계가 있습니다.",
-      en: "Notebookcheck rates speed, battery, and build highly — fanless design limits sustained load and lid-closed multi-monitor work.",
-    },
-    publishedAt: "2026-09-10",
-    readingMinutes: 7,
-    searchTags: ["apple", "macbook", "맥북", "m3", "에어"],
+    publishedAt: "2026-11-03",
+    readingMinutes: 6,
+    searchTags: ["nothing", "3a", "중급", "midrange", "glyph"],
     sources: [
       {
         name: "Notebookcheck",
-        url: "https://www.notebookcheck.net/Apple-MacBook-Air-13-M3-review-A-lot-faster-and-with-Wi-Fi-6E.811129.0.html",
+        url: "https://www.notebookcheck.net/The-elegant-all-rounder-presses-all-the-right-buttons-Nothing-Phone-3a-review.994680.0.html",
         kind: "article",
       },
     ],
@@ -270,97 +240,147 @@ const productReviews: ProductReview[] = [
       {
         heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
         body: {
-          ko: "Notebookcheck의 MacBook Air 13 M3 리뷰(약 92% ‘very good’)는 M2 대비 체감 성능 향상, Wi-Fi 6E, 긴 배터리(WLAN 테스트에서 15시간대), 선명한 Liquid Retina를 강점으로 적습니다. 동시에 팬리스 설계로 지속 CPU/GPU 부하에서 스로틀링이 나타나며, 포트는 Thunderbolt/USB-C 중심이라 허브가 자주 필요합니다. NookVolt는 ‘문서·브라우저·영상 시청·가벼운 편집’에 최적, ‘장시간 렌더·닫힌 뚜껑+다중 모니터’에는 Pro 계열을 권하는 쪽으로 요약합니다.",
-          en: "Notebookcheck’s MacBook Air 13 M3 review (~92% “very good”) highlights faster everyday performance vs M2, Wi-Fi 6E, excellent battery (15+ hours in their WLAN test), and a sharp Liquid Retina panel. Fanless cooling means throttling under sustained CPU/GPU load; ports stay Thunderbolt/USB-C-centric, so hubs are common. NookVolt summary: excellent for docs/browsing/video/light edit — step to Pro for long renders or lid-closed multi-monitor desks.",
+          ko: "Notebookcheck의 Nothing Phone (3a) 리뷰(~79%)는 Snapdragon 7s Gen 3로 일상·가벼운 게임에 충분하고, Glyph·글래스 백·밝은 120Hz AMOLED·메인 카메라·긴 배터리·50W급 충전·6년 보안 업데이트가 강점이라고 적습니다. AI 기능은 출시 시점 미완, IP64·eSIM 없음·무선충전 없음이 명확한 한계입니다. 망원이 필요하면 3a Pro를 보라고 안내합니다. NookVolt: 플래그십 FOMO 대신 ‘개성 있는 중급’을 고를 때의 2025–26 기본값입니다.",
+          en: "Notebookcheck’s Nothing Phone (3a) review (~79%) finds Snapdragon 7s Gen 3 enough for daily use and light gaming, with Glyph, a glass back, bright 120Hz AMOLED, a solid main camera, long battery, ~50W charging, and six years of security updates as the pitch. AI features were unfinished at launch; IP64, no eSIM, and no wireless charging are hard limits. Want optical tele? Look at 3a Pro. NookVolt: the 2025–26 default midrange pick when you want personality instead of flagship FOMO.",
         },
       },
       {
         heading: { ko: "누구에게 맞나", en: "Who it fits" },
         body: {
-          ko: "학생·지식근로자·여행 가방에 넣는 주력 노트북. 영상 내보내기·3D·로컬 LLM을 오래 돌리면 냉각이 있는 MacBook Pro를 보세요.",
-          en: "Students, knowledge work, and a one-bag primary laptop. Long exports, 3D, or local LLM sessions point to a cooled MacBook Pro.",
-        },
-      },
-      {
-        heading: { ko: "구매 전 체크", en: "Before you buy" },
-        body: {
-          ko: "기본 저장·메모리는 업그레이드가 비싸니 처음부터 여유 있게. 60Hz 디스플레이가 거슬리면 Pro의 ProMotion을 비교하세요. Windows 전용 소프트웨어가 있으면 호환부터 확인합니다.",
-          en: "RAM/SSD upgrades are pricey — buy headroom day one. If 60Hz bothers you, compare ProMotion on Pro. Confirm Windows-only software needs first.",
+          ko: "예산 상한이 명확하고 Glyph UI·깔끔한 소프트웨어를 원하는 사람. 망원·최장 OS 업데이트·무선충전이 필수면 플래그십으로.",
+          en: "Clear budget caps and a taste for Glyph UI / clean software. Need tele, longest OS updates, or wireless charging? Step to a flagship.",
         },
       },
     ],
     verdict: {
-      ko: "일상·휴대 주력이면 Air. 지속 부하면 Pro.",
-      en: "Air for daily carry. Pro for sustained load.",
+      ko: "중급 ‘충분함+디자인’이면 3a.",
+      en: "3a when midrange enough + design is the brief.",
     },
   },
+
+  // ── Laptops & Tablets (2025–2026) ───────────────────────
   {
-    slug: "ipad-pro-m4",
+    slug: "macbook-air-m4",
     category: "laptops-tablets",
-    productName: { ko: "아이패드 프로 M4", en: "iPad Pro M4" },
+    productName: { ko: "맥북 에어 M4", en: "MacBook Air M4" },
     title: {
-      ko: "아이패드 프로 M4: 디스플레이는 마법, OS 한계는 현실",
-      en: "iPad Pro M4: magical display, familiar OS limits",
+      ko: "맥북 에어 M4: 다시 $999로 돌아온 ‘쉬운 추천’",
+      en: "MacBook Air M4: the easy recommend is $999 again",
     },
     summary: {
-      ko: "Linus Tech Tips는 탠덤 OLED·얇기에 감탄하면서도 iPadOS 생산성 경계를 함께 이야기합니다.",
-      en: "Linus Tech Tips marvels at tandem OLED thinness — and still talks about iPadOS productivity boundaries.",
+      ko: "Mrwhosetheboss·Notebookcheck 모두 M4·기본 16GB·가격 인하를 강조. 팬리스·60Hz·Wi-Fi 6E 한계는 여전합니다.",
+      en: "Mrwhosetheboss and Notebookcheck both highlight M4, 16GB base RAM, and the price cut — fanless, 60Hz, and no Wi-Fi 7 limits remain.",
     },
-    publishedAt: "2026-08-20",
-    readingMinutes: 6,
-    searchTags: ["ipad", "아이패드", "m4", "apple", "tablet"],
+    publishedAt: "2026-11-06",
+    readingMinutes: 7,
+    searchTags: ["apple", "macbook", "맥북", "m4", "에어"],
     sources: [
       {
-        name: "Linus Tech Tips",
-        url: "https://www.youtube.com/watch?v=-T0MGehwWvE",
+        name: "Mrwhosetheboss",
+        url: "https://www.youtube.com/watch?v=Uwmp16aSgdk",
         kind: "youtube",
+      },
+      {
+        name: "Notebookcheck — MacBook Air 15 M4",
+        url: "https://www.notebookcheck.net/Apple-MacBook-Air-15-M4-review-The-fanless-M4-SoC-is-years-ahead-of-the-competition.976933.0.html",
+        kind: "article",
       },
     ],
     sections: [
       {
         heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
         body: {
-          ko: "Linus Tech Tips의 M4 iPad Pro 인상 영상은 탠덤 OLED의 밝기·블랙, 극단적으로 얇은 본체, M4 성능을 강조합니다. 동시에 Apple Pencil Pro 호환 범위, 액세서리 비용, iPadOS가 여전히 ‘노트북 대체’를 완전 대체하지는 않는다는 현실적인 톤을 유지합니다. NookVolt는 ‘드로잉·읽기·미디어·가벼운 제작’에는 최상위, ‘파일·창·전문 데스크톱 앱 워크플로’에는 맥/윈도우 노트북을 남기라고 정리합니다.",
-          en: "Linus Tech Tips’ M4 iPad Pro impressions highlight tandem OLED brightness/blacks, extreme thinness, and M4 performance — while staying honest about Pencil Pro compatibility scope, accessory cost, and iPadOS still not fully replacing a laptop. NookVolt: top-tier for draw/read/media/light create; keep a Mac/Windows laptop for file-heavy, multi-window desktop apps.",
+          ko: "Mrwhosetheboss의 M4 MacBook Air 리뷰(“Too Easy!”)는 기본 메모리 16GB, Thunderbolt 개선, 12MP Center Stage 웹캠, Sky Blue 색상, 그리고 $999로 내려온 시작가를 ‘너무 쉬운 추천’으로 묶습니다. Notebookcheck의 Air 15 M4 리뷰(~91%)는 팬리스인데도 경쟁 울트라북을 앞서는 CPU, 긴 배터리, 무음 동작을 칭찬하고 Wi-Fi 7·120Hz·약한 35W 어댑터·업그레이드 불가를 단점으로 적습니다. NookVolt: 문서·브라우저·영상·가벼운 편집의 주력이면 Air M4, 장시간 렌더·닫힌 뚜껑 다중 모니터면 Pro.",
+          en: "Mrwhosetheboss’s M4 MacBook Air review (“Too Easy!”) bundles 16GB base RAM, Thunderbolt improvements, a 12MP Center Stage webcam, Sky Blue, and the return to a $999 start as an almost unfair recommend. Notebookcheck’s Air 15 M4 review (~91%) praises fanless CPU leadership, long battery, and silence — and lists no Wi-Fi 7, no 120Hz, a weak 35W brick, and sealed upgrades as cons. NookVolt: Air M4 for docs/browsing/video/light edit; Pro for long renders or lid-closed multi-monitor desks.",
         },
       },
       {
         heading: { ko: "누구에게 맞나", en: "Who it fits" },
         body: {
-          ko: "디지털 아트·노트·PDF·영상 시청이 주력이고, 이미 애플 펜슬 워크플로가 있는 사람. 코딩 IDE·복잡한 스프레드시트·다중 창이 하루의 중심이면 노트북이 먼저입니다.",
-          en: "Digital art, notes, PDFs, and video — especially if you already have an Apple Pencil workflow. If IDEs, heavy spreadsheets, and multi-window days dominate, buy a laptop first.",
+          ko: "학생·지식근로자·여행 가방 주력 노트북. 로컬 LLM·3D·장시간 내보내기는 냉각 있는 MacBook Pro.",
+          en: "Students, knowledge work, one-bag primary laptop. Local LLMs, 3D, or long exports → cooled MacBook Pro.",
+        },
+      },
+      {
+        heading: { ko: "구매 전 체크", en: "Before you buy" },
+        body: {
+          ko: "RAM/SSD는 출고 시 여유 있게. 13 vs 15는 화면·무게. 60Hz가 거슬리면 ProMotion Pro를 비교하세요.",
+          en: "Buy RAM/SSD headroom at checkout. 13 vs 15 is screen vs weight. If 60Hz bothers you, compare ProMotion Pro.",
         },
       },
     ],
     verdict: {
-      ko: "최고의 태블릿. 최고의 노트북은 아닙니다.",
+      ko: "일상·휴대 주력이면 Air M4. 지속 부하면 Pro.",
+      en: "Air M4 for daily carry. Pro for sustained load.",
+    },
+  },
+  {
+    slug: "ipad-pro-m5",
+    category: "laptops-tablets",
+    productName: { ko: "아이패드 프로 M5", en: "iPad Pro M5" },
+    title: {
+      ko: "아이패드 프로 M5: 랩톱급 SoC, 여전히 태블릿 OS",
+      en: "iPad Pro M5: laptop-class SoC, still a tablet OS",
+    },
+    summary: {
+      ko: "Notebookcheck는 M5·Wi-Fi 7·탠덤 OLED로 많은 소형 노트북보다 빠르다고 평가. iPadOS 생산성 한계는 남아 있습니다.",
+      en: "Notebookcheck says M5 + Wi-Fi 7 + tandem OLED outruns many compact laptops — iPadOS productivity limits remain.",
+    },
+    publishedAt: "2026-11-05",
+    readingMinutes: 7,
+    searchTags: ["ipad", "아이패드", "m5", "apple", "tablet"],
+    sources: [
+      {
+        name: "Notebookcheck — iPad Pro M5 (2025)",
+        url: "https://www.notebookcheck.net/Apple-iPad-Pro-M5-2025-tablet-review-An-extremely-fast-M5-SoC-and-Wi-Fi-7.1143628.0.html",
+        kind: "article",
+      },
+    ],
+    sections: [
+      {
+        heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
+        body: {
+          ko: "Notebookcheck의 iPad Pro 11 (2025, M5) 리뷰는 M4 대비 CPU 약 10–15%·GPU 약 10–30% 향상, Wi-Fi 7, iPadOS 26+Magic Keyboard 조합으로 ‘작은 맥북에 가까운’ 체감을 전합니다. 동시에 가격·액세서리 비용, 그리고 태블릿 OS가 전문 데스크톱 워크플로를 완전히 대체하지 않는다는 현실도 유지됩니다. NookVolt: 드로잉·읽기·미디어·가벼운 제작의 최상위, 파일·다중 창·데스크톱 앱이 하루의 중심이면 맥/윈도우 노트북을 남기세요.",
+          en: "Notebookcheck’s iPad Pro 11 (2025, M5) review cites roughly 10–15% CPU and 10–30% GPU gains over M4, Wi-Fi 7, and an iPadOS 26 + Magic Keyboard combo that can feel almost MacBook-like. Accessory cost and the reality that a tablet OS still isn’t a full desktop remain. NookVolt: top-tier for draw/read/media/light create; keep a Mac/Windows laptop when files, multi-window, and desktop apps dominate the day.",
+        },
+      },
+      {
+        heading: { ko: "누구에게 맞나", en: "Who it fits" },
+        body: {
+          ko: "디지털 아트·노트·PDF·영상 시청, 이미 Pencil 워크플로가 있는 사람. IDE·무거운 시트·창 관리는 노트북이 먼저입니다.",
+          en: "Digital art, notes, PDFs, video — especially with an existing Pencil workflow. IDEs, heavy sheets, and window management → laptop first.",
+        },
+      },
+    ],
+    verdict: {
+      ko: "최고의 태블릿. 유일한 컴퓨터는 아닐 수 있습니다.",
       en: "Best-in-class tablet. Not automatically your only computer.",
     },
   },
   {
-    slug: "framework-laptop-13",
+    slug: "framework-laptop-13-ryzen-ai",
     category: "laptops-tablets",
-    productName: { ko: "프레임워크 랩톱 13", en: "Framework Laptop 13" },
+    productName: { ko: "프레임워크 랩톱 13 (Ryzen AI 2025)", en: "Framework Laptop 13 (Ryzen AI 2025)" },
     title: {
-      ko: "프레임워크 13: 수리·업그레이드가 구매 이유일 때",
-      en: "Framework 13: when repairability is the feature",
+      ko: "프레임워크 13 Ryzen AI: 수리 철학 + 사상 최고 성능",
+      en: "Framework 13 Ryzen AI: repairability plus its fastest board yet",
     },
     summary: {
-      ko: "모듈형 포트·자가 수리·업그레이드 경로를 사는 제품. 완성된 ‘닫힌’ 프리미엄 울트라북과는 다른 축입니다.",
-      en: "You buy modular ports, self-repair, and upgrade paths — a different axis than sealed premium ultrabooks.",
+      ko: "Notebookcheck·The Verge는 Ryzen AI 300 보드로 역대 최고 성능을 확인. 배터리·웹캠·스피커는 여전히 타협입니다.",
+      en: "Notebookcheck and The Verge confirm Ryzen AI 300 as Framework’s fastest board yet — battery, webcam, and speakers remain trade-offs.",
     },
-    publishedAt: "2026-07-28",
-    readingMinutes: 6,
-    searchTags: ["framework", "repair", "모듈", "수리"],
+    publishedAt: "2026-11-04",
+    readingMinutes: 7,
+    searchTags: ["framework", "ryzen ai", "repair", "모듈", "수리"],
     sources: [
       {
-        name: "Linus Tech Tips",
-        url: "https://www.youtube.com/@LinusTechTips",
-        kind: "youtube",
+        name: "Notebookcheck — Framework 13.5 Ryzen AI 9",
+        url: "https://www.notebookcheck.net/Framework-Laptop-13-5-Ryzen-AI-9-review-Skip-the-Intel-version-for-better-performance.997363.0.html",
+        kind: "article",
       },
       {
-        name: "Notebookcheck",
-        url: "https://www.notebookcheck.net/",
+        name: "The Verge — Framework Laptop 13 (2025)",
+        url: "https://www.theverge.com/reviews/650608/framework-laptop-13-review-2025-amd-ryzen-ai-300",
         kind: "article",
       },
     ],
@@ -368,47 +388,42 @@ const productReviews: ProductReview[] = [
       {
         heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
         body: {
-          ko: "Framework는 Linus Tech Tips 등 하드웨어 채널에서 ‘열어보고 고치고 바꿀 수 있는 노트북’으로 자주 다뤄집니다. Notebookcheck류 벤치 사이트에서는 세대별 CPU·디스플레이 옵션의 실측을 확인하세요. NookVolt 요약: 스펙 최고점보다 소유 기간·부품 교체·포트 구성을 스스로 정하고 싶은 사람에게 맞습니다. 출고 완성도와 얇기만 보면 Air/XPS 쪽이 유리한 경우가 많습니다.",
-          en: "Framework shows up often on Linus Tech Tips and similar channels as the laptop you can open, fix, and reconfigure. Check generation-specific CPU/display measurements on sites like Notebookcheck. NookVolt: buy it for ownership length, part swaps, and DIY port layouts — not peak thinness. Sealed Air/XPS-class machines still win on out-of-box polish.",
+          ko: "Notebookcheck의 Framework Laptop 13.5 Ryzen AI 9 HX 370 리뷰(~84%)는 Zen 5로 성능이 크게 오르면서도 냉각/섀시 호환을 유지한다고 평가합니다. 고가 구성·배터리·구형 웹캠·스피커·P3/OLED 옵션 부재는 단점입니다. The Verge 2025 리뷰도 모듈 포트·부품 교체 철학은 그대로이고 Ryzen AI로 체감이 빨라졌다고 적습니다. NookVolt: 소유 기간·메인보드 업그레이드·포트 DIY가 목표면 Framework, 출고 완성도·얇기만 보면 Air/X1을 보세요.",
+          en: "Notebookcheck’s Framework Laptop 13.5 Ryzen AI 9 HX 370 review (~84%) finds a large Zen 5 performance jump without breaking cooling/chassis compatibility. Pricey top configs, battery, aging webcam/speakers, and no P3/OLED options are the cons. The Verge’s 2025 review keeps the modular-port / upgrade story and notes the snappier Ryzen AI feel. NookVolt: Framework when ownership length, mainboard swaps, and DIY ports are the point — sealed Air/X1 still win on polish and thinness.",
         },
       },
       {
         heading: { ko: "누구에게 맞나", en: "Who it fits" },
         body: {
-          ko: "RAM/SSD/포트를 직접 관리하고, 전자폐기물을 줄이고 싶은 DIY 성향 사용자. ‘그냥 켜서 쓰기만’ 원하면 완제품 울트라북이 덜 피곤합니다.",
-          en: "DIY users who want to manage RAM/SSD/ports and keep machines longer. If you only want power-on-and-work, a finished ultrabook is less friction.",
+          ko: "RAM/SSD/포트를 직접 관리하고 전자폐기물을 줄이고 싶은 DIY 사용자. ‘켜서 쓰기만’ 원하면 완제품 울트라북이 덜 피곤합니다.",
+          en: "DIY users who manage RAM/SSD/ports and want longer ownership. Power-on-and-work buyers → finished ultrabooks.",
         },
       },
     ],
     verdict: {
-      ko: "수리·업그레이드가 목적이면 Framework.",
-      en: "Choose Framework when repair/upgrade is the point.",
+      ko: "수리·업그레이드가 목적이면 2025 Ryzen AI Framework.",
+      en: "2025 Ryzen AI Framework when repair/upgrade is the brief.",
     },
   },
   {
-    slug: "lenovo-thinkpad-x1-carbon",
+    slug: "thinkpad-x1-carbon-gen-13",
     category: "laptops-tablets",
-    productName: { ko: "씽크패드 X1 카본", en: "ThinkPad X1 Carbon" },
+    productName: { ko: "씽크패드 X1 카본 Gen 13", en: "ThinkPad X1 Carbon Gen 13" },
     title: {
-      ko: "X1 카본: 비즈니스 울트라북의 손맛",
-      en: "X1 Carbon: the business ultrabook muscle memory",
+      ko: "X1 카본 Gen 13: Lunar Lake로 다시 살아난 비즈니스 울트라북",
+      en: "X1 Carbon Gen 13: Lunar Lake brings the business ultrathin back",
     },
     summary: {
-      ko: "키보드·트랙포인트·내구성 이미지가 강한 업무용 축. 세대별 디스플레이·배터리 실측은 Notebookcheck를 확인하세요.",
-      en: "Keyboard, TrackPoint, and durability-first workhorse. Verify each generation’s display/battery on Notebookcheck.",
+      ko: "Notebookcheck는 Gen 13 Aura(Lunar Lake)를 시리즈 최고로 평가 — 더 가벼워지고 배터리가 크게 개선. Arrow Lake 변형은 효율이 떨어집니다.",
+      en: "Notebookcheck calls Gen 13 Aura (Lunar Lake) the best X1 yet — lighter, much better battery. Arrow Lake variants give back that efficiency.",
     },
-    publishedAt: "2026-07-12",
-    readingMinutes: 5,
-    searchTags: ["lenovo", "thinkpad", "씽크패드", "x1"],
+    publishedAt: "2026-11-03",
+    readingMinutes: 6,
+    searchTags: ["lenovo", "thinkpad", "씽크패드", "x1", "gen 13", "lunar lake"],
     sources: [
       {
-        name: "Notebookcheck",
-        url: "https://www.notebookcheck.net/",
-        kind: "article",
-      },
-      {
-        name: "Wirecutter (laptops hub)",
-        url: "https://www.nytimes.com/wirecutter/electronics/computers/",
+        name: "Notebookcheck — X1 Carbon Gen 13 Aura",
+        url: "https://www.notebookcheck.net/Lenovo-ThinkPad-X1-Carbon-Gen-13-Aura-Edition-laptop-review-The-X1-Carbon-is-finally-back.924998.0.html",
         kind: "article",
       },
     ],
@@ -416,21 +431,21 @@ const productReviews: ProductReview[] = [
       {
         heading: { ko: "편집 요약 (출처 기반)", en: "Editorial summary (sourced)" },
         body: {
-          ko: "ThinkPad X1 Carbon은 Notebookcheck 등에서 세대마다 키보드 품질·무게·포트 구성으로 평가되는 비즈니스 라인입니다. Wirecutter의 노트북/주변기기 가이드도 ‘업무용 선택’을 예산·용도별로 나눕니다. NookVolt는 macOS가 필요 없고, 긴 문서 타자와 도킹 환경이 중요한 사람에게 X1을 후보로 올립니다. OLED/고해상도 옵션과 배터리 트레이드오프는 해당 세대 리뷰 숫자를 직접 보세요.",
-          en: "ThinkPad X1 Carbon is judged generation-by-generation on Notebookcheck for keyboard, weight, and ports. Wirecutter’s computer guides also split work laptops by budget and job. NookVolt shortlists X1 when you don’t need macOS and you live in long documents plus docks. Check that generation’s OLED/high-res vs battery numbers before buying.",
+          ko: "Notebookcheck의 ThinkPad X1 Carbon Gen 13 Aura Edition 리뷰(~90%)는 Lunar Lake가 슬림 비즈니스 섀시에 다시 맞아떨어지며 쿨링·배터리(동일 57Wh인데도 Wi-Fi 테스트 약 30%↑)가 살아났다고 봅니다. 가벼운 케이스, OLED 옵션, 키보드/트랙포인트, 포트 구성이 강점이고 웹캠·SSD 스로틀·고가는 단점입니다. Arrow Lake U 변형은 효율·소음에서 Lunar Lake보다 못하다는 후속 테스트도 있습니다. NookVolt: Windows 타자·도킹 주력이면 Gen 13 Lunar Lake를 고르세요.",
+          en: "Notebookcheck’s ThinkPad X1 Carbon Gen 13 Aura Edition review (~90%) says Lunar Lake finally fits the slim business chassis again — cooler running and ~30% better Wi-Fi battery life on the same 57Wh cell. Light chassis, OLED option, keyboard/TrackPoint, and ports are the wins; webcam, SSD throttling, and price are the misses. Later Arrow Lake U coverage is less efficient/louder. NookVolt: pick Gen 13 Lunar Lake for Windows typing-and-dock life.",
         },
       },
       {
         heading: { ko: "누구에게 맞나", en: "Who it fits" },
         body: {
-          ko: "Windows 업무, VPN·도킹, 키보드 타자량이 많은 직장인. 창작·영상 색역이 최우선이면 크리에이터용 라인(또는 맥)을 비교하세요.",
-          en: "Windows work, VPN/dock life, and heavy typing. Color-critical creative work may fit creator lines (or Mac) better.",
+          ko: "Windows 업무, VPN·도킹, 하루 종일 타자. 색보정 창작이 최우선이면 크리에이터 라인/맥을 비교하세요.",
+          en: "Windows work, VPN/dock life, all-day typing. Color-critical creative → creator lines or Mac.",
         },
       },
     ],
     verdict: {
-      ko: "타자·도킹 중심 Windows면 X1 계열을 검토.",
-      en: "Typing-and-dock Windows life → shortlist X1-class.",
+      ko: "타자·도킹 Windows면 Gen 13 Lunar Lake.",
+      en: "Typing-and-dock Windows → Gen 13 Lunar Lake.",
     },
   },
 
